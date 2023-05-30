@@ -1,0 +1,41 @@
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    max-width: 1120px;
+    margin-inline: auto;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding-block: 5rem 2rem;
+    padding: 6.5rem 0 1rem;
+}
+
+.section__title,
+.section__subtitle {
+    text-align: center;
+    color: colors.$black;
+    font-weight: fonts.$font-semi-bold;
+}
+
+.section__title {
+    font-size: fonts.$h1-font-size;
+    margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+    font-size: fonts.$h2-font-size;
+    margin-bottom: 0.25rem;
+}
+
+.section__subtitle span,
+.section__title span {
+  color: colors.$green-dark;
+}
+
+.main {
+    overflow: hidden; /* For animation ScrollReveal */
+}

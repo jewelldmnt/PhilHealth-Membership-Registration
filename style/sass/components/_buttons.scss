@@ -1,0 +1,26 @@
+/*=============== BUTTONS ===============*/
+button {
+    outline: none;
+    border: none;
+}
+
+.button {
+    display: inline-block;
+    background-color: colors.$yellow;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: colors.$black;
+    font-weight: fonts.$font-medium;
+    transition: box-shadow 0.4s;
+    font-weight: fonts.$font-semi-bold;
+}
+
+.button:hover {
+    background-color: colors.$green-light;
+    border: none;
+    transform: scale(1.05);
+}
+
+#register__now {
+    margin-top: 4rem;
+}

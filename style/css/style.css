@@ -1,0 +1,303 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+/*========== Colors ==========*/
+/*Color mode HSL(hue, saturation, lightness)*/
+/*========== Font and typography ==========*/
+/*.5rem = 8px | 1rem = 16px ...*/
+/*========== Font weight ==========*/
+/*=============== VARIABLES ===============*/
+/*========== z index ==========*/
+/*=============== BASE ===============*/
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: hsl(0, 100%, 99%);
+  color: hsl(189, 28%, 5%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Roboto", sans-serif;
+  color: hsl(189, 28%, 5%);
+}
+
+p {
+  font-size: 0.938rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== SETUP ===============*/
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 2rem;
+  padding: 6.5rem 0 1rem;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
+  color: hsl(189, 28%, 5%);
+  font-weight: 600;
+}
+
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.section__subtitle span,
+.section__title span {
+  color: hsl(113, 48%, 34%);
+}
+
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
+
+/*=============== HEADER AND NAV ===============*/
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: hsl(113, 40%, 46%);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.header .nav {
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .nav .nav__logo {
+  width: 3rem;
+  transform: translateX(-0.75rem);
+  display: flex;
+  align-items: center;
+  color: hsl(189, 28%, 5%);
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+.header .nav .nav__list {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3rem;
+  /*=============== ACTIVE NAV ===============*/
+}
+.header .nav .nav__list .nav__link {
+  color: hsl(0, 100%, 99%);
+  font-weight: 600;
+  transition: color, 0.4s;
+}
+.header .nav .nav__list .nav__link:hover {
+  color: hsl(52, 100%, 61%);
+}
+.header .nav .nav__list .active-link {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: hsl(52, 100%, 61%);
+  border-radius: 0.5rem;
+  color: hsl(113, 48%, 34%);
+  font-weight: bold;
+}
+
+/*=============== BUTTON ===============*/
+/*=============== BUTTONS ===============*/
+button {
+  outline: none;
+  border: none;
+}
+
+.button {
+  display: inline-block;
+  background-color: hsl(52, 100%, 61%);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  color: hsl(189, 28%, 5%);
+  font-weight: 500;
+  transition: box-shadow 0.4s;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: hsl(113, 40%, 46%);
+  border: none;
+  transform: scale(1.05);
+}
+
+#register__now {
+  margin-top: 4rem;
+}
+
+/*=============== HOME-ABOUT-BENEFITS ===============*/
+/*=============== HOME ===============*/
+.home {
+  background-color: hsl(0, 100%, 99%);
+}
+.home .home__container {
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3rem;
+  padding-block: 2rem 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.home .home__container .home__content {
+  text-align: initial;
+}
+.home .home__container .home__content .home__subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.home .home__container .home__content .home__title {
+  color: hsl(189, 28%, 5%);
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.home .home__container .home__content .home__emphasis {
+  color: hsl(113, 48%, 34%);
+}
+.home .home__container .home__blob {
+  position: relative;
+}
+.home .home__container .home__blob .home__blob-blob1,
+.home .home__container .home__blob .home__blob-blob2,
+.home .home__container .home__blob .home__blob-blob3 {
+  position: absolute;
+  opacity: 0.6;
+}
+.home .home__container .home__blob .home__blob-blob1 {
+  transform: translate(-5rem, -8rem);
+}
+.home .home__container .home__blob .home__blob-blob2 {
+  transform: translate(5rem, 1rem);
+}
+.home .home__container .home__blob .home__blob-blob3 {
+  opacity: 0.8;
+  transform: translate(-6rem, 1rem);
+}
+.home .home__container .home__blob .home__image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home .home__container .home__blob .home__image .home__image-doctors {
+  border-radius: 50%;
+  box-shadow: 9px 10px 21px -3px rgba(0, 0, 0, 0.46);
+  -webkit-box-shadow: 9px 10px 21px -3px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 9px 10px 21px -3px rgba(0, 0, 0, 0.46);
+  z-index: 1;
+}
+
+.about__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+}
+.about__container .about__profile {
+  display: grid;
+  row-gap: 2rem;
+}
+.about__container .about__profile .section__title {
+  text-align: left;
+  margin-bottom: 0;
+}
+.about__container .about__profile .history__label {
+  font-weight: 500;
+  color: hsl(189, 28%, 5%);
+}
+.about__container .about__profile div, .about__container .about__profile .references {
+  display: grid;
+  row-gap: 0.5rem;
+}
+.about__container .about__content .section__title {
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+}
+.about__container .about__content .about__description {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.about__container .about__content .about__description span {
+  font-weight: 600;
+  color: hsl(113, 40%, 46%);
+}
+.about__container .about__content .about__banner-border {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border: 2px solid hsl(113, 40%, 46%);
+  padding: 0.25rem;
+}
+.about__container .about__content .about__banner-border .about__banner {
+  width: 780px;
+  height: 215px;
+  float: left;
+  background-image: url("../../../assets/home/abt_bnnr.jpg");
+  background-repeat: no-repeat;
+  padding: 1rem 1rem 1rem 20rem;
+  text-align: center;
+  font-size: 0.938rem;
+  box-sizing: border-box;
+}
+
+/*=============== REGISTRATION ===============*/
+/*=============== REGISTRAION ===============*/
+/*=============== LOG IN/SIGN UP ===============*/
+/*=============== FOOTER ===============*/
+/*=============== FOOTER ===============*/
+.footer {
+  background-color: hsl(113, 40%, 46%);
+}
+
+.footer__container {
+  padding: 1rem 0 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,51 @@
+/*=============== HEADER & NAV ===============*/
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: colors.$green-light;
+    top: 0;
+    left: 0;
+    z-index: $--z-fixed;
+
+    .nav {
+        height: $--header-height;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .nav__logo {
+            width: 3rem;
+            transform: translateX(-0.75rem);
+            display: flex;
+            align-items: center;
+            color: colors.$black;
+            font-weight: fonts.$font-semi-bold;
+            font-size: fonts.$h2-font-size;
+        }
+
+        .nav__list {
+            display: flex;
+            flex-direction: row;
+            column-gap: 3rem;
+
+            .nav__link {
+                color: colors.$white;
+                font-weight: fonts.$font-semi-bold;
+                transition: color, 0.4s;
+            }
+
+            .nav__link:hover {
+                color: colors.$yellow;
+            }
+
+            /*=============== ACTIVE NAV ===============*/
+            .active-link{
+                padding: .5rem 1rem .5rem 1rem;
+                background-color: colors.$yellow;
+                border-radius: .5rem;
+                color: colors.$green-dark;
+                font-weight: bold;
+            }
+        }
+    }
+}

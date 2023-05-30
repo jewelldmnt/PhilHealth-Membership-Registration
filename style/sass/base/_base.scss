@@ -1,0 +1,45 @@
+
+
+
+/*=============== BASE ===============*/ 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: fonts.$body-font;
+    background-color: colors.$white;
+    color: colors.$black;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: fonts.$body-font;
+    color: colors.$black;
+}
+
+p {
+    font-size: fonts.$normal-font-size;
+}
+
+ul {
+    list-style: none;
+}
+  
+a {
+    text-decoration: none;
+}
+  
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+}

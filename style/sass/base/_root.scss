@@ -1,0 +1,46 @@
+@use "/style/sass/abstracts/colors";
+@use "/style/sass/abstracts/fonts";
+
+:root {
+    --header-height: #{fonts.$header-height};
+  
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+  
+    --green-hue: ;
+    --yellow-hue: 52;
+    --green-light: hsl(113, 40%, 46%);
+    --green-dark: hsl(113, 48%, 34%);
+    --green-darker: hsl(113, 47%, 20%);
+    --green-darkest: hsl(169, 25%, 13%);
+    --yellow: hsl(52, 100%, 61%);
+    --yellow-light: 	hsl(60, 100%, 72%);
+    --white: hsl(0, 100%, 99%);
+    --blue: hsl(201, 43%, 44%);
+    --black: hsl(189, 28%, 5%);
+  
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: #{fonts.$header-height};
+    --biggest-font-size: #{fonts.$header-height};
+    --bigger-font-size: #{fonts.$header-height};
+    --h1-font-size: #{fonts.$header-height};
+    --h2-font-size: #{fonts.$header-height};
+    --h3-font-size: #{fonts.$header-height};
+    --normal-font-size: #{fonts.$header-height};
+    --small-font-size: #{fonts.$header-height};
+    --smaller-font-size: #{fonts.$header-height};
+    --tiny-font-size: #{fonts.$header-height};
+  
+    /*========== Font weight ==========*/
+    --font-regular: #{fonts.$header-height};
+    --font-medium: #{fonts.$header-height};
+    --font-semi-bold: #{fonts.$header-height};
+    --font-bold: #{fonts.$header-height};
+    --font-bolder: #{fonts.$header-height};
+  
+    /*========== z index ==========*/
+    --z-tooltip: #{fonts.$header-height};
+    --z-fixed: #{fonts.$header-height};;
+    --z-modal: #{fonts.$header-height};;
+  }

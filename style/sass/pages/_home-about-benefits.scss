@@ -1,0 +1,140 @@
+/*=============== HOME ===============*/
+.home {
+    background-color: colors.$white;
+
+    .home__container {
+        padding-top: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+        padding-block: 2rem 3rem;
+        justify-content: center;
+        align-items: center;
+
+        .home__content {
+            text-align: initial;
+
+            .home__subtitle {
+                font-size: fonts.$h3-font-size;
+                font-weight: fonts.$font-semi-bold;
+            }
+
+            .home__title {
+                color: colors.$black;
+                font-weight: bold;
+                font-size: fonts.$biggest-font-size;
+                margin-bottom: 1rem;
+            }
+                
+            .home__emphasis {
+                color: colors.$green-dark;
+            }
+        }
+
+        .home__blob{
+            position: relative;
+
+            .home__blob-blob1,
+            .home__blob-blob2,
+            .home__blob-blob3 {
+                position: absolute;
+                opacity: 0.6;
+            }
+
+            .home__blob-blob1 {
+                transform: translate(-5rem, -8rem);
+            }
+            
+            .home__blob-blob2 {
+                transform: translate(5rem, 1rem);
+              }
+
+            .home__blob-blob3 {
+                opacity: 0.8;
+                transform: translate(-6rem, 1rem);
+            }
+
+            .home__image {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .home__image-doctors {
+                    border-radius: 50%;
+                    box-shadow: 9px 10px 21px -3px rgba(0, 0, 0, 0.46);
+                    -webkit-box-shadow: 9px 10px 21px -3px rgba(0, 0, 0, 0.46);
+                    -moz-box-shadow: 9px 10px 21px -3px rgba(0, 0, 0, 0.46);
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
+
+.about__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+
+    .about__profile{
+        display:grid;
+        row-gap: 2rem;
+
+        .section__title{
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .history__label{
+            font-weight: fonts.$font-medium;
+            color: colors.$black;
+        }
+
+        div, .references{
+            display: grid;
+            row-gap: .5rem;
+        }
+    }
+
+    .about__content{
+        .section__title{
+            margin-bottom: 0;
+            padding-bottom: 2rem;
+        }
+
+        .about__description{
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        .about__description span{
+            font-weight: fonts.$font-semi-bold;
+            color: colors.$green-light;
+        }
+
+        .about__banner-border{
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            border: 2px solid colors.$green-light;
+            padding: .25rem;
+    
+            .about__banner{
+                width: 780px;
+                height: 215px;
+                float: left;
+                background-image: url("../../../assets/home/abt_bnnr.jpg");
+                background-repeat: no-repeat;
+                padding: 1rem 1rem 1rem 20rem;
+                text-align: center;
+                font-size: fonts.$normal-font-size;
+                box-sizing: border-box;
+    
+            }
+        }
+    }
+
+}
+
