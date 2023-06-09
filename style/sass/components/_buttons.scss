@@ -6,17 +6,18 @@ button {
 
 .button {
     display: inline-block;
-    background-color: colors.$yellow;
+    background-color: colors.$green-light;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    color: colors.$black;
+    color: colors.$white;
     font-weight: fonts.$font-medium;
     transition: box-shadow 0.4s;
     font-weight: fonts.$font-semi-bold;
 }
 
 .button:hover {
-    background-color: colors.$green-light;
+    background-color: colors.$yellow;
+    color: colors.$green-darker;
     border: none;
     transform: scale(1.05);
 }
