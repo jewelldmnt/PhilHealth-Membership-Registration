@@ -115,7 +115,7 @@ svg {
   transform: translateX(-0.75rem);
   display: flex;
   align-items: center;
-  color: hsl(189, 28%, 5%);
+  color: hsl(0, 100%, 99%);
   font-weight: 600;
   font-size: 1.75rem;
 }
@@ -150,26 +150,25 @@ button {
 
 .button {
   display: inline-block;
-  background-color: hsl(52, 100%, 61%);
+  background-color: hsl(113, 40%, 46%);
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  color: hsl(189, 28%, 5%);
+  color: hsl(0, 100%, 99%);
   font-weight: 500;
   transition: box-shadow 0.4s;
   font-weight: 600;
 }
 
 .button:hover {
-  background-color: hsl(113, 40%, 46%);
+  background-color: hsl(52, 100%, 61%);
+  color: hsl(113, 47%, 20%);
   border: none;
   transform: scale(1.05);
 }
 
 #register__now {
   margin-top: 4rem;
-}
-
-/*=============== HOME-ABOUT-BENEFITS ===============*/
+} /*=============== HOME-ABOUT-BENEFITS ===============*/
 /*=============== HOME ===============*/
 .home {
   background-color: hsl(0, 100%, 99%);
@@ -246,13 +245,28 @@ button {
   text-align: left;
   margin-bottom: 0;
 }
-.about__container .about__profile .history__label {
-  font-weight: 500;
+.about__container .about__profile .history__label,
+.about__container .about__profile .external__links__label {
+  padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: hsl(113, 48%, 34%);
+}
+.about__container .about__profile .external__links__label {
+  text-align: left;
+}
+.about__container .about__profile .history__description {
+  font-size: 0.938rem;
+  font-weight: 400;
   color: hsl(189, 28%, 5%);
 }
 .about__container .about__profile div, .about__container .about__profile .references {
   display: grid;
   row-gap: 0.5rem;
+}
+.about__container .about__profile .references {
+  list-style-type: disc;
+  padding-left: 3rem;
 }
 .about__container .about__content .section__title {
   margin-bottom: 0;
@@ -285,9 +299,59 @@ button {
   box-sizing: border-box;
 }
 
+.benefits__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10rem;
+}
+.benefits__container .section__title {
+  text-align: initial;
+}
+.benefits__container .benefits__contents .section__title {
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+}
+.benefits__container .benefits__contents .benefits__list {
+  display: grid;
+  row-gap: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: hsl(113, 48%, 34%);
+}
+.benefits__container .benefits__contents .benefits__list .benefits__description {
+  font-size: 0.938rem;
+  font-weight: 400;
+  color: hsl(189, 28%, 5%);
+}
+.benefits__container .qualification__contents {
+  display: grid;
+  row-gap: 2rem;
+}
+.benefits__container .qualification__contents .section__title {
+  margin-bottom: 0;
+}
+.benefits__container .qualification__contents .direct__contributors__list,
+.benefits__container .qualification__contents .indirect__contributors__list {
+  display: grid;
+  row-gap: 1rem;
+  list-style-type: disc;
+  padding-left: 3rem;
+  font-size: 0.938rem;
+  font-weight: 400;
+  color: hsl(189, 28%, 5%);
+}
+.benefits__container .qualification__contents .direct__contributors h3,
+.benefits__container .qualification__contents .indirect__contributors h3 {
+  padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: hsl(113, 48%, 34%);
+}
+
 /*=============== REGISTRATION ===============*/
-/*=============== LOG IN/SIGN UP ===============*/
+/*=============== REGISTRATION ===============*/
 /*=============== PROFILE ACCOUNT ===============*/
+/*=============== PROFILE ===============*/
 /*=============== FOOTER ===============*/
 /*=============== FOOTER ===============*/
 .footer {

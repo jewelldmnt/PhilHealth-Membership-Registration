@@ -87,8 +87,21 @@
             margin-bottom: 0;
         }
 
-        .history__label{
-            font-weight: fonts.$font-medium;
+        .history__label, 
+        .external__links__label{
+            padding-bottom: .25rem;
+            font-size: fonts.$h3-font-size;
+            font-weight: fonts.$font-semi-bold;
+            color: colors.$green-dark;
+        }
+
+        .external__links__label{
+            text-align: left;
+        }
+
+        .history__description{
+            font-size: fonts.$normal-font-size;
+            font-weight: fonts.$font-regular;
             color: colors.$black;
         }
 
@@ -97,9 +110,9 @@
             row-gap: .5rem;
         }
 
-        .references {
+        .references{
             list-style-type: disc;
-            padding-left: 1rem;
+            padding-left: 3rem;
         }
     }
 
@@ -143,3 +156,64 @@
 
 }
 
+.benefits__container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10rem;
+
+    .section__title{
+        text-align: initial;
+    }
+
+    .benefits__contents{
+        .section__title{
+            margin-bottom: 0;
+            padding-bottom: 2rem;
+        }
+        .benefits__list{
+            display: grid;
+            row-gap: 2rem;
+            font-size: fonts.$h3-font-size;
+            font-weight: fonts.$font-semi-bold;
+            color: colors.$green-dark;
+    
+            .benefits__description{
+                font-size: fonts.$normal-font-size;
+                font-weight: fonts.$font-regular;
+                color: colors.$black;
+            }
+        }
+    }
+
+    .qualification__contents{
+        display: grid;
+        row-gap: 2rem;
+
+        .section__title{
+            margin-bottom: 0;
+        }
+
+        .direct__contributors__list, 
+        .indirect__contributors__list {
+            display: grid;
+            row-gap: 1rem;
+            list-style-type: disc;
+            padding-left: 3rem;
+            font-size: fonts.$normal-font-size;
+            font-weight: fonts.$font-regular;
+            color: colors.$black;
+        }
+
+        .direct__contributors,
+        .indirect__contributors{
+            h3 {
+                padding-bottom: .25rem;
+                font-size: fonts.$h3-font-size;
+                font-weight: fonts.$font-semi-bold;
+                color: colors.$green-dark;
+
+            }
+        }
+    }
+
+}
