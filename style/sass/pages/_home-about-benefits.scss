@@ -96,6 +96,11 @@
             display: grid;
             row-gap: .5rem;
         }
+
+        .references {
+            list-style-type: disc;
+            padding-left: 1rem;
+        }
     }
 
     .about__content{
