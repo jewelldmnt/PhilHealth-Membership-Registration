@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- ============ css ============ -->
     <link rel="stylesheet" href=".\style\css\style.css">
 
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-    <!-- ============ <HEADER> ============ -->    
+    <!-- ============ <HEADER> ============ -->
     <header class="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
@@ -20,7 +21,7 @@
                 PhilHealth
             </a>
 
-            <!-- ============ <NAVIGATION MENU> ============ -->    
+            <!-- ============ <NAVIGATION MENU> ============ -->
             <div class="nav__menu" id="nav--menu">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -44,25 +45,170 @@
                     </li>
                 </ul>
             </div>
-            <!-- ============ </NAVIGATION MENU> ============ --> 
+            <!-- ============ </NAVIGATION MENU> ============ -->
         </nav>
     </header>
     <!-- ============ </HEADER> ============ -->
 
 
     <!-- ============ <REGISTRATION> ============ -->
+    <div class="registration__container container grid">
+        <div class="card">
+            <div class="form">
+                <div class="left__side">
 
+                    <!-- CURRENT STEP LABEL -->
+                    <div class="steps__content">
+                        <h3 class="step__number">Step 1: Personal Details</h3>
+                        <p class="step-number-content d__none">Введите информацию о вашей организации и ее банковские
+                            реквизиты.</p>
+                        <p class="step-number-content d__none">Help companies get to know you better by telling then
+                            about
+                            your past experiences.</p>
+                        <p class="step-number-content d__none">Add your profile piccture and let companies find youy
+                            fast.
+                        </p>
+                    </div>
+
+                    <!-- PROGRESS BAR LABEL  -->
+                    <ul class="progress__bar">
+                        <li class="active">Personal Details</li>
+                        <li>
+                            <p>Address and Contact Details</p>
+                        </li>
+                        <li>
+                            <p>Declaration of Dependents</p>
+                        </li>
+                        <li>
+                            <p>Member Type</p>
+                        </li>
+                        <li>
+                            <p>Terms and Condition</p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- ============ <REGISTRATION> ============ -->
+                <div class="right__side">
+                    <!-- PERSONAL DETAILS -->
+                    <div class="main__form active">
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="PIN" pattern="\d+">
+                                <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
+                            </div>
+                            <div class="input__div">
+                                <input type="text" required require id="KonsultaProvider">
+                                <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="MemFullName">
+                                <span>Member's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="MothersMaidenName">
+                                <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required id="SpouseFullName">
+                                <span>Spouse Fullname if married (LN, FN MN)</span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                            <div class="input__div birthdate">
+                                <input type="date" required require id="BirthDate">
+                                <span>Birth Date <strong style="color: red;">*</strong></span>
+                            </div>
+                            <div class="input__div birthplace">
+                                <input type="text" required require id="BirthPlace">
+                                <span>Place of Birth (City/Municipality/Province/Country) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+
+                            <div class="input__div">
+                                <select required require id="Sex">
+                                    <option value="" disabled selected hidden>Sex <strong style="color: red;">*</strong></option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                </select>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="CivilStatus">
+                                    <option value="" disabled selected hidden>Civil Status <strong style="color: red;">*</strong></option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Legally Separated</option>
+                                    <option>Annulled</option>
+                                    <option>Widow/er</option>
+                                </select>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="Citizenship">
+                                    <option value="" disabled selected hidden>Citizenship <strong style="color: red;">*</strong></option>
+                                    <option>Filipino</option>
+                                    <option>Dual Citizen</option>
+                                    <option>Foreign National</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required id="PhilsysID">
+                                <span> Philsys ID number (Optional)</span>
+                            </div>
+                            <div class="input__div">
+                                <input type="text" required id="TIN">
+                                <span>Tax Payer Identification (TIN) (Optional)</span>
+                            </div>
+                        </div>
+
+                        <div class="registration__buttons">
+                            <button class="next_button">Next</button>
+                        </div>
+                    </div>
+                    <!-- END OF PERSONAL DETAILS -->
+
+                    <div class="main__form">
+                        <div class="registration__buttons button_space">
+                            <button class="back_button">Previous</button>
+                            <button class="next_button">Next</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ============ </REGISTRATION> ============ -->
-    
+
 
     <!-- ============ <FOOTER> ============ -->
     <footer class="footer">
         <div class="footer__container">
             <span class="footer__copy">
-                &#169; 2014 Philippine Health Insurance Corporation | Citystate Centre, 709 Shaw Boulevard 1603 Pasig City | Action Center 8441-7442
-                </span>
+                &#169; 2014 Philippine Health Insurance Corporation | Citystate Centre, 709 Shaw Boulevard 1603 Pasig
+                City | Action Center 8441-7442
+            </span>
         </div>
     </footer>
     <!-- ============ </FOOTER> ============ -->
+
+    <!--=============== MAIN JS ===============-->
+    <script src="main.js"></script>
 </body>
+
 </html>

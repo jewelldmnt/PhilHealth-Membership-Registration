@@ -25,3 +25,68 @@ button {
 #register__now {
     margin-top: 4rem;
 }
+
+
+/*=============== BUTTONS FOR REGISTRATION ===============*/
+.registration__buttons{
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        height: 40px;
+        width: 100px;
+        border: none;
+        border-radius: 0.5rem;
+        background-color: colors.$blue;
+        font-size: fonts.$normal-font-size;
+        font-weight: fonts.$font-semi-bold;
+        color: colors.$white;
+        cursor: pointer;
+        transition: box-shadow 0.4s;
+    }
+}
+
+
+button:hover {
+    border: none;
+    transform: scale(1.05);
+}
+
+.button_space{
+    display:flex;
+    gap:20px;
+}
+.button_card{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    padding-right: 65px;
+    gap:20px;
+}
+.button_inline{
+    display:flex;
+    gap:20px;
+}
+.button_inline button{
+    background-color: #213d81;
+    width: 125px;
+}
+.button_inline button.secondary{
+    background-color: #0075ff;
+    width: 125px;
+}
+.button_card button{
+    background-color: #213d81;
+    width: 125px;
+}
+.button_space button:nth-child(1){
+    background-color:#fff;
+    font-size: fonts.$normal-font-size;
+    font-weight: fonts.$font-semi-bold;
+    color:colors.$blue;
+    border: 2px solid colors.$blue;
+}
+
+button.inactive{
+    background-color:#ccc;
+}
