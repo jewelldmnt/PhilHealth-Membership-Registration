@@ -1,0 +1,121 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: url(/assets/create/bg.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  font-family: sans-serif;
+}
+
+.ph{
+  width: 350px;
+  height: 130px;
+  opacity: 100%;
+  top: 5%;
+  left: 72%;
+  position: absolute;
+  filter: drop-shadow(20px 20px 10px gray);
+}
+
+
+
+.LoginBox{
+  width: 500px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #000000;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  border-radius: 10%;
+  backdrop-filter: blur(5px);
+}
+
+
+.icon{
+  background: snow;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+  opacity: 100%;
+}
+
+.eye-icon{
+  width: 18px;
+  height: 15px;
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 415px;
+  cursor:pointer;
+}
+
+h1{
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+  opacity: 100%;
+  
+}
+
+.LoginBox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+
+}
+
+.LoginBox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.LoginBox input[type="text"], input[type="password"]{
+  border: none;
+  border-bottom: 1px solid #000000;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #000000;
+  font-size: 16px;
+  opacity: 100%;
+  margin-top: 5px;
+}
+
+.LoginBox button{
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 440px;
+  background: #52a447;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  margin-top: 35px;
+}
+
+.LoginBox button:hover{
+  cursor: pointer;
+  background: #ffe338;
+  color: #000;
+}
+
+.LoginBox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: #52a447;
+  text-align: center;
+}
+
+.LoginBox a:hover{
+  color: #ffe338;
+}
