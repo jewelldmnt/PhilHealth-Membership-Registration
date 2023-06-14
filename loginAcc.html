@@ -5,29 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style/css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Login Form</title>
     
 
 <body>
     
     <img src="/assets/login/PhilHealth2.png" class="ph">
+    
     <div class="LoginBox">
+        
+        <a href="index.html"><button type="submit" class="back"><i class='bx bx-home'></i>&nbsp;Home</button></a>
+            
         <img src="/assets/login/loginIcon.png" class="icon">
             <h1>Login Here</h1>
-            <form>
+            <form name="loginacc" action="index.html">
                 <p>Username</p>
-                <input type="text"  id="myUsername" placeholder="Enter Username">
+                <input type="text" name="username" id="myUsername" placeholder="Enter Username" required>
                 <p>Password</p>
-                <input type="password" id="myPassword" placeholder="Enter Password">
-                <img src="/assets/login/eye-close.png" class="eye-icon">
-                <button type="button" id="iSubmit">Login</button>
-                <br><br>
-                <a href="create.html"> Not a member yet? Click here to create an account!</a>
+                <input type="password" name="password" id="myPassword" placeholder="Enter Password" required>
+                <img src="/assets/login/eye-close.png" id="eyeicon" class="eye-icon">
+                <button type="submit" id="iSubmit" class="login">Login</button>
+            <br><br>
+                <a href="createAcc.html"> Not a member yet? Click here to create an account!</a>
+                
             </form>
 
     </div>
     
-    <script src="index.js"></script>
+    <script src="main.js"></script>
 </body>
 </head>
 </html>

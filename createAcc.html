@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style/css/create.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
     <title>Register Form</title>
     
 
@@ -12,25 +15,28 @@
     
     <img src="/assets/create/PhilHealth2.png" class="ph">
     <div class="LoginBox">
+        <a href="index.html"><button type="submit" class="back"><i class='bx bx-home'></i>&nbsp;Home</button></a>
         <img src="/assets/create/loginIcon.png" class="icon">
             <h1>Create Account</h1>
-            <form>
+            <form name="createacc" action="loginAcc.html">
                 <p>Username</p>
-                <input type="text" name="" id="myUsername" placeholder="Enter Username">
+                <input type="text" name="newuser" id="newuser" placeholder="Enter Username" required>
                 <p>Password</p>
-                <input type="password" name="" id="myPassword" placeholder="Enter Password">
-                <img src="/assets/create/eye-close.png" class="eye-icon">
+                <input type="password" name="newpass1" id="myPassword" placeholder="Enter Password" required>
+                <img src="/assets/create/eye-close.png" id="eyeicon" class="eye-icon">
                 <p>Confirm Password</p>
-                <input type="password" name="" id="myPassword" placeholder="Enter Password">
-                <img src="/assets/create/eye-close.png" class="eye-icon">
-                <button type="button" name="" id="iSubmit">Create</button>
+                <input type="password" name="newpass1" id="conpass" placeholder="Enter Password" required>
+                <img src="/assets/create/eye-close.png" id="coneyeicon" class="eye-icon">
+                <button type="submit" id="createsub" class="login">Create</button>
                 <br><br>
+                <a href="loginAcc.html"> Already have an account? Log in!</a>
+                
                 
             </form>
 
     </div>
     
-    <script src="index.js"></script>
+    <script src="main.js"></script>
 </body>
 </head>
 </html>
