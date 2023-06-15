@@ -71,14 +71,6 @@
                     <!-- CURRENT STEP LABEL -->
                     <div class="steps__content">
                         <h3 class="step__number">Step 1: Personal Details</h3>
-                        <p class="step-number-content d__none">Введите информацию о вашей организации и ее банковские
-                            реквизиты.</p>
-                        <p class="step-number-content d__none">Help companies get to know you better by telling then
-                            about
-                            your past experiences.</p>
-                        <p class="step-number-content d__none">Add your profile piccture and let companies find youy
-                            fast.
-                        </p>
                     </div>
 
                     <!-- PROGRESS BAR LABEL  -->
@@ -94,8 +86,7 @@
                             <p>Member Type</p>
                         </li>
                         <li>
-                            <p>Terms and Condition</p>
-                        </li>
+                            <p>Submit
                     </ul>
                 </div>
 
@@ -106,32 +97,32 @@
                     <div class="main__form active">
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="PIN" pattern="\d+">
+                                <input type="text" required require id="PIN" placeholder="xxx" pattern="\d{12}">
                                 <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
                             </div>
                             <div class="input__div">
-                                <input type="text" required require id="KonsultaProvider">
+                                <input type="text" required require id="KonsultaProvider" placeholder="xxx" maxlength="40">
                                 <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="MemFullName">
+                                <input type="text" required require id="MemFullName" placeholder="xxx" maxlength="50">
                                 <span>Member's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="MothersMaidenName">
+                                <input type="text" required require id="MothersMaidenName" placeholder="xxx" maxlength="50">
                                 <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required id="SpouseFullName">
+                                <input type="text" required id="SpouseFullName" placeholder="xxx" maxlength="50">
                                 <span>Spouse Fullname if married (LN, FN MN)</span>
                             </div>
                         </div>
@@ -142,7 +133,7 @@
                                 <span>Birth Date <strong style="color: red;">*</strong></span>
                             </div>
                             <div class="input__div birthplace">
-                                <input type="text" required require id="BirthPlace">
+                                <input type="text" required require id="BirthPlace" placeholder="xxx" maxlength="50">
                                 <span>Place of Birth (City/Municipality/Province/Country) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
@@ -178,11 +169,11 @@
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required id="PhilsysID">
+                                <input type="text" required optional id="PhilsysID" placeholder="xxx" pattern=".{12}">
                                 <span> Philsys ID number (Optional)</span>
                             </div>
                             <div class="input__div">
-                                <input type="text" required id="TIN">
+                                <input type="text" required optional id="TIN" placeholder="xxx" pattern=".{9}">
                                 <span>Tax Payer Identification (TIN) (Optional)</span>
                             </div>
                         </div>
@@ -218,9 +209,20 @@
                     <div class="main__form">
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
+                            <button class="next_button">Next</button>
                         </div>
                     </div>
                     <!-- END OF MEMBER TYPE -->  
+
+
+                    <!-- SUBMIT -->                    
+                    <div class="main__form">
+                        <div class="registration__buttons button_space">
+                            <button class="back_button">Previous</button>
+                            <button class="submit_button">Submit</button>
+                        </div>
+                    </div>
+                    <!-- END OF SUBMIT -->  
 
 
                 </div>

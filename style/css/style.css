@@ -187,8 +187,7 @@ button {
   cursor: pointer;
   transition: box-shadow 0.4s;
 }
-
-button:hover {
+.registration__buttons button:hover {
   border: none;
   transform: scale(1.05);
 }
@@ -674,8 +673,12 @@ button.inactive {
   transition: all 0.5s;
   pointer-events: none;
 }
+.right__side .input__text input[type=text]::placeholder {
+  color: hsl(0, 100%, 99%);
+}
 .right__side .input__text input:focus ~ span,
-.right__side .input__text input:valid ~ span {
+.right__side .input__text input:valid ~ span,
+.right__side .input__text input[type=text]:not(:placeholder-shown) ~ span {
   top: -15px;
   left: 6px;
   font-size: 10px;

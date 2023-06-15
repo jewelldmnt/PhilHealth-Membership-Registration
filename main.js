@@ -48,6 +48,15 @@ back_click.forEach(function (back_click_form) {
     });
 });
 
+var submit_click = document.querySelectorAll(".submit_button");
+submit_click.forEach(function (submit_click_form) {
+    submit_click_form.addEventListener('click', function () {
+        shownname.innerHTML = username.value;
+        formnumber++;
+        updateform();
+    });
+});
+
 var username = document.querySelector("#user_name");
 var email = document.querySelector("#user_email");
 var phone = document.querySelector("#user_phone");
@@ -107,30 +116,42 @@ function contentchange() {
 function validateform() {
     var validate = true;
     var validate_inputs = document.querySelectorAll(".main__form.active input");
+    
     validate_inputs.forEach(function (validate_input) {
-        validate_input.classList.remove('warning');
-        if (validate_input.hasAttribute('require') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
-            if (validate_input.value.length == 0) {
-                validate = false;
-                validate_input.classList.add('warning');
-            }
+      validate_input.classList.remove('warning');
+      
+      if (validate_input.hasAttribute('require') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
+        if (validate_input.value.length == 0 || !validate_input.checkValidity()) {
+          validate = false;
+          validate_input.classList.add('warning');
         }
-    });
+      }
 
+      if (validate_input.hasAttribute('optional') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)){
+        if (validate_input.value.length > 0 && !validate_input.value.match(validate_input.getAttribute('pattern'))) {
+            validate = false;
+            validate_input.classList.add('warning');
+          }
+        }
+
+    });
+    
     var validate_selects = document.querySelectorAll(".main__form.active select");
+    
     validate_selects.forEach(function (validate_select) {
-        validate_select.classList.remove('warning');
-        if (validate_select.hasAttribute('require') && (validate_select.offsetWidth !== 0 || validate_select.offsetHeight !== 0)) {
-            if (validate_select.value == "") {
-                validate = false;
-                validate_select.classList.add('warning');
-            }
+      validate_select.classList.remove('warning');
+      
+      if (validate_select.hasAttribute('require') && (validate_select.offsetWidth !== 0 || validate_select.offsetHeight !== 0)) {
+        if (validate_select.value == "") {
+          validate = false;
+          validate_select.classList.add('warning');
         }
+      }
     });
-
+    
     return validate;
-
-}
+  }
+  
 
 /*=============== FOR PASSWORD TOGGLE ===============*/
 let eyeicon = document.getElementById("eyeicon");

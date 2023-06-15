@@ -296,8 +296,13 @@
       pointer-events: none;
     }
 
+    input[type="text"]::placeholder {
+      color: colors.$white;
+    }
+
     input:focus ~ span,
-    input:valid ~ span {
+    input:valid ~ span,
+    input[type="text"]:not(:placeholder-shown) ~ span {
       top: -15px;
       left: 6px;
       font-size: 10px;
