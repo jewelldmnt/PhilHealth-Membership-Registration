@@ -131,3 +131,49 @@ function validateform() {
     return validate;
 
 }
+
+/*=============== FOR PASSWORD TOGGLE ===============*/
+let eyeicon = document.getElementById("eyeicon");
+let newpass1 = document.getElementById("myPassword");
+let newpass2 = document.getElementById("conpass");
+let coneyeicon = document.getElementById("coneyeicon");
+
+    eyeicon.onclick = function(){
+        if(newpass1.type == "password"){
+            newpass1.type = "text";
+            eyeicon.src = "/assets/login/eye-open.png"
+        }else{
+            newpass1.type = "password";
+            eyeicon.src = "/assets/login/eye-close.png"
+        }
+    }
+
+    coneyeicon.onclick = function(){
+        if(newpass2.type == "password"){
+            newpass2.type = "text";
+            coneyeicon.src = "/assets/create/eye-open.png"
+        }else{
+            newpass2.type = "password";
+            coneyeicon.src = "/assets/create/eye-close.png"
+        }
+    }
+
+
+/*=============== GETTING LOGIN INFORMATION ===============*/
+
+
+
+/*=============== GETTING NEW LOGIN INFORMATION ===============*/
+
+let createsub = document.getElementById("createsub")
+
+    createsub.onclick = function(){
+        if (newpass1.value != newpass2.value){
+            window.alert("Passwords do not match!! Please recheck your information");
+            return false;
+        }
+        else{
+            action = loginAcc.html;
+        }
+    }
+

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
 body{
     margin: 0;
     padding: 0;
@@ -58,6 +60,37 @@ body{
 }
 
 
+.back{
+    border: none;
+    display: flex;
+    position:absolute;
+    outline: none;
+    height: 30px;
+    width: 90px;
+    top: 20px;
+    left: calc(20% - 50px);
+    background-color: hsl(113, 40%, 46%);
+    border-radius: 5rem;
+    color: hsl(0, 100%, 99%);
+    font-size: 1rem;
+    padding-top: 7px;
+    padding-left: 10px;
+    font-weight: 500;
+    transition: box-shadow 0.4s;
+    font-weight: 600;
+   
+}
+
+.back:hover{
+    cursor: pointer;
+    background: hsl(52, 100%, 61%);
+    border: none;
+    transform: scale(1.05);
+    color: hsl(113, 47%, 20%);
+}
+
+
+
 h1{
     margin: 0;
     padding: 0 0 20px;
@@ -91,32 +124,42 @@ h1{
 
 }
 
-.LoginBox button{
+.login{
     border: none;
+    display: inline-block;
     outline: none;
     height: 40px;
-    width: 315px;
-    background: #52a447;
+    width: 100%;
+    background-color: hsl(113, 40%, 46%);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
     color: #fff;
     font-size: 18px;
-    border-radius: 20px;
-
+    font-weight: 500;
+    transition: box-shadow 0.4s;
+    font-weight: 600;
 }
 
-.LoginBox button:hover{
+
+.login:hover{
     cursor: pointer;
-    background: #ffe338;
-    color: #000;
+    background: hsl(52, 100%, 61%);
+    border: none;
+    transform: scale(1.05);
+    color: hsl(113, 47%, 20%);
+    font-size: 18px;
 }
 
 .LoginBox a{
     text-decoration: none;
     font-size: 12px;
     line-height: 20px;
-    color: #52a447;
-    text-align: center;
+    color: hsl(169, 25%, 13%);;
+    font-weight: bold;
 }
 
 .LoginBox a:hover{
-    color: #ffe338;
+    color: hsl(113, 48%, 34%);
+    font-weight: bold;
 }
+
