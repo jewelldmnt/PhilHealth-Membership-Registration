@@ -44,6 +44,11 @@ button {
         cursor: pointer;
         transition: box-shadow 0.4s;
     }
+
+    button:hover {
+        border: none;
+        transform: scale(1.05);
+    }
 }
 
 .button_space{
