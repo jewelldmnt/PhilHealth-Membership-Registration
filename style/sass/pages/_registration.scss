@@ -1,8 +1,11 @@
 /*=============== REGISTRATION ===============*/
 .registration__container {
-  padding-block: 5rem 2rem;
-  padding: 4.5rem 0 1rem;
 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
   .overlay {
     z-index: 1000;
     position: fixed;
@@ -79,6 +82,15 @@
         border-bottom-left-radius: 20px;
         padding: 20px 30px;
         box-sizing: border-box;
+        color: colors.$white;
+      }
+
+      .right__side{
+        overflow-x: scroll;
+        width: 65%;
+        background-color: #fff;
+        height: 100%;
+        border-radius: 20px;
       }
     }
   }
@@ -86,7 +98,6 @@
 
 /*=============== LEFT SIDE ===============*/
 .left__side {
-  color: colors.$white;
 
   .steps__content {
     margin-top: 30px;
@@ -177,11 +188,6 @@
 
 /*=============== RIGHT SIDE ===============*/
 .right__side {
-  overflow-x: scroll;
-  width: 65%;
-  background-color: #fff;
-  height: 100%;
-  border-radius: 20px;
 
   .main__form {
     display: none;

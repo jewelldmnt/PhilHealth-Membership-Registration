@@ -420,8 +420,11 @@ button.inactive {
 /*=============== REGISTRATION ===============*/
 /*=============== REGISTRATION ===============*/
 .registration__container {
-  padding-block: 5rem 2rem;
-  padding: 4.5rem 0 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
 }
 .registration__container .overlay {
   z-index: 1000;
@@ -491,12 +494,17 @@ button.inactive {
   border-bottom-left-radius: 20px;
   padding: 20px 30px;
   box-sizing: border-box;
+  color: hsl(0, 100%, 99%);
+}
+.registration__container .card .form .right__side {
+  overflow-x: scroll;
+  width: 65%;
+  background-color: #fff;
+  height: 100%;
+  border-radius: 20px;
 }
 
 /*=============== LEFT SIDE ===============*/
-.left__side {
-  color: hsl(0, 100%, 99%);
-}
 .left__side .steps__content {
   margin-top: 30px;
   color: hsl(0, 100%, 99%);
@@ -571,13 +579,6 @@ button.inactive {
 
 /*=============== LEFT SIDE END ===============*/
 /*=============== RIGHT SIDE ===============*/
-.right__side {
-  overflow-x: scroll;
-  width: 65%;
-  background-color: #fff;
-  height: 100%;
-  border-radius: 20px;
-}
 .right__side .main__form {
   display: none;
   padding: 40px;
@@ -727,10 +728,14 @@ button.inactive {
 /*=============== FOOTER ===============*/
 .footer {
   background-color: hsl(113, 40%, 46%);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer__container {
-  padding: 1rem 0 1rem;
+  padding: 1rem 0;
   text-align: center;
   font-size: 0.75rem;
 }

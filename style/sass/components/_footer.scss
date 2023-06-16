@@ -1,10 +1,14 @@
 /*=============== FOOTER ===============*/
-.footer{
+.footer {
     background-color: colors.$green-light;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
-.footer__container{
-    padding: 1rem 0 1rem;
+.footer__container {
+    padding: 1rem 0;
     text-align: center;
     font-size: fonts.$smaller-font-size;
 }
