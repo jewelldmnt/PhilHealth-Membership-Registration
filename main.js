@@ -91,15 +91,14 @@ function progress_forward() {
 
     // }); 
 
-
-    num.innerHTML = formnumber + 1;
+    num.innerHTML = "Step " + (formnumber + 1);
     step_list[formnumber].classList.add('active');
 }
 
 function progress_backward() {
     var form_num = formnumber + 1;
     step_list[form_num].classList.remove('active');
-    num.innerHTML = form_num;
+    num.innerHTML = "Step " + form_num;
 }
 
 var step_num_content = document.querySelectorAll(".step-number-content");
