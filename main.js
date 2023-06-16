@@ -158,6 +158,7 @@ let newpass1 = document.getElementById("myPassword");
 let newpass2 = document.getElementById("conpass");
 let coneyeicon = document.getElementById("coneyeicon");
 
+if(eyeicon != null)
     eyeicon.onclick = function(){
         if(newpass1.type == "password"){
             newpass1.type = "text";
@@ -167,7 +168,8 @@ let coneyeicon = document.getElementById("coneyeicon");
             eyeicon.src = "/assets/login/eye-close.png"
         }
     }
-
+    
+if(coneyeicon != null)
     coneyeicon.onclick = function(){
         if(newpass2.type == "password"){
             newpass2.type = "text";
@@ -187,6 +189,7 @@ let coneyeicon = document.getElementById("coneyeicon");
 
 let createsub = document.getElementById("createsub")
 
+if(createsub != null)
     createsub.onclick = function(){
         if (newpass1.value != newpass2.value){
             window.alert("Passwords do not match!! Please recheck your information");
