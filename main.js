@@ -168,7 +168,7 @@ if(eyeicon != null)
             eyeicon.src = "/assets/login/eye-close.png"
         }
     }
-    
+
 if(coneyeicon != null)
     coneyeicon.onclick = function(){
         if(newpass2.type == "password"){
@@ -181,15 +181,32 @@ if(coneyeicon != null)
     }
 
 
-/*=============== GETTING LOGIN INFORMATION ===============*/
+/*=============== NAVIGATION BAR CHANGES ===============*/
+let navlist1 = document.getElementById("nav--list1");
+let navlist2 = document.getElementById("nav--list2");
+let subMenu = document.getElementById("subMenu");
 
+
+function toggleMenu(){
+    subMenu.classList.toggle("open-menu");
+} 
+
+/*=============== GETTING LOGIN INFORMATION ===============*/
+let loginsub = document.getElementById("loginsub")
+
+if(loginsub != null){
+    loginsub.onclick = function(){
+        navlist1.style.display = "none";
+        navlist2.style.display = "flex";
+        action = index.html;
+    }
+}
 
 
 /*=============== GETTING NEW LOGIN INFORMATION ===============*/
-
 let createsub = document.getElementById("createsub")
 
-if(createsub != null)
+if(createsub != null){
     createsub.onclick = function(){
         if (newpass1.value != newpass2.value){
             window.alert("Passwords do not match!! Please recheck your information");
@@ -199,4 +216,4 @@ if(createsub != null)
             action = loginAcc.html;
         }
     }
-
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============ css ============ -->
+    <link rel="stylesheet" href=".\style\css\style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>PhilHealth Home</title>
+</head>
+
+<body>
+    <!-- ============ <HEADER> ============ -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/PhilHealth-logo.png" alt="" class="nav__logo-icon">
+                PhilHealth
+            </a>
+
+            <!-- ============ <NAVIGATION MENU> ============ -->
+            <div class="nav__menu" id="nav--menu">
+                <ul class="nav__list1" id="nav--list1">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Home</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">About</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#benefits" class="nav__link">Benefits</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="registration.html#qualifications" class="nav__link">Register</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="loginAcc.html" class="nav__link">Log in</a>
+                    </li>
+                </ul>
+
+                <ul class="nav__list2" id="nav--list2">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Home</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">About</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#benefits" class="nav__link">Benefits</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="registration.html#qualifications" class="nav__link">Register</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <button type="button" class="userbtn" onclick="toggleMenu()"><i class='bx bx-user-circle bx-sm'></i><i class='bx bx-chevron-down' ></i></button>
+                        <div class="sub-menu-wrap" id="subMenu">
+                            <div class="sub-menu">
+                                <a href="profile.html" class="nav__opt">Profile</a>
+                                <hr>
+                                <a href="index.html" class="nav__opt" onclick="toggleLogin()">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- ============ </NAVIGATION MENU> ============ -->
+        </nav>
+    </header>
+    <!-- ============ </HEADER> ============ -->
+
+    <!-- ============ <PROFILE> ============ -->
+        <div class="profile__container container grid">
+            <div class="profcard">
+                <div class="profform">
+                    <div class="profleft">
+                        <!-- OPTIONS  -->
+                        <ul class="Options">
+                            <br><br><br>
+                            <li class="profoption">Account</li>
+                            <hr><br><br><br>
+                            <li class="profoption">Form</li>
+                            <hr>
+                        </ul>
+                    </div>
+    
+                    <!-- ============ <PROFILE> ============ -->
+                    <div class="profright">
+                        <!-- ACCOUNT -->
+                        <div class="main__form active">
+                           <img src="/assets/profile/profile-icon.png" class="profile-icon"></img><br>
+                           <a class="change-icon"><u>Change Photo?</u></a>
+                        <div class="username">
+                            <input type="text" class="input" value="BERNARD ANGELO RESURRECCION">
+                            <label class="user-label">Username</label>
+                            <a class="change-user"><u><nobr>Change Username?</nobr></u></a>
+                        </div>
+                        <div class="password">
+                            <input type="text" class="input" value="SECRET BAT KO SASABIHIN">
+                            <label class="user-label">Password</label>
+                            <a class="change-pass"><u><nobr>Change Password?</nobr></u></a>
+                        </div>
+                        <div class="pin">
+                            <input type="text" class="input" value="69-69-69-69-69-420-420-420-420-420">
+                            <label class="user-label">PIN</label>
+                        </div>
+                        </div>
+                        <!-- END OF ACCOUNT -->
+    
+    
+                        <!-- FORM -->
+                        <div class="main__form">
+                        </div>
+                        <!-- END OF FORM -->
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- ============ </PROFILE> ============ -->
+
+
+    <!-- ============ <FOOTER> ============ -->
+    <footer class="footer">
+        <div class="footer__container">
+            <span class="footer__copy">
+                &#169; Polytechnic University of the Philippines | BSCS 2-3 Group 1
+            </span>
+        </div>
+    </footer>
+    <!-- ============ </FOOTER> ============ -->
+
+    <!--=============== MAIN JS ===============-->
+    <script src="main.js"></script>
+</body>
+
+</html>
