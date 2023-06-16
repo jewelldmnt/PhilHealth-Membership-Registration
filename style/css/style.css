@@ -419,14 +419,7 @@ button.inactive {
 
 /*=============== REGISTRATION ===============*/
 /*=============== REGISTRATION ===============*/
-.registration__container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1000px;
-}
-.registration__container .overlay {
+.overlay {
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -438,7 +431,7 @@ button.inactive {
   visibility: hidden;
   opacity: 0;
 }
-.registration__container .overlay .popup {
+.overlay .popup {
   margin: 70px auto;
   padding: 20px;
   background: #fff;
@@ -447,13 +440,13 @@ button.inactive {
   position: relative;
   transition: all 5s ease-in-out;
 }
-.registration__container .overlay .popup h2 {
+.overlay .popup h2 {
   margin-top: 0;
   margin-bottom: 2rem;
   color: #333;
   font-family: Tahoma, Arial, sans-serif;
 }
-.registration__container .overlay .popup .close {
+.overlay .popup .close {
   position: absolute;
   top: 20px;
   right: 30px;
@@ -463,16 +456,25 @@ button.inactive {
   text-decoration: none;
   color: #333;
 }
-.registration__container .overlay .popup .close:hover {
+.overlay .popup .close:hover {
   color: red;
 }
-.registration__container .overlay .popup .content {
+.overlay .popup .content {
   max-height: 30%;
   overflow: auto;
 }
-.registration__container .overlay:target {
+
+.overlay:target {
   visibility: visible;
   opacity: 1;
+}
+
+.registration__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
 }
 .registration__container .card {
   height: 523px;
