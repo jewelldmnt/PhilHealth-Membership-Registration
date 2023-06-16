@@ -51,15 +51,82 @@
     <!-- ============ </HEADER> ============ -->
 
 
+    <!-- ============ <QUALIFICATIONS> ============ -->
     <div id="qualifications" class="overlay">
         <div class="popup">
             <h2>Qualifications</h2>
-            <div class="content">
-                blah blah
+            <div class="content members">
+                <h3 class="qualification__subtitle">PhilHealth Member</h3>
+                <ul>
+                    <li>
+                        Members of the informal economy from the lower income segment who do not qualify for full
+                        subsidy under the means test rule of the DSWD, whose premium contribution shall be subsidized by
+                        the LGUs or shall be through cost-sharing mechanisms between/among LGUs, and/or legislative
+                        sponsors, and/or other sponsors and/or the member, including the National Government;
+                    </li>
+
+                    <li>
+                        Orphans, abandoned (children who have no known family willing and capable to take care of them
+                        and are under the care of the DSWD, orphanages, churches and other institutions) and abused
+                        minors, out-of-school youths, street children, persons with disability (PWD), senior citizens
+                        and battered women under the care of the DSWD, or any of its accredited institutions run by NGOs
+                        or any non-profit private organizations, whose premium contributions shall be paid for by the
+                        DSWD;
+                    </li>
+
+                    <li>
+                        Barangay health workers, nutrition scholars, barangay tanods, and other barangay workers and
+                        volunteers, whose premium contributions shall be fully borne by the LGUs concerned; and
+                    </li>
+
+                    <li>
+                        Un-enrolled women who are about to give birth, whose premium contributions shall be fully borne
+                        by the National Government and/or LGUs and/or legislative sponsors or the DSWD if such woman is
+                        an indigent as determined by it through the means test.
+                    </li>
+                </ul>
+            </div>
+            <div class="content dependents">
+                <h3 class="qualification__subtitle">PhilHealth Member's Dependents</h3>
+                <ul>
+                    <li>
+                        Legitimate spouse who is not a member
+                    </li>
+
+                    <li>
+                        Child or children - legitimate, legitimated, acknowledged and illegitimate (as appearing in
+                        birth certificate) adopted or stepchild or stepchildren below 21 years of age, unmarried and
+                        unemployed.
+                    </li>
+
+                    <li>
+                        Children who are twenty-one (21) years old or above but suffering from congenital disability,
+                        either physical or mental, or any disability acquired that renders them totally dependent on the
+                        member for support, as determined by the Corporation
+                    </li>
+
+                    <li>
+                        Foster child as defined in Republic Act 10165 otherwise known as the Foster Care Act of 2012
+                    </li>
+
+                    <li>
+                        Parents who are sixty (60) years old or above, not otherwise an enrolled member, whose monthly
+                        income is below an amount to be determined by PhilHealth in accordance with the guiding
+                        principles set forth in the NHI Act of 2013; and,
+                    </li>
+
+                    <li>
+                        Parents with permanent disability regardless of age as determined by PhilHealth, that renders
+                        them totally dependent on the member for subsistence.
+                    </li>
+                </ul>
             </div>
             <a class="close" href="#">&times;</a>
         </div>
     </div>
+    <!-- ============ <END OF QUALIFICATIONS> ============ -->
+
+
     <!-- ============ <REGISTRATION> ============ -->
     <div class="registration__container container grid">
         <div class="card">
@@ -99,7 +166,8 @@
                                 <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
                             </div>
                             <div class="input__div">
-                                <input type="text" required require id="KonsultaProvider" placeholder="xxx" maxlength="40">
+                                <input type="text" required require id="KonsultaProvider" placeholder="xxx"
+                                    maxlength="40">
                                 <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
@@ -113,7 +181,8 @@
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="MothersMaidenName" placeholder="xxx" maxlength="50">
+                                <input type="text" required require id="MothersMaidenName" placeholder="xxx"
+                                    maxlength="50">
                                 <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
@@ -132,7 +201,8 @@
                             </div>
                             <div class="input__div birthplace">
                                 <input type="text" required require id="BirthPlace" placeholder="xxx" maxlength="50">
-                                <span>Place of Birth (City/Municipality/Province/Country) <strong style="color: red;">*</strong></span>
+                                <span>Place of Birth (City/Municipality/Province/Country) <strong
+                                        style="color: red;">*</strong></span>
                             </div>
                         </div>
 
@@ -140,14 +210,16 @@
 
                             <div class="input__div">
                                 <select required require id="Sex">
-                                    <option value="" disabled selected hidden>Sex <strong style="color: red;">*</strong></option>
+                                    <option value="" disabled selected hidden>Sex <strong style="color: red;">*</strong>
+                                    </option>
                                     <option>Female</option>
                                     <option>Male</option>
                                 </select>
                             </div>
                             <div class="input__div">
                                 <select required require id="CivilStatus">
-                                    <option value="" disabled selected hidden>Civil Status <strong style="color: red;">*</strong></option>
+                                    <option value="" disabled selected hidden>Civil Status <strong
+                                            style="color: red;">*</strong></option>
                                     <option>Single</option>
                                     <option>Married</option>
                                     <option>Legally Separated</option>
@@ -157,7 +229,8 @@
                             </div>
                             <div class="input__div">
                                 <select required require id="Citizenship">
-                                    <option value="" disabled selected hidden>Citizenship <strong style="color: red;">*</strong></option>
+                                    <option value="" disabled selected hidden>Citizenship <strong
+                                            style="color: red;">*</strong></option>
                                     <option>Filipino</option>
                                     <option>Dual Citizen</option>
                                     <option>Foreign National</option>
@@ -182,45 +255,45 @@
                     </div>
                     <!-- END OF PERSONAL DETAILS -->
 
-                    
-                    <!-- ADDRESS AND CONTACT DETAILS -->                    
+
+                    <!-- ADDRESS AND CONTACT DETAILS -->
                     <div class="main__form">
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
                         </div>
                     </div>
-                    <!-- END OF ADDRESS AND CONTACT DETAILS -->  
+                    <!-- END OF ADDRESS AND CONTACT DETAILS -->
 
 
-                    <!-- DECLARATION OF DEPENDENTS -->                    
+                    <!-- DECLARATION OF DEPENDENTS -->
                     <div class="main__form">
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
                         </div>
                     </div>
-                    <!-- END OF DECLARATION OF DEPENDENTS -->  
+                    <!-- END OF DECLARATION OF DEPENDENTS -->
 
 
-                    <!-- MEMBER TYPE -->                    
+                    <!-- MEMBER TYPE -->
                     <div class="main__form">
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
                         </div>
                     </div>
-                    <!-- END OF MEMBER TYPE -->  
+                    <!-- END OF MEMBER TYPE -->
 
 
-                    <!-- SUBMIT -->                    
+                    <!-- SUBMIT -->
                     <div class="main__form">
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="submit_button">Submit</button>
                         </div>
                     </div>
-                    <!-- END OF SUBMIT -->  
+                    <!-- END OF SUBMIT -->
 
 
                 </div>
@@ -234,7 +307,7 @@
     <footer class="footer">
         <div class="footer__container">
             <span class="footer__copy">
-                &#169; Polytechnic University of the Philippines | BSCS 2-3 Group 1 
+                &#169; Polytechnic University of the Philippines | BSCS 2-3 Group 1
             </span>
         </div>
     </footer>

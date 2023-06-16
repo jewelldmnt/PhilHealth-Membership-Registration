@@ -1,30 +1,52 @@
-/*=============== REGISTRATION ===============*/
+/*=============== QUALIFICATIONS POP UP ===============*/
 .overlay {
-  z-index: 1000;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
   background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .popup {
+    position: relative;
+    width: 70%;
+    height: 500px;
     margin: 70px auto;
-    padding: 20px;
+    padding: 20px 40px;
     background: #fff;
     border-radius: 5px;
-    width: 30%;
-    position: relative;
     transition: all 5s ease-in-out;
+    overflow-y: scroll;
 
     h2 {
       margin-top: 0;
       margin-bottom: 2rem;
-      color: #333;
-      font-family: Tahoma, Arial, sans-serif;
+      color: colors.$green-dark;
+      font-size: fonts.$h2-font-size;
+    }
+
+    .content {
+      margin-bottom: 2rem;
+      font-size: fonts.$normal-font-size;
+
+      h3 {
+        margin-bottom: .5rem;
+        font-size: 1rem;
+      }
+
+      ul {
+        display: grid;
+        row-gap: .75rem;
+        list-style-type: disc;
+        padding-left: 3rem;
+      }
     }
 
     .close {
@@ -41,12 +63,6 @@
     .close:hover {
       color: red;
     }
-
-    .content {
-      max-height: 30%;
-      overflow: auto;
-    }
-    
   }
   
 }
@@ -56,8 +72,8 @@
 }
 
 
+/*=============== REGISTRATION ===============*/
 .registration__container {
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -72,27 +88,27 @@
     border-radius: 20px;
 
     .form {
+      display: flex;
       width: 100%;
       height: 100%;
-      display: flex;
 
       .left__side {
         width: 35%;
-        background-color: colors.$green-light;
         height: 100%;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
         padding: 20px 30px;
         box-sizing: border-box;
+        background-color: colors.$green-light;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
         color: colors.$white;
       }
 
       .right__side{
-        overflow-x: scroll;
         width: 65%;
-        background-color: #fff;
         height: 100%;
+        background-color: #fff;
         border-radius: 20px;
+        overflow-y: scroll;
       }
     }
   }
@@ -100,7 +116,6 @@
 
 /*=============== LEFT SIDE ===============*/
 .left__side {
-
   .steps__content {
     margin-top: 30px;
     color: colors.$white;
@@ -110,8 +125,8 @@
     }
 
     p {
-      font-size: fonts.$normal-font-size;
       margin-top: 15px;
+      font-size: fonts.$normal-font-size;
     }
 
     .d__none {
@@ -130,7 +145,7 @@
       position: relative;
       margin-left: 40px;
       margin-top: 50px;
-      counter-increment: container 1;
+      counter-increment: container 1;  
 
       p {
         opacity: 0.35;
@@ -188,9 +203,9 @@
 }
 /*=============== LEFT SIDE END ===============*/
 
+
 /*=============== RIGHT SIDE ===============*/
 .right__side {
-
   .main__form {
     display: none;
     padding: 40px;
@@ -253,15 +268,10 @@
     .input__div {
       width: 100%;
       position: relative;
-    }
 
-    span {
-      color: #aaa;
-    }
-
-    :focus {
-      outline: 0;
-      box-shadow: 0 0 0 1px colors.$blue;
+      span {
+        color: #aaa;
+      }
     }
 
     input[type="text"],
@@ -277,6 +287,23 @@
       box-sizing: border-box;
       padding: 0px 10px;
       color: #333;
+
+      &::placeholder {
+        color: colors.$white;
+      }
+
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 1px colors.$blue;
+      }
+
+      &:valid ~ span,
+      &:not(:placeholder-shown) ~ span {
+        top: -15px;
+        left: 6px;
+        font-size: 10px;
+        font-weight: 600;
+      }
     }
 
     input[type="date"]:required:invalid::-webkit-datetime-edit {
@@ -304,25 +331,6 @@
       pointer-events: none;
     }
 
-    input[type="text"]::placeholder {
-      color: colors.$white;
-    }
-
-    input:focus ~ span,
-    input:valid ~ span,
-    input[type="text"]:not(:placeholder-shown) ~ span {
-      top: -15px;
-      left: 6px;
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    span {
-      top: -15px;
-      left: 6px;
-      font-size: 10px;
-    }
-
     .birthdate ~ .birthplace {
       position: relative;
       flex-grow: 1;
@@ -341,6 +349,7 @@
     border: 2px solid #ee4466 !important;
   }
 }
+
 
 @keyframes stroke {
   100% {

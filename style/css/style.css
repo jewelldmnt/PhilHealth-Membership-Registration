@@ -418,33 +418,52 @@ button.inactive {
 }
 
 /*=============== REGISTRATION ===============*/
-/*=============== REGISTRATION ===============*/
+/*=============== QUALIFICATIONS POP UP ===============*/
 .overlay {
-  z-index: 1000;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
   background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .overlay .popup {
+  position: relative;
+  width: 70%;
+  height: 500px;
   margin: 70px auto;
-  padding: 20px;
+  padding: 20px 40px;
   background: #fff;
   border-radius: 5px;
-  width: 30%;
-  position: relative;
   transition: all 5s ease-in-out;
+  overflow-y: scroll;
 }
 .overlay .popup h2 {
   margin-top: 0;
   margin-bottom: 2rem;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+  color: hsl(113, 48%, 34%);
+  font-size: 1.75rem;
+}
+.overlay .popup .content {
+  margin-bottom: 2rem;
+  font-size: 0.938rem;
+}
+.overlay .popup .content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+.overlay .popup .content ul {
+  display: grid;
+  row-gap: 0.75rem;
+  list-style-type: disc;
+  padding-left: 3rem;
 }
 .overlay .popup .close {
   position: absolute;
@@ -459,16 +478,13 @@ button.inactive {
 .overlay .popup .close:hover {
   color: red;
 }
-.overlay .popup .content {
-  max-height: 30%;
-  overflow: auto;
-}
 
 .overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
+/*=============== REGISTRATION ===============*/
 .registration__container {
   position: absolute;
   top: 50%;
@@ -484,26 +500,26 @@ button.inactive {
   border-radius: 20px;
 }
 .registration__container .card .form {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
 }
 .registration__container .card .form .left__side {
   width: 35%;
-  background-color: hsl(113, 40%, 46%);
   height: 100%;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
   padding: 20px 30px;
   box-sizing: border-box;
+  background-color: hsl(113, 40%, 46%);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   color: hsl(0, 100%, 99%);
 }
 .registration__container .card .form .right__side {
-  overflow-x: scroll;
   width: 65%;
-  background-color: #fff;
   height: 100%;
+  background-color: #fff;
   border-radius: 20px;
+  overflow-y: scroll;
 }
 
 /*=============== LEFT SIDE ===============*/
@@ -515,8 +531,8 @@ button.inactive {
   color: hsl(0, 100%, 99%);
 }
 .left__side .steps__content p {
-  font-size: 0.938rem;
   margin-top: 15px;
+  font-size: 0.938rem;
 }
 .left__side .steps__content .d__none {
   display: none;
@@ -635,12 +651,8 @@ button.inactive {
   width: 100%;
   position: relative;
 }
-.right__side .input__text span {
+.right__side .input__text .input__div span {
   color: #aaa;
-}
-.right__side .input__text :focus {
-  outline: 0;
-  box-shadow: 0 0 0 1px #399;
 }
 .right__side .input__text input[type=text],
 .right__side .input__text input[type=date],
@@ -655,6 +667,27 @@ button.inactive {
   box-sizing: border-box;
   padding: 0px 10px;
   color: #333;
+}
+.right__side .input__text input[type=text]::placeholder,
+.right__side .input__text input[type=date]::placeholder,
+.right__side .input__text select::placeholder {
+  color: hsl(0, 100%, 99%);
+}
+.right__side .input__text input[type=text]:focus,
+.right__side .input__text input[type=date]:focus,
+.right__side .input__text select:focus {
+  outline: 0;
+  box-shadow: 0 0 0 1px #399;
+}
+.right__side .input__text input[type=text]:valid ~ span, .right__side .input__text input[type=text]:not(:placeholder-shown) ~ span,
+.right__side .input__text input[type=date]:valid ~ span,
+.right__side .input__text input[type=date]:not(:placeholder-shown) ~ span,
+.right__side .input__text select:valid ~ span,
+.right__side .input__text select:not(:placeholder-shown) ~ span {
+  top: -15px;
+  left: 6px;
+  font-size: 10px;
+  font-weight: 600;
 }
 .right__side .input__text input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
@@ -675,22 +708,6 @@ button.inactive {
   font-size: 14px;
   transition: all 0.5s;
   pointer-events: none;
-}
-.right__side .input__text input[type=text]::placeholder {
-  color: hsl(0, 100%, 99%);
-}
-.right__side .input__text input:focus ~ span,
-.right__side .input__text input:valid ~ span,
-.right__side .input__text input[type=text]:not(:placeholder-shown) ~ span {
-  top: -15px;
-  left: 6px;
-  font-size: 10px;
-  font-weight: 600;
-}
-.right__side .input__text span {
-  top: -15px;
-  left: 6px;
-  font-size: 10px;
 }
 .right__side .input__text .birthdate ~ .birthplace {
   position: relative;
