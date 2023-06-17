@@ -287,23 +287,25 @@
       box-sizing: border-box;
       padding: 0px 10px;
       color: #333;
+    }
+    
+    input[type="text"]::placeholder {
+      color: colors.$white;
+    }
 
-      &::placeholder {
-        color: colors.$white;
-      }
+    input:focus ~ span,
+    input:valid ~ span,
+    input[type="text"]:not(:placeholder-shown) ~ span {
+      top: -15px;
+      left: 6px;
+      font-size: 10px;
+      font-weight: 600;
+    }
 
-      &:focus {
-        outline: 0;
-        box-shadow: 0 0 0 1px colors.$blue;
-      }
-
-      &:valid ~ span,
-      &:not(:placeholder-shown) ~ span {
-        top: -15px;
-        left: 6px;
-        font-size: 10px;
-        font-weight: 600;
-      }
+    span {
+      top: -15px;
+      left: 6px;
+      font-size: 10px;
     }
 
     input[type="date"]:required:invalid::-webkit-datetime-edit {
