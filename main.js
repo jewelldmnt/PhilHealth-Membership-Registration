@@ -10,9 +10,9 @@ const scrollActive = () =>{
                 sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
+            sectionsClass.classList.add('active__link')
         }else{
-            sectionsClass.classList.remove('active-link')
+            sectionsClass.classList.remove('active__link')
         }                                                    
     })
 }
@@ -199,4 +199,15 @@ if(createsub != null)
             action = loginAcc.html;
         }
     }
+
+
+
+/*=============== PROFILE NAVIGATION OPTIONS ===============*/
+let subMenu = document.getElementById("sub-menu-wrap");
+
+
+function toggleMenu(){
+    subMenu.classList.toggle("open__menu");
+} 
+
 
