@@ -1,14 +1,15 @@
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
-  
+
     $green-hue: 113;
     $yellow-hue: 52;
+    $green-lighter: hsl(114, 37%, 69%);
     $green-light: hsl(113, 40%, 46%);
     $green-dark: hsl(113, 48%, 34%);
     $green-darker: hsl(113, 47%, 20%);
     $green-darkest: hsl(169, 25%, 13%);
     $yellow: hsl(52, 100%, 61%);
-    $yellow-light: 	hsl(60, 100%, 72%);
+    $yellow-light: hsl(60, 100%, 72%);
     $white: hsl(0, 100%, 99%);
     $blue: #399;
     $black: hsl(189, 28%, 5%);

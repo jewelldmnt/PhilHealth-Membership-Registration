@@ -278,6 +278,56 @@
 
                     <!-- MEMBER TYPE -->
                     <div class="main__form">
+                        <h2>Contributor Type:</h2>
+                        <div class="input__text">
+                            <div class="radio__container">
+                                <form>
+                                    <label>
+                                        <input type="radio" id="direct" onclick="updateMemberTypeOptions();" name="cont_type">
+                                        <span>Direct Contributor</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="indirect" onclick="updateMemberTypeOptions();" name="cont_type">
+                                        <span>Indirect Contributor</span>
+                                    </label>
+                                </form>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="membertype">
+                                    <option value="" disabled selected hidden>Member Type <strong style="color: red;">*</strong>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="profession" placeholder="xxx" maxlength="30">
+                                <span>PROFESSION (Except Employed, Lifetime Members, and Sea-Based Migrant Worker) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="number" required require id="monthly_income" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
+                                <span>MONTHLY INCOME <strong style="color: red;">*</strong></span>
+                            </div>
+                            <div class="input__div">
+                                <input type="text" required require id="income_proof" placeholder="xxx" maxlength="30">
+                                <span>PROOF ON INCOME <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+                        <h2>For PhilHealth Use only:</h2><br>
+                        <div class="radio__container">
+                            <form>
+                                <label>
+                                    <input type="radio" name="pos_type" id="pos">
+                                    <span>Point of Service (POS) Financially Incapable</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="pos_type" id="notpos">
+                                    <span>Financially Incapable</span>
+                                </label>
+                            </form>
+                        </div>
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
