@@ -245,6 +245,30 @@ button {
   transform: scale(1.05);
 }
 
+.add__button {
+  margin: 30px 0;
+  display: flex;
+  gap: 20px;
+  color: #333;
+}
+.add__button button {
+  width: 100%;
+  background-color: hsl(113, 40%, 46%);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  color: hsl(0, 100%, 99%);
+  font-weight: 500;
+  transition: box-shadow 0.4s;
+  font-weight: 600;
+  cursor: pointer;
+}
+.add__button button:hover {
+  background-color: hsl(52, 100%, 61%);
+  color: hsl(113, 47%, 20%);
+  border: none;
+  transform: scale(1.05);
+}
+
 .button_space {
   display: flex;
   gap: 20px;

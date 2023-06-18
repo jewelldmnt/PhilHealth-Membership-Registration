@@ -51,6 +51,31 @@ button {
     }
 }
 
+.add__button{
+    margin: 30px 0;
+    display: flex;
+    gap: 20px;
+    color: #333;
+
+    button{
+        width: 100%;
+        background-color: colors.$green-light;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        color: colors.$white;
+        font-weight: fonts.$font-medium;
+        transition: box-shadow 0.4s;
+        font-weight: fonts.$font-semi-bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: colors.$yellow;
+        color: colors.$green-darker;
+        border: none;
+        transform: scale(1.05);
+    }
+}
+
 .button_space{
     display:flex;
     gap:20px;
