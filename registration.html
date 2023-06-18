@@ -338,7 +338,50 @@
 
 
                     <!-- DECLARATION OF DEPENDENTS -->
-                    <div class="main__form">
+                    <div class="main__form" id="dependentform">
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="depFullName" placeholder="xxx" maxlength="50">
+                                <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div birthdate">
+                                <input type="date" required require id="depBirthDate">
+                                <span>Birth Date <strong style="color: red;">*</strong></span>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="depCitizenship">
+                                    <option value="" disabled selected hidden>Citizenship <strong
+                                            style="color: red;">*</strong></option>
+                                    <option>Filipino</option>
+                                    <option>Dual Citizen</option>
+                                    <option>Foreign National</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <select required require id="withDisability">
+                                    <option value="" disabled selected hidden>With Disability<strong
+                                            style="color: red;">*</strong></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="Relationship">
+                                    <option value="" disabled selected hidden>Relationship<strong
+                                            style="color: red;">*</strong></option>
+                                    <option>Spouse</option>
+                                    <option>Children</option>
+                                    <option>Parents</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="add__button">
+                            <button class="add_dependents" id="add-dependents"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
+                        </div>
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
