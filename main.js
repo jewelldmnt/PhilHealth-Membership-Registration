@@ -250,17 +250,17 @@ function add_more_field(){
     html ='<normal>Dependent '+counter+'</normal>\
             <div class="input__text">\
             <div class="input__div">\
-                <input type="text" required require name="depFullName'+counter+'" placeholder="xxx" maxlength="50">\
+                <input type="text" required require id="depFullName'+counter+'" placeholder="xxx" maxlength="50">\
                 <span>Dependent\'s Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>\
             </div>\
         </div>\
         <div class="input__text">\
             <div class="input__div birthdate">\
-                <input type="date" required require name="depBirthDate'+counter+'">\
+                <input type="date" required require id="depBirthDate'+counter+'">\
                 <span>Birth Date <strong style="color: red;">*</strong></span>\
             </div>\
             <div class="input__div">\
-                <select required require name="depCitizenship'+counter+'">\
+                <select required require id="depCitizenship'+counter+'">\
                     <option value="" disabled selected hidden>Citizenship <strong\
                             style="color: red;">*</strong></option>\
                     <option>Filipino</option>\
@@ -271,7 +271,7 @@ function add_more_field(){
         </div>\
         <div class="input__text">\
             <div class="input__div">\
-                <select required require name="withDisability'+counter+'">\
+                <select required require id="withDisability'+counter+'">\
                     <option value="" disabled selected hidden>With Disability<strong\
                             style="color: red;">*</strong></option>\
                     <option>Yes</option>\
@@ -279,7 +279,7 @@ function add_more_field(){
                 </select>\
             </div>\
             <div class="input__div">\
-                <select required require name="Relationship'+counter+'">\
+                <select required require id="Relationship'+counter+'">\
                     <option value="" disabled selected hidden>Relationship<strong\
                             style="color: red;">*</strong></option>\
                     <option>Spouse</option>\
