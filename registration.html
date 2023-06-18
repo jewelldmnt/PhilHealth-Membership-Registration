@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- ============ BOX ICONS ============ -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ 
     <!-- ============ css ============ -->
     <link rel="stylesheet" href=".\style\css\style.css">
 
-    <title>PhilHealth Home</title>
+    <title>PhilHealth Membership Registration</title>
 </head>
 
 <body>
@@ -37,12 +40,28 @@
                     </li>
 
                     <li class="nav__item">
-                        <a href="registration.html" class="nav__link active-link">Register</a>
+                        <a href="registration.html" class="nav__link active__link">Register</a>
                     </li>
 
+                    <!--
                     <li class="nav__item">
                         <a href="loginAcc.html" class="nav__link">Log in</a>
                     </li>
+                    -->
+
+                    <li class="nav__item">
+                        <a href="#" class="nav__link" onclick="toggleMenu()">
+                            <i class='bx bxs-user-circle' id="profile__icon"></i>
+                            <i class='bx bx-chevron-down'></i>
+                        </a>
+                        <div class="sub__menu__wrap" id="sub-menu-wrap">
+                            <div class="sub__menu">
+                                <a href="profile.html" class="sub__menu__opt">Profile</a>
+                                <hr>
+                                <a href="index.html" class="sub__menu__opt" onclick="toggleLogin()">Logout</a>
+                            </div>
+                        </div>
+                    </li>   
                 </ul>
             </div>
             <!-- ============ </NAVIGATION MENU> ============ -->
@@ -159,7 +178,7 @@
                 <!-- ============ <REGISTRATION> ============ -->
                 <div class="right__side">
                     <!-- PERSONAL DETAILS -->
-                    <div class="main__form active">
+                    <div class="main__form">
                         <div class="input__text">
                             <div class="input__div">
                                 <input type="text" required require id="PIN" placeholder="xxx" pattern="\d{12}">
@@ -267,7 +286,50 @@
 
 
                     <!-- DECLARATION OF DEPENDENTS -->
-                    <div class="main__form">
+                    <div class="main__form active" id="dependentform">
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="depFullName" placeholder="xxx" maxlength="50">
+                                <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div birthdate">
+                                <input type="date" required require id="depBirthDate">
+                                <span>Birth Date <strong style="color: red;">*</strong></span>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="depCitizenship">
+                                    <option value="" disabled selected hidden>Citizenship <strong
+                                            style="color: red;">*</strong></option>
+                                    <option>Filipino</option>
+                                    <option>Dual Citizen</option>
+                                    <option>Foreign National</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <select required require id="withDisability">
+                                    <option value="" disabled selected hidden>With Disability<strong
+                                            style="color: red;">*</strong></option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                            <div class="input__div">
+                                <select required require id="Relationship">
+                                    <option value="" disabled selected hidden>Relationship<strong
+                                            style="color: red;">*</strong></option>
+                                    <option>Spouse</option>
+                                    <option>Children</option>
+                                    <option>Parents</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="add__button">
+                            <button class="add_dependents" id="add-dependents"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
+                        </div>
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
