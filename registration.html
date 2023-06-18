@@ -172,7 +172,7 @@
                 <!-- ============ <REGISTRATION> ============ -->
                 <div class="right__side">
                     <!-- PERSONAL DETAILS -->
-                    <div class="main__form active">
+                    <div class="main__form">
                         <div class="input__text">
                             <div class="input__div">
                                 <input type="text" required require id="PIN" placeholder="xxx" pattern="\d{12}">
@@ -335,23 +335,24 @@
                         </div>
                     </div> 
  
-
-
+                    
                     <!-- DECLARATION OF DEPENDENTS -->
-                    <div class="main__form" id="dependentform">
+                    <div class="main__form active">
+                        <form id="depform">
+                        <normal>Dependent 1</normal>
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="depFullName" placeholder="xxx" maxlength="50">
+                                <input type="text" required require name="depFullName1" placeholder="xxx" maxlength="50">
                                 <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
                         <div class="input__text">
                             <div class="input__div birthdate">
-                                <input type="date" required require id="depBirthDate">
+                                <input type="date" required require name="depBirthDate1">
                                 <span>Birth Date <strong style="color: red;">*</strong></span>
                             </div>
                             <div class="input__div">
-                                <select required require id="depCitizenship">
+                                <select required require name="depCitizenship1">
                                     <option value="" disabled selected hidden>Citizenship <strong
                                             style="color: red;">*</strong></option>
                                     <option>Filipino</option>
@@ -362,7 +363,7 @@
                         </div>
                         <div class="input__text">
                             <div class="input__div">
-                                <select required require id="withDisability">
+                                <select required require name="withDisability1">
                                     <option value="" disabled selected hidden>With Disability<strong
                                             style="color: red;">*</strong></option>
                                     <option>Yes</option>
@@ -370,7 +371,7 @@
                                 </select>
                             </div>
                             <div class="input__div">
-                                <select required require id="Relationship">
+                                <select required require name="Relationship1">
                                     <option value="" disabled selected hidden>Relationship<strong
                                             style="color: red;">*</strong></option>
                                     <option>Spouse</option>
@@ -379,8 +380,9 @@
                                 </select>
                             </div>
                         </div>
+                        </form>
                         <div class="add__button">
-                            <button class="add_dependents" id="add-dependents"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
+                            <button class="add_dependents" onclick="add_more_field()"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
                         </div>
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
@@ -428,6 +430,7 @@
     <!-- ============ </FOOTER> ============ -->
 
     <!--=============== MAIN JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 

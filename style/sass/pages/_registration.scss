@@ -211,6 +211,10 @@
     padding: 40px;
   }
 
+  normal {
+    color: colors.$green-darker;
+  }
+
   .active {
     display: block;
   }
