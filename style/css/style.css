@@ -707,6 +707,13 @@ button.inactive {
 .right__side .input__text .input__div span {
   color: #aaa;
 }
+.right__side .input__text .input__div1 {
+  width: 17%;
+  position: relative;
+}
+.right__side .input__text .input__div1 span {
+  color: #aaa;
+}
 .right__side .input__text input[type=text],
 .right__side .input__text input[type=date],
 .right__side .input__text select {
@@ -750,6 +757,14 @@ button.inactive {
   color: black;
 }
 .right__side .input__text .input__div span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  transition: all 0.5s;
+  pointer-events: none;
+}
+.right__side .input__text .input__div1 span {
   position: absolute;
   top: 10px;
   left: 10px;
