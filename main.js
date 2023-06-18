@@ -242,3 +242,52 @@ SameAs.onclick = function(){
     }
     
 };
+
+/*=============== ADDING ANOTHER DEPENDENT ===============*/
+counter = 1;
+function add_more_field(){
+    counter += 1;
+    html ='<normal>Dependent '+counter+'</normal>\
+            <div class="input__text">\
+            <div class="input__div">\
+                <input type="text" required require id="depFullName'+counter+'" placeholder="xxx" maxlength="50">\
+                <span>Dependent\'s Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>\
+            </div>\
+        </div>\
+        <div class="input__text">\
+            <div class="input__div birthdate">\
+                <input type="date" required require id="depBirthDate'+counter+'">\
+                <span>Birth Date <strong style="color: red;">*</strong></span>\
+            </div>\
+            <div class="input__div">\
+                <select required require id="depCitizenship'+counter+'">\
+                    <option value="" disabled selected hidden>Citizenship <strong\
+                            style="color: red;">*</strong></option>\
+                    <option>Filipino</option>\
+                    <option>Dual Citizen</option>\
+                    <option>Foreign National</option>\
+                </select>\
+            </div>\
+        </div>\
+        <div class="input__text">\
+            <div class="input__div">\
+                <select required require id="withDisability'+counter+'">\
+                    <option value="" disabled selected hidden>With Disability<strong\
+                            style="color: red;">*</strong></option>\
+                    <option>Yes</option>\
+                    <option>No</option>\
+                </select>\
+            </div>\
+            <div class="input__div">\
+                <select required require id="Relationship'+counter+'">\
+                    <option value="" disabled selected hidden>Relationship<strong\
+                            style="color: red;">*</strong></option>\
+                    <option>Spouse</option>\
+                    <option>Children</option>\
+                    <option>Parents</option>\
+                </select>\
+            </div>\
+        </div>'
+        var form = document.getElementById('depform');
+        form.innerHTML += html;
+        }

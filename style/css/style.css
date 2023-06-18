@@ -678,6 +678,9 @@ button.inactive {
   display: none;
   padding: 40px;
 }
+.right__side normal {
+  color: hsl(113, 47%, 20%);
+}
 .right__side .active {
   display: block;
 }

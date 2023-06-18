@@ -338,20 +338,22 @@
 
 
                     <!-- DECLARATION OF DEPENDENTS -->
-                    <div class="main__form" id="dependentform">
+                    <div class="main__form">
+                        <form id="depform">
+                        <normal>Dependent 1</normal>
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="depFullName" placeholder="xxx" maxlength="50">
+                                <input type="text" required require id="depFullName1" placeholder="xxx" maxlength="50">
                                 <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
                         <div class="input__text">
                             <div class="input__div birthdate">
-                                <input type="date" required require id="depBirthDate">
+                                <input type="date" required require id="depBirthDate1">
                                 <span>Birth Date <strong style="color: red;">*</strong></span>
                             </div>
                             <div class="input__div">
-                                <select required require id="depCitizenship">
+                                <select required require id="depCitizenship1">
                                     <option value="" disabled selected hidden>Citizenship <strong
                                             style="color: red;">*</strong></option>
                                     <option>Filipino</option>
@@ -362,7 +364,7 @@
                         </div>
                         <div class="input__text">
                             <div class="input__div">
-                                <select required require id="withDisability">
+                                <select required require id="withDisability1">
                                     <option value="" disabled selected hidden>With Disability<strong
                                             style="color: red;">*</strong></option>
                                     <option>Yes</option>
@@ -370,7 +372,7 @@
                                 </select>
                             </div>
                             <div class="input__div">
-                                <select required require id="Relationship">
+                                <select required require id="Relationship1">
                                     <option value="" disabled selected hidden>Relationship<strong
                                             style="color: red;">*</strong></option>
                                     <option>Spouse</option>
@@ -379,8 +381,9 @@
                                 </select>
                             </div>
                         </div>
+                        </form>
                         <div class="add__button">
-                            <button class="add_dependents" id="add-dependents"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
+                            <button class="add_dependents" onclick="add_more_field()"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
                         </div>
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
