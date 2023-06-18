@@ -33,14 +33,14 @@
                 position:absolute;
                 top: 80%;
                 right: 8%;
-                width:100px;
+                width:170px;
                 max-height: 0px;
                 overflow: hidden;
                 transition: max-height 0.5s;
 
                 .sub__menu{
-                    background:hsl(113, 48%, 34%);
-                    opacity: 90%;
+                    background:colors.$green-dark;
+                    opacity: 80%;
                     padding: 10px;
                     flex-direction: column;
                     border-radius: 0.5rem;
@@ -55,18 +55,23 @@
 
                     .sub__menu__opt{
                         display: flex;
-                        justify-content: center;
+                        justify-content: start;
                         align-items: center;
                         text-decoration: none;
                         margin: 12px 0;
                         color: colors.$white;
+                        font-size: fonts.$normal-font-size;
                         font-weight: fonts.$font-semi-bold;
                         transition: color, 0.4s;
                         }
 
-                        .sub__menu__opt:hover {
-                        color: colors.$yellow;
-                        }
+                    .sub__menu__opt:hover {
+                    color: colors.$yellow;
+                    }
+
+                    .sub__menu-icon{
+                        margin-right: .5rem;
+                    }
                 }
             }
 
@@ -100,6 +105,10 @@
             .active__link-profile {
                 color: colors.$yellow;
             }
+
+                .hide__nav {
+                    display: none;
+                }
 
         }
     }
