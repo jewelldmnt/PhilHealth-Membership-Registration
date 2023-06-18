@@ -247,7 +247,7 @@ SameAs.onclick = function(){
 counter = 1;
 function add_more_field(){
     counter += 1;
-    html ='<normal>Dependent '+counter+'</normal>\
+    html ='<h3 class="form__label">Dependent '+counter+'</h3>\
             <div class="input__text">\
             <div class="input__div">\
                 <input type="text" required require id="depFullName'+counter+'" placeholder="xxx" maxlength="50">\

@@ -209,6 +209,12 @@
   .main__form {
     display: none;
     padding: 40px;
+
+    .form__label{
+      font-size: fonts.$normal-font-size;
+      font-weight: fonts.$font-semi-bold;
+      color: hsl(0, 0%, 58%);
+    }
   }
 
   normal {
