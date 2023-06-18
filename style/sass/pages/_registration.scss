@@ -274,6 +274,16 @@
       }
     }
 
+    .input__div1 {
+      width: 17%;
+      position: relative;
+
+      span {
+        color: #aaa;
+      }
+    }
+    
+    
     input[type="text"],
     input[type="date"],
     select {
@@ -333,6 +343,15 @@
       pointer-events: none;
     }
 
+    .input__div1 span {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 14px;
+      transition: all 0.5s;
+      pointer-events: none;
+    }
+    
     .birthdate ~ .birthplace {
       position: relative;
       flex-grow: 1;
