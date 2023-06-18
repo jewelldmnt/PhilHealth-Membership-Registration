@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+ 
+    <!-- ============ FONT AWESOME ============ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
     <!-- ============ BOX ICONS ============ -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -53,9 +56,20 @@
                         </a>
                         <div class="sub__menu__wrap" id="sub-menu-wrap">
                             <div class="sub__menu">
-                                <a href="profile.html" class="sub__menu__opt">Profile</a>
+                                <a href="profile.html" class="sub__menu__opt">
+                                    <i class='bx bxs-user sub__menu-icon'></i>
+                                    Profile
+                                </a>
                                 <hr>
-                                <a href="index.html" class="sub__menu__opt" onclick="toggleLogin()">Logout</a>
+                                <a href="#" class="sub__menu__opt">
+                                    <i class='bx bxs-file sub__menu-icon'></i>
+                                    Personal Details
+                                </a>
+                                <hr>
+                                <a href="index.html" class="sub__menu__opt">
+                                    <i class="fa-solid fa-right-from-bracket sub__menu-icon"></i>
+                                    Logout
+                                </a>
                             </div>
                         </div>
                     </li>   
