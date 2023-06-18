@@ -76,6 +76,24 @@ button {
     }
 }
 
+.dep__head{
+    display:flex;
+    justify-content: flex-end;
+    button{
+        background-color: colors.$white;
+        color: red;
+        cursor: pointer;
+        padding: 0.25 0.5;
+        border-radius: 0.2rem;
+    }
+    button:hover{
+        background-color: colors.$yellow;
+        color: black;
+
+    }
+}
+
+
 .button_space{
     display:flex;
     gap:20px;

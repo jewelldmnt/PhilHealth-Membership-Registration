@@ -243,18 +243,22 @@ SameAs.onclick = function(){
     
 };
 
-/*=============== ADDING ANOTHER DEPENDENT ===============*/
+/*=============== ADDING/REMOVING DEPENDENT ===============*/
 counter = 1;
 function add_more_field(){
     counter += 1;
-    html ='<h3 class="form__label">Dependent '+counter+'</h3>\
-            <div class="input__text">\
+    html =
+        '<h3 class="form__label" id="label'+counter+'">Dependent '+counter+'</h3>\
+        <div class="dep__head">\
+        <button class="trash__button "id="'+counter+'" onclick="remove_field(this)"><i class=\'bx bx-trash\'></i></button>\
+        </div>\
+        <div class="input__text" id="rowA'+counter+'">\
             <div class="input__div">\
                 <input type="text" required require id="depFullName'+counter+'" placeholder="xxx" maxlength="50">\
                 <span>Dependent\'s Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>\
             </div>\
         </div>\
-        <div class="input__text">\
+        <div class="input__text" id="rowB'+counter+'">\
             <div class="input__div birthdate">\
                 <input type="date" required require id="depBirthDate'+counter+'">\
                 <span>Birth Date <strong style="color: red;">*</strong></span>\
@@ -269,7 +273,7 @@ function add_more_field(){
                 </select>\
             </div>\
         </div>\
-        <div class="input__text">\
+        <div class="input__text" id="rowC'+counter+'">\
             <div class="input__div">\
                 <select required require id="withDisability'+counter+'">\
                     <option value="" disabled selected hidden>With Disability<strong\
@@ -291,3 +295,18 @@ function add_more_field(){
         var form = document.getElementById('depform');
         form.innerHTML += html;
         }
+
+function remove_field(button){
+    let number = button.id;
+    let rowA = document.getElementById('rowA'+number);
+    let rowB = document.getElementById('rowB'+number);
+    let rowC = document.getElementById('rowC'+number);
+    let h3 = document.getElementById('label'+number);
+
+    rowA.remove();
+    rowB.remove();
+    rowC.remove();
+    h3.remove();
+    button.remove();
+    counter -= 1;
+}
