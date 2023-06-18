@@ -271,12 +271,70 @@
 
                     <!-- ADDRESS AND CONTACT DETAILS -->
                     <div class="main__form">
+                        <h2>Permanent Address<strong style="color: red;">*</strong></h2>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="Address1" placeholder="xxx" maxlength="100">
+                                <span> Unit/Blk/Lot/City etc.</span>
+                            </div>
+
+                            <div class="input__div1">
+                                <input type="text" required require id="Address2" placeholder="xxxx" maxlength="4">
+                                <span> Zip Code </span>
+                            </div>
+                        </div>
+
+                        <h2>Mailing Address&nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" id="SameAs" />
+                            <label for="SameAs" class="check">Same as Above</label>
+                        </h2>
+
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="MailAddress1" placeholder="xxx" maxlength="100">
+                                <span> Unit/Blk/Lot/City etc.</span>
+                            </div>
+                            <div class="input__div1">
+                                <input type="text" required require id="MailAddress2" placeholder="xxxx" maxlength="4">
+                                <span> Zip Code </span>
+                            </div>
+                        </div>
+
+                        <h2>Contact Details</h2>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="MothersMaidenName" placeholder="xxxx-xxxx" maxlength="12">
+                                <span>Home Phone Number(Landline) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                             <div class="input__div">
+                                <input type="text" required require id="Mobile" placeholder="xxx-xxxx-xxxx" maxlength="15" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                                <span>Mobile Number (Required) <strong style="color: red;">*</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" required require id="Business" placeholder="xxx" maxlength="15" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                                <span>Business (Direct Line) <strong style="color: red;">*</strong></span>
+                            </div>
+                       </div>
+
+                       <div class="input__text">
+                        <div class="input__div">
+                            <input type="text" required optional id="Email" placeholder="e.g@mail.com" maxlength="30">
+                            <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
+                        </div>
+                      </div>
+                   
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
                             <button class="next_button">Next</button>
                         </div>
-                    </div>
-                    <!-- END OF ADDRESS AND CONTACT DETAILS -->
+                    </div> 
+ 
 
 
                     <!-- DECLARATION OF DEPENDENTS -->
