@@ -1,19 +1,19 @@
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll('section[id]')
 
-const scrollActive = () =>{
+const scrollActive = () => {
     const scrollY = window.pageYOffset
-    sections.forEach(current =>{
+    sections.forEach(current => {
         const sectionHeight = current.offsetHeight,
-                sectionTop = current.offsetTop - 58,
-                sectionId = current.getAttribute('id'),
-                sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+            sectionTop = current.offsetTop - 58,
+            sectionId = current.getAttribute('id'),
+            sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }                                                    
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            sectionsClass.classList.add('active__link')
+        } else {
+            sectionsClass.classList.remove('active__link')
+        }
     })
 }
 window.addEventListener('scroll', scrollActive)
@@ -115,42 +115,42 @@ function contentchange() {
 function validateform() {
     var validate = true;
     var validate_inputs = document.querySelectorAll(".main__form.active input");
-    
+
     validate_inputs.forEach(function (validate_input) {
-      validate_input.classList.remove('warning');
-      
-      if (validate_input.hasAttribute('require') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
-        if (validate_input.value.length == 0 || !validate_input.checkValidity()) {
-          validate = false;
-          validate_input.classList.add('warning');
-        }
-      }
+        validate_input.classList.remove('warning');
 
-      if (validate_input.hasAttribute('optional') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)){
-        if (validate_input.value.length > 0 && !validate_input.value.match(validate_input.getAttribute('pattern'))) {
-            validate = false;
-            validate_input.classList.add('warning');
-          }
+        if (validate_input.hasAttribute('require') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
+            if (validate_input.value.length == 0 || !validate_input.checkValidity()) {
+                validate = false;
+                validate_input.classList.add('warning');
+            }
+        }
+
+        if (validate_input.hasAttribute('optional') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
+            if (validate_input.value.length > 0 && !validate_input.value.match(validate_input.getAttribute('pattern'))) {
+                validate = false;
+                validate_input.classList.add('warning');
+            }
         }
 
     });
-    
+
     var validate_selects = document.querySelectorAll(".main__form.active select");
-    
+
     validate_selects.forEach(function (validate_select) {
-      validate_select.classList.remove('warning');
-      
-      if (validate_select.hasAttribute('require') && (validate_select.offsetWidth !== 0 || validate_select.offsetHeight !== 0)) {
-        if (validate_select.value == "") {
-          validate = false;
-          validate_select.classList.add('warning');
+        validate_select.classList.remove('warning');
+
+        if (validate_select.hasAttribute('require') && (validate_select.offsetWidth !== 0 || validate_select.offsetHeight !== 0)) {
+            if (validate_select.value == "") {
+                validate = false;
+                validate_select.classList.add('warning');
+            }
         }
-      }
     });
-    
+
     return validate;
-  }
-  
+}
+
 
 /*=============== FOR PASSWORD TOGGLE ===============*/
 let eyeicon = document.getElementById("eyeicon");
@@ -158,23 +158,23 @@ let newpass1 = document.getElementById("myPassword");
 let newpass2 = document.getElementById("conpass");
 let coneyeicon = document.getElementById("coneyeicon");
 
-if(eyeicon != null)
-    eyeicon.onclick = function(){
-        if(newpass1.type == "password"){
+if (eyeicon != null)
+    eyeicon.onclick = function () {
+        if (newpass1.type == "password") {
             newpass1.type = "text";
             eyeicon.src = "/assets/login/eye-open.png"
-        }else{
+        } else {
             newpass1.type = "password";
             eyeicon.src = "/assets/login/eye-close.png"
         }
     }
-    
-if(coneyeicon != null)
-    coneyeicon.onclick = function(){
-        if(newpass2.type == "password"){
+
+if (coneyeicon != null)
+    coneyeicon.onclick = function () {
+        if (newpass2.type == "password") {
             newpass2.type = "text";
             coneyeicon.src = "/assets/create/eye-open.png"
-        }else{
+        } else {
             newpass2.type = "password";
             coneyeicon.src = "/assets/create/eye-close.png"
         }
@@ -182,21 +182,46 @@ if(coneyeicon != null)
 
 
 /*=============== GETTING LOGIN INFORMATION ===============*/
+function logIn(isLogIn) {
+    if (isLogIn) {
+        localStorage.setItem("hideNavState", "true");
+    }
+    else {
+        localStorage.setItem("hideNavState", "false");
+    }
+}
 
+window.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("hideNavState")) {
+        document.querySelector(".profile__nav").classList.add("hide__nav");
+        document.querySelector(".logIn__nav").classList.remove("hide__nav");
+        localStorage.removeItem("hideNavState");
+
+        document.querySelector(".registration__nav a").href = "registration.html#qualifications";
+    }
+});
 
 
 /*=============== GETTING NEW LOGIN INFORMATION ===============*/
-
 let createsub = document.getElementById("createsub")
 
-if(createsub != null)
-    createsub.onclick = function(){
-        if (newpass1.value != newpass2.value){
+if (createsub != null)
+    createsub.onclick = function () {
+        if (newpass1.value != newpass2.value) {
             window.alert("Passwords do not match!! Please recheck your information");
             return false;
         }
-        else{
+        else {
             action = loginAcc.html;
         }
     }
+
+
+/*=============== PROFILE NAVIGATION OPTIONS ===============*/
+let subMenu = document.getElementById("sub-menu-wrap");
+
+function toggleMenu() {
+    subMenu.classList.toggle("open__menu");
+}
+
 

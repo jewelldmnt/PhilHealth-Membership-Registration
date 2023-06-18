@@ -123,22 +123,75 @@ svg {
   display: flex;
   flex-direction: row;
   column-gap: 3rem;
+  align-items: center;
   /*=============== ACTIVE NAV ===============*/
+}
+.header .nav .nav__list .sub__menu__wrap {
+  position: absolute;
+  top: 80%;
+  right: 8%;
+  width: 170px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+.header .nav .nav__list .sub__menu__wrap .sub__menu {
+  background: hsl(113, 48%, 34%);
+  opacity: 80%;
+  padding: 10px;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+.header .nav .nav__list .sub__menu__wrap .sub__menu hr {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+.header .nav .nav__list .sub__menu__wrap .sub__menu .sub__menu__opt {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-decoration: none;
+  margin: 12px 0;
+  color: hsl(0, 100%, 99%);
+  font-size: 0.938rem;
+  font-weight: 600;
+  transition: color, 0.4s;
+}
+.header .nav .nav__list .sub__menu__wrap .sub__menu .sub__menu__opt:hover {
+  color: hsl(52, 100%, 61%);
+}
+.header .nav .nav__list .sub__menu__wrap .sub__menu .sub__menu-icon {
+  margin-right: 0.5rem;
+}
+.header .nav .nav__list .sub__menu__wrap.open__menu {
+  max-height: 400px;
 }
 .header .nav .nav__list .nav__link {
   color: hsl(0, 100%, 99%);
   font-weight: 600;
   transition: color, 0.4s;
 }
+.header .nav .nav__list .nav__link #profile__icon {
+  font-size: 2rem;
+}
 .header .nav .nav__list .nav__link:hover {
   color: hsl(52, 100%, 61%);
 }
-.header .nav .nav__list .active-link {
+.header .nav .nav__list .active__link {
   padding: 0.5rem 1rem 0.5rem 1rem;
   background-color: hsl(52, 100%, 61%);
   border-radius: 0.5rem;
   color: hsl(113, 48%, 34%);
   font-weight: bold;
+}
+.header .nav .nav__list .active__link-profile {
+  color: hsl(52, 100%, 61%);
+}
+.header .nav .nav__list .hide__nav {
+  display: none;
 }
 
 /*=============== BUTTON ===============*/
@@ -668,26 +721,21 @@ button.inactive {
   padding: 0px 10px;
   color: #333;
 }
-.right__side .input__text input[type=text]::placeholder,
-.right__side .input__text input[type=date]::placeholder,
-.right__side .input__text select::placeholder {
+.right__side .input__text input[type=text]::placeholder {
   color: hsl(0, 100%, 99%);
 }
-.right__side .input__text input[type=text]:focus,
-.right__side .input__text input[type=date]:focus,
-.right__side .input__text select:focus {
-  outline: 0;
-  box-shadow: 0 0 0 1px #399;
-}
-.right__side .input__text input[type=text]:valid ~ span, .right__side .input__text input[type=text]:not(:placeholder-shown) ~ span,
-.right__side .input__text input[type=date]:valid ~ span,
-.right__side .input__text input[type=date]:not(:placeholder-shown) ~ span,
-.right__side .input__text select:valid ~ span,
-.right__side .input__text select:not(:placeholder-shown) ~ span {
+.right__side .input__text input:focus ~ span,
+.right__side .input__text input:valid ~ span,
+.right__side .input__text input[type=text]:not(:placeholder-shown) ~ span {
   top: -15px;
   left: 6px;
   font-size: 10px;
   font-weight: 600;
+}
+.right__side .input__text span {
+  top: -15px;
+  left: 6px;
+  font-size: 10px;
 }
 .right__side .input__text input[type=date]:required:invalid::-webkit-datetime-edit {
   color: transparent;
@@ -743,6 +791,74 @@ button.inactive {
 }
 /*=============== PROFILE ACCOUNT ===============*/
 /*=============== PROFILE ===============*/
+.profile__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.profile__container .left__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.profile__container .left__column .profile__icon-profile {
+  width: 400px;
+  height: 400px;
+}
+.profile__container .left__column .change__icon {
+  font-size: 0.938rem;
+  color: hsl(113, 40%, 46%);
+  cursor: pointer;
+  justify-self: center;
+}
+.profile__container .left__column .change__icon:hover {
+  font-weight: 600;
+  color: hsl(113, 48%, 34%);
+}
+.profile__container .right__column {
+  display: grid;
+  row-gap: 3rem;
+}
+.profile__container .right__column .profile__input {
+  background: none;
+  border: solid 1px hsl(189, 28%, 5%);
+  border-radius: 5px;
+  color: hsl(189, 28%, 5%);
+  font-size: 0.938rem;
+  font-weight: 700;
+  padding: 1rem;
+  width: 350px;
+}
+.profile__container .right__column .profile__input-label {
+  position: absolute;
+  left: 47.5%;
+  color: hsl(113, 40%, 46%);
+  pointer-events: none;
+  font-weight: 900;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.profile__container .right__column .profile__input:focus ~ label,
+.profile__container .right__column .profile__input:valid ~ label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: hsl(0, 100%, 99%);
+  padding: 0 0.4em;
+  color: hsl(113, 40%, 46%);
+}
+.profile__container .right__column .changed__option {
+  font-size: 0.938rem;
+  color: hsl(113, 40%, 46%);
+  padding-left: 1rem;
+  cursor: pointer;
+}
+.profile__container .right__column .changed__option:hover {
+  font-weight: 600;
+  color: hsl(113, 48%, 34%);
+}
+
 /*=============== FOOTER ===============*/
 /*=============== FOOTER ===============*/
 .footer {
