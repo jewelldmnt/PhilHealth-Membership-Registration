@@ -231,40 +231,40 @@ let Address2 = document.getElementById("Address2");
 let MailAddress1 = document.getElementById("MailAddress1");
 let MailAddress2 = document.getElementById("MailAddress2");
 
-SameAs.onclick = function(){   
-    if (SameAs.checked){
-        document.getElementById('MailAddress1').value=document.getElementById('Address1').value;
-        document.getElementById('MailAddress2').value=document.getElementById('Address2').value;
+SameAs.onclick = function () {
+    if (SameAs.checked) {
+        document.getElementById('MailAddress1').value = document.getElementById('Address1').value;
+        document.getElementById('MailAddress2').value = document.getElementById('Address2').value;
     }
-    else{
-        document.getElementById('MailAddress1').value='';
-        document.getElementById('MailAddress2').value='';
+    else {
+        document.getElementById('MailAddress1').value = '';
+        document.getElementById('MailAddress2').value = '';
     }
-    
+
 };
 
 /*=============== ADDING/REMOVING DEPENDENT ===============*/
 counter = 1;
-function add_more_field(){
+function add_more_field() {
     counter += 1;
     html =
-        '<h3 class="form__label" id="label'+counter+'">Dependent '+counter+'</h3>\
+        '<h3 class="form__label" id="label' + counter + '">Dependent ' + counter + '</h3>\
         <div class="dep__head">\
-        <button class="trash__button "id="'+counter+'" onclick="remove_field(this)"><i class=\'bx bx-trash\'></i></button>\
+        <button class="trash__button "id="'+ counter + '" onclick="remove_field(this)"><i class=\'bx bx-trash\'></i></button>\
         </div>\
-        <div class="input__text" id="rowA'+counter+'">\
+        <div class="input__text" id="rowA'+ counter + '">\
             <div class="input__div">\
-                <input type="text" required require id="depFullName'+counter+'" placeholder="xxx" maxlength="50">\
+                <input type="text" required require id="depFullName'+ counter + '" placeholder="xxx" maxlength="50">\
                 <span>Dependent\'s Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>\
             </div>\
         </div>\
-        <div class="input__text" id="rowB'+counter+'">\
+        <div class="input__text" id="rowB'+ counter + '">\
             <div class="input__div birthdate">\
-                <input type="date" required require id="depBirthDate'+counter+'">\
+                <input type="date" required require id="depBirthDate'+ counter + '">\
                 <span>Birth Date <strong style="color: red;">*</strong></span>\
             </div>\
             <div class="input__div">\
-                <select required require id="depCitizenship'+counter+'">\
+                <select required require id="depCitizenship'+ counter + '">\
                     <option value="" disabled selected hidden>Citizenship <strong\
                             style="color: red;">*</strong></option>\
                     <option>Filipino</option>\
@@ -273,9 +273,9 @@ function add_more_field(){
                 </select>\
             </div>\
         </div>\
-        <div class="input__text" id="rowC'+counter+'">\
+        <div class="input__text" id="rowC'+ counter + '">\
             <div class="input__div">\
-                <select required require id="withDisability'+counter+'">\
+                <select required require id="withDisability'+ counter + '">\
                     <option value="" disabled selected hidden>With Disability<strong\
                             style="color: red;">*</strong></option>\
                     <option>Yes</option>\
@@ -283,7 +283,7 @@ function add_more_field(){
                 </select>\
             </div>\
             <div class="input__div">\
-                <select required require id="Relationship'+counter+'">\
+                <select required require id="Relationship'+ counter + '">\
                     <option value="" disabled selected hidden>Relationship<strong\
                             style="color: red;">*</strong></option>\
                     <option>Spouse</option>\
@@ -292,16 +292,16 @@ function add_more_field(){
                 </select>\
             </div>\
         </div>'
-        var form = document.getElementById('depform');
-        form.innerHTML += html;
-        }
+    var form = document.getElementById('depform');
+    form.innerHTML += html;
+}
 
-function remove_field(button){
+function remove_field(button) {
     let number = button.id;
-    let rowA = document.getElementById('rowA'+number);
-    let rowB = document.getElementById('rowB'+number);
-    let rowC = document.getElementById('rowC'+number);
-    let h3 = document.getElementById('label'+number);
+    let rowA = document.getElementById('rowA' + number);
+    let rowB = document.getElementById('rowB' + number);
+    let rowC = document.getElementById('rowC' + number);
+    let h3 = document.getElementById('label' + number);
 
     rowA.remove();
     rowB.remove();
@@ -309,4 +309,106 @@ function remove_field(button){
     h3.remove();
     button.remove();
     counter -= 1;
+}
+
+/*================ TO DISPLAY MEMBER TYPE DEPENDING ON CONTRIBUTOR TYPE ================*/
+
+document.getElementById('direct').addEventListener('change', updateMemberTypeOptions);
+document.getElementById('indirect').addEventListener('change', updateMemberTypeOptions);
+
+function updateMemberTypeOptions() {
+    var directRadio = document.getElementById('direct');
+    var indirectRadio = document.getElementById('indirect');
+    var memberTypeSelect = document.getElementById('membertype');
+
+    memberTypeSelect.innerHTML = '';
+
+    var defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    defaultOption.hidden = true;
+    defaultOption.innerText = 'Member Type *';
+    memberTypeSelect.appendChild(defaultOption);
+
+    if (directRadio.checked) {
+        addOption(memberTypeSelect, 'Employed Private');
+        addOption(memberTypeSelect, 'Employed Government');
+        addOption(memberTypeSelect, 'Professional Practitioner');
+        addOption(memberTypeSelect, 'Self-Earning Individual (Individual)');
+        addOption(memberTypeSelect, 'Self-Earning Individual (Sole Proprietor)');
+        addOption(memberTypeSelect, 'Self-Earning Individual (Group Enrollment Scheme)');
+        addOption(memberTypeSelect, 'Kasambahay');
+        addOption(memberTypeSelect, 'Family Driver');
+        addOption(memberTypeSelect, 'Migrant Worker (Land-Based)');
+        addOption(memberTypeSelect, 'Migrant Worker (Sea-Based)');
+        addOption(memberTypeSelect, 'Lifetime Member');
+        addOption(memberTypeSelect, 'Filipinos with Dual Citizenship/Living Abroad');
+        addOption(memberTypeSelect, 'Foreign National');
+    } else if (indirectRadio.checked) {
+        addOption(memberTypeSelect, 'Listahanan');
+        addOption(memberTypeSelect, '4Ps/MCCT');
+        addOption(memberTypeSelect, 'Senior Citizen');
+        addOption(memberTypeSelect, 'KIA/KIPO');
+        addOption(memberTypeSelect, 'PAMANA');
+        addOption(memberTypeSelect, 'Bangsamoro/Normalization');
+        addOption(memberTypeSelect, 'LGU-sponsored');
+        addOption(memberTypeSelect, 'NGA-sponsored');
+        addOption(memberTypeSelect, 'Private-sponsored');
+        addOption(memberTypeSelect, 'Person with Disability');
+    }
+}
+
+function addOption(selectElement, optionText) {
+    var option = document.createElement('option');
+    option.innerText = optionText;
+    selectElement.appendChild(option);
+}
+
+/*=== TO DISABLE TEXT INPUT IF MEMBER TYPE IS EMPLOYED, LIFETIME MEMBERS, OR SEA-BASED MIGRANT WORKERS ===*/
+
+document.getElementById('membertype').addEventListener('change', updateTextInputStatus);
+document.getElementById('indirect').addEventListener('change', updateTextInputStatus);
+document.getElementById('direct').addEventListener('change', updateTextInputStatus);
+
+function updateTextInputStatus() {
+    var memberTypeSelect = document.getElementById('membertype');
+    var professionInput = document.getElementById('profession');
+    var monthlyIncomeInput = document.getElementById('monthly_income');
+    var incomeProofInput = document.getElementById('income_proof');
+    var selectedOption = memberTypeSelect.value;
+    var directRadio = document.getElementById('direct');
+    var indirectRadio = document.getElementById('indirect');
+
+
+    if (selectedOption === 'Employed Private' ||
+        selectedOption === 'Employed Government' ||
+        selectedOption === 'Lifetime Member' ||
+        selectedOption === 'Migrant Worker (Sea-Based)') {
+        professionInput.disabled = true;
+        professionInput.value = 'Not Applicable';
+
+        monthlyIncomeInput.disabled = true;
+        monthlyIncomeInput.value = "";
+
+        incomeProofInput.disabled = true;
+        incomeProofInput.value = 'Not Applicable';
+    } else if (directRadio.checked || indirectRadio.checked) {
+        professionInput.disabled = false;
+        professionInput.value = '';
+
+        monthlyIncomeInput.disabled = false;
+        monthlyIncomeInput.value = '';
+
+        incomeProofInput.disabled = false;
+        incomeProofInput.value = '';
+    } else {
+        professionInput.disabled = false;
+        professionInput.value = '';
+
+        monthlyIncomeInput.disabled = false;
+
+        incomeProofInput.disabled = false;
+        incomeProofInput.value = '';
+    }
 }

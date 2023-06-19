@@ -699,6 +699,61 @@ button.inactive {
   font-weight: 600;
   color: hsl(0, 0%, 58%);
 }
+.right__side .main__form .radio__container {
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+.right__side .main__form .radio__container form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 0 30px 0;
+}
+.right__side .main__form .radio__container label {
+  display: flex;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.375em;
+  margin-right: 2em;
+}
+.right__side .main__form .radio__container label input {
+  position: absolute;
+  left: -9999px;
+}
+.right__side .main__form .radio__container label input:checked + span {
+  background-color: hsl(52, 100%, 61%);
+  color: hsl(0, 0%, 43%);
+}
+.right__side .main__form .radio__container label input:checked + span:before {
+  box-shadow: inset 0 0 0 0.4375em hsl(113, 47%, 20%);
+}
+.right__side .main__form .radio__container label span {
+  display: flex;
+  align-items: center;
+  padding: 0.375em 0.75em 0.375em 0.375em;
+  border-radius: 99em;
+  transition: 0.25s ease;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 400;
+}
+.right__side .main__form .radio__container label span:hover {
+  background-color: hsl(0, 0%, 83%);
+}
+.right__side .main__form .radio__container label span:before {
+  display: flex;
+  flex-shrink: 0;
+  content: "";
+  background-color: #fff;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  margin-right: 0.375em;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 0 0.125em hsl(113, 40%, 46%);
+}
 .right__side normal {
   color: hsl(113, 47%, 20%);
 }
@@ -764,6 +819,7 @@ button.inactive {
 }
 .right__side .input__text input[type=text],
 .right__side .input__text input[type=date],
+.right__side .input__text input[type=number],
 .right__side .input__text select {
   width: 100%;
   height: 40px;
@@ -776,7 +832,8 @@ button.inactive {
   padding: 0px 10px;
   color: #333;
 }
-.right__side .input__text input[type=text]::placeholder {
+.right__side .input__text input[type=text]::placeholder,
+.right__side .input__text input[type=number]::placeholder {
   color: hsl(0, 100%, 99%);
 }
 .right__side .input__text input:focus ~ span,
