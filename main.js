@@ -258,7 +258,7 @@ function add_more_field() {
     counter += 1;
     var newDependent = document.createElement('div');
     newDependent.innerHTML = `
-        <h3 class="form__label" id="label${counter}">
+        <h3 class="form__label remove__dependent__div" id="label${counter}">
             Dependent ${counter} 
             <i class='bx bxs-trash remove__dependent' id="${counter}" onclick="remove_field(this)"></i>
         </h3>
