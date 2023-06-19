@@ -213,11 +213,14 @@
     padding: 40px;
 
     .form__label {
-      display: flex;
-      justify-content: space-between;
       font-size: fonts.$normal-font-size;
       font-weight: fonts.$font-semi-bold;
       color: hsl(0, 0%, 58%);
+    }
+
+    .remove__dependent__div{
+      display: flex;
+      justify-content: space-between;
     }
 
     .radio__container {

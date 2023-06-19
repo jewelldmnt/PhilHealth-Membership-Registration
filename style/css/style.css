@@ -687,11 +687,13 @@ button.inactive {
   padding: 40px;
 }
 .right__side .main__form .form__label {
-  display: flex;
-  justify-content: space-between;
   font-size: 0.938rem;
   font-weight: 600;
   color: hsl(0, 0%, 58%);
+}
+.right__side .main__form .remove__dependent__div {
+  display: flex;
+  justify-content: space-between;
 }
 .right__side .main__form .radio__container {
   margin-top: 15px;
