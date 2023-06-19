@@ -151,6 +151,13 @@ function validateform() {
     return validate;
 }
 
+var today = new Date().toISOString().split('T')[0];
+var birthDateInputs = document.getElementsByClassName("birth__date");
+for (var i = 0; i < birthDateInputs.length; i++) {
+    birthDateInputs[i].setAttribute("max", today);
+}
+
+
 
 /*=============== FOR PASSWORD TOGGLE ===============*/
 let eyeicon = document.getElementById("eyeicon");
@@ -224,6 +231,7 @@ function toggleMenu() {
     subMenu.classList.toggle("open__menu");
 }
 
+
 /*=============== COPYING ADDRESS BY CHECKBOX ===============*/
 let SameAs = document.getElementById("SameAs");
 let Address1 = document.getElementById("Address1");
@@ -242,6 +250,7 @@ SameAs.onclick = function () {
     }
 
 };
+
 
 /*=============== ADDING/REMOVING DEPENDENT ===============*/
 counter = 1;
@@ -311,8 +320,8 @@ function remove_field(button) {
     counter -= 1;
 }
 
-/*================ TO DISPLAY MEMBER TYPE DEPENDING ON CONTRIBUTOR TYPE ================*/
 
+/*================ TO DISPLAY MEMBER TYPE DEPENDING ON CONTRIBUTOR TYPE ================*/
 document.getElementById('direct').addEventListener('change', updateMemberTypeOptions);
 document.getElementById('indirect').addEventListener('change', updateMemberTypeOptions);
 
@@ -365,8 +374,8 @@ function addOption(selectElement, optionText) {
     selectElement.appendChild(option);
 }
 
-/*=== TO DISABLE TEXT INPUT IF MEMBER TYPE IS EMPLOYED, LIFETIME MEMBERS, OR SEA-BASED MIGRANT WORKERS ===*/
 
+/*=== TO DISABLE TEXT INPUT IF MEMBER TYPE IS EMPLOYED, LIFETIME MEMBERS, OR SEA-BASED MIGRANT WORKERS ===*/
 document.getElementById('membertype').addEventListener('change', updateTextInputStatus);
 document.getElementById('indirect').addEventListener('change', updateTextInputStatus);
 document.getElementById('direct').addEventListener('change', updateTextInputStatus);
