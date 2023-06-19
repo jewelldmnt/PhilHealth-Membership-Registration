@@ -269,6 +269,22 @@ button {
   transform: scale(1.05);
 }
 
+.dep__head {
+  display: flex;
+  justify-content: flex-end;
+}
+.dep__head button {
+  background-color: hsl(0, 100%, 99%);
+  color: red;
+  cursor: pointer;
+  padding: 0.25 0.5;
+  border-radius: 0.2rem;
+}
+.dep__head button:hover {
+  background-color: hsl(52, 100%, 61%);
+  color: black;
+}
+
 .button_space {
   display: flex;
   gap: 20px;
