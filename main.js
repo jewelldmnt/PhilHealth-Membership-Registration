@@ -256,54 +256,53 @@ SameAs.onclick = function () {
 counter = 1;
 function add_more_field() {
     counter += 1;
-    html =
-        '<h3 class="form__label" id="label' + counter + '">Dependent ' + counter + '</h3>\
-        <div class="dep__head">\
-        <button class="trash__button "id="'+ counter + '" onclick="remove_field(this)"><i class=\'bx bx-trash\'></i></button>\
-        </div>\
-        <div class="input__text" id="rowA'+ counter + '">\
-            <div class="input__div">\
-                <input type="text" required require id="depFullName'+ counter + '" placeholder="xxx" maxlength="50">\
-                <span>Dependent\'s Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>\
-            </div>\
-        </div>\
-        <div class="input__text" id="rowB'+ counter + '">\
-            <div class="input__div birthdate">\
-                <input type="date" required require id="depBirthDate'+ counter + '">\
-                <span>Birth Date <strong style="color: red;">*</strong></span>\
-            </div>\
-            <div class="input__div">\
-                <select required require id="depCitizenship'+ counter + '">\
-                    <option value="" disabled selected hidden>Citizenship <strong\
-                            style="color: red;">*</strong></option>\
-                    <option>Filipino</option>\
-                    <option>Dual Citizen</option>\
-                    <option>Foreign National</option>\
-                </select>\
-            </div>\
-        </div>\
-        <div class="input__text" id="rowC'+ counter + '">\
-            <div class="input__div">\
-                <select required require id="withDisability'+ counter + '">\
-                    <option value="" disabled selected hidden>With Disability<strong\
-                            style="color: red;">*</strong></option>\
-                    <option>Yes</option>\
-                    <option>No</option>\
-                </select>\
-            </div>\
-            <div class="input__div">\
-                <select required require id="Relationship'+ counter + '">\
-                    <option value="" disabled selected hidden>Relationship<strong\
-                            style="color: red;">*</strong></option>\
-                    <option>Spouse</option>\
-                    <option>Children</option>\
-                    <option>Parents</option>\
-                </select>\
-            </div>\
-        </div>'
+    var newDependent = document.createElement('div');
+    newDependent.innerHTML = `
+        <h3 class="form__label" id="label${counter}">
+            Dependent ${counter} 
+            <i class='bx bxs-trash remove__dependent' id="${counter}" onclick="remove_field(this)"></i>
+        </h3>
+        <div class="input__text" id="rowA${counter}">
+            <div class="input__div">
+                <input type="text" required require id="depFullName${counter}" placeholder="xxx" maxlength="50" value="">
+                <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+            </div>
+        </div>
+        <div class="input__text" id="rowB${counter}">
+            <div class="input__div birthdate">
+                <input type="date" required require id="depBirthDate${counter}" value="">
+                <span>Birth Date <strong style="color: red;">*</strong></span>
+            </div>
+            <div class="input__div">
+                <select required require id="depCitizenship${counter}">
+                    <option value="" disabled selected hidden>Citizenship <strong style="color: red;">*</strong></option>
+                    <option>Filipino</option>
+                    <option>Dual Citizen</option>
+                    <option>Foreign National</option>
+                </select>
+            </div>
+        </div>
+        <div class="input__text" id="rowC${counter}">
+            <div class="input__div">
+                <select required require id="withDisability${counter}">
+                    <option value="" disabled selected hidden>With Disability<strong style="color: red;">*</strong></option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div class="input__div">
+                <select required require id="Relationship${counter}">
+                    <option value="" disabled selected hidden>Relationship<strong style="color: red;">*</strong></option>
+                    <option>Spouse</option>
+                    <option>Children</option>
+                    <option>Parents</option>
+                </select>
+            </div>
+        </div>`;
     var form = document.getElementById('depform');
-    form.innerHTML += html;
+    form.appendChild(newDependent);
 }
+
 
 function remove_field(button) {
     let number = button.id;

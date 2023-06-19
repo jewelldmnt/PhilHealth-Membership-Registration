@@ -269,20 +269,12 @@ button {
   transform: scale(1.05);
 }
 
-.dep__head {
-  display: flex;
-  justify-content: flex-end;
+.remove__dependent {
+  color: #aaa;
+  font-size: 17px;
 }
-.dep__head button {
-  background-color: hsl(0, 100%, 99%);
+.remove__dependent:hover {
   color: red;
-  cursor: pointer;
-  padding: 0.25 0.5;
-  border-radius: 0.2rem;
-}
-.dep__head button:hover {
-  background-color: hsl(52, 100%, 61%);
-  color: black;
 }
 
 .button_space {
@@ -695,6 +687,8 @@ button.inactive {
   padding: 40px;
 }
 .right__side .main__form .form__label {
+  display: flex;
+  justify-content: space-between;
   font-size: 0.938rem;
   font-weight: 600;
   color: hsl(0, 0%, 58%);
