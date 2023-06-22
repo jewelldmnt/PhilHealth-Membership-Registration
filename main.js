@@ -233,24 +233,20 @@ function toggleMenu() {
 
 
 /*=============== COPYING ADDRESS BY CHECKBOX ===============*/
+document.getElementById('SameAs').addEventListener('change', Duplicate);
 let SameAs = document.getElementById("SameAs");
-let Address1 = document.getElementById("Address1");
-let Address2 = document.getElementById("Address2");
-let MailAddress1 = document.getElementById("MailAddress1");
-let MailAddress2 = document.getElementById("MailAddress2");
 
-SameAs.onclick = function () {
+function Duplicate() {
     if (SameAs.checked) {
-        document.getElementById('MailAddress1').value = document.getElementById('Address1').value;
-        document.getElementById('MailAddress2').value = document.getElementById('Address2').value;
+        document.getElementById('MailingAddress1').value = document.getElementById('PermanentAddress1').value;
+        document.getElementById('MailingAddress2').value = document.getElementById('PermanentAddress2').value;
     }
     else {
-        document.getElementById('MailAddress1').value = '';
-        document.getElementById('MailAddress2').value = '';
+        document.getElementById('MailingAddress1').value = '';
+        document.getElementById('MailingAddress2').value = '';
     }
 
 };
-
 
 /*=============== ADDING/REMOVING DEPENDENT ===============*/
 counter = 1;
@@ -321,13 +317,13 @@ function remove_field(button) {
 
 
 /*================ TO DISPLAY MEMBER TYPE DEPENDING ON CONTRIBUTOR TYPE ================*/
-document.getElementById('direct').addEventListener('change', updateMemberTypeOptions);
-document.getElementById('indirect').addEventListener('change', updateMemberTypeOptions);
+document.getElementById('DirectContributor').addEventListener('change', updateMemberTypeOptions);
+document.getElementById('IndirectContributor').addEventListener('change', updateMemberTypeOptions);
 
 function updateMemberTypeOptions() {
-    var directRadio = document.getElementById('direct');
-    var indirectRadio = document.getElementById('indirect');
-    var memberTypeSelect = document.getElementById('membertype');
+    var directRadio = document.getElementById('DirectContributor');
+    var indirectRadio = document.getElementById('IndirectContributor');
+    var memberTypeSelect = document.getElementById('MemberType');
 
     memberTypeSelect.innerHTML = '';
 
@@ -375,18 +371,18 @@ function addOption(selectElement, optionText) {
 
 
 /*=== TO DISABLE TEXT INPUT IF MEMBER TYPE IS EMPLOYED, LIFETIME MEMBERS, OR SEA-BASED MIGRANT WORKERS ===*/
-document.getElementById('membertype').addEventListener('change', updateTextInputStatus);
-document.getElementById('indirect').addEventListener('change', updateTextInputStatus);
-document.getElementById('direct').addEventListener('change', updateTextInputStatus);
+document.getElementById('MemberType').addEventListener('change', updateTextInputStatus);
+document.getElementById('IndirectContributor').addEventListener('change', updateTextInputStatus);
+document.getElementById('DirectContributor').addEventListener('change', updateTextInputStatus);
 
 function updateTextInputStatus() {
-    var memberTypeSelect = document.getElementById('membertype');
-    var professionInput = document.getElementById('profession');
-    var monthlyIncomeInput = document.getElementById('monthly_income');
-    var incomeProofInput = document.getElementById('income_proof');
+    var memberTypeSelect = document.getElementById('MemberType');
+    var professionInput = document.getElementById('Profession');
+    var monthlyIncomeInput = document.getElementById('MonthlyIncome');
+    var incomeProofInput = document.getElementById('IncomeProof');
     var selectedOption = memberTypeSelect.value;
-    var directRadio = document.getElementById('direct');
-    var indirectRadio = document.getElementById('indirect');
+    var directRadio = document.getElementById('DirectContributor');
+    var indirectRadio = document.getElementById('IndirectContributor');
 
 
     if (selectedOption === 'Employed Private' ||
