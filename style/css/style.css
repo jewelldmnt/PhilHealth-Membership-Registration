@@ -615,6 +615,11 @@ button.inactive {
 .left__side .steps__content .step__number {
   color: hsl(0, 100%, 99%);
 }
+.left__side .steps__content #memDetails__title {
+  color: hsl(0, 100%, 99%);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 .left__side .steps__content p {
   margin-top: 15px;
   font-size: 0.938rem;

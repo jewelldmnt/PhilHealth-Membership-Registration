@@ -125,6 +125,12 @@
       color: colors.$white;
     }
 
+    #memDetails__title{
+      color: colors.$white;
+      font-size: fonts.$h3-font-size;
+      font-weight: fonts.$font-semi-bold;
+    }
+
     p {
       margin-top: 15px;
       font-size: fonts.$normal-font-size;
