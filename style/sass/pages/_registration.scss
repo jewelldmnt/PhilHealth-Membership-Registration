@@ -125,7 +125,7 @@
       color: colors.$white;
     }
 
-    #memDetails__title{
+    #memDetails__title {
       color: colors.$white;
       font-size: fonts.$h3-font-size;
       font-weight: fonts.$font-semi-bold;
@@ -224,7 +224,7 @@
       color: hsl(0, 0%, 58%);
     }
 
-    .remove__dependent__div{
+    .remove__dependent__div {
       display: flex;
       justify-content: space-between;
     }
@@ -394,7 +394,8 @@
 
     input:focus~span,
     input:valid~span,
-    input[type="text"]:not(:placeholder-shown)~span {
+    input[type="text"]:not(:placeholder-shown)~span,
+    input[type="number"]:not(:placeholder-shown)~span {
       top: -15px;
       left: 6px;
       font-size: 10px;

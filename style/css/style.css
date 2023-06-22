@@ -839,7 +839,8 @@ button.inactive {
 }
 .right__side .input__text input:focus ~ span,
 .right__side .input__text input:valid ~ span,
-.right__side .input__text input[type=text]:not(:placeholder-shown) ~ span {
+.right__side .input__text input[type=text]:not(:placeholder-shown) ~ span,
+.right__side .input__text input[type=number]:not(:placeholder-shown) ~ span {
   top: -15px;
   left: 6px;
   font-size: 10px;

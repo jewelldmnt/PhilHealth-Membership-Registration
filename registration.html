@@ -285,31 +285,31 @@
 
                     <!-- ADDRESS AND CONTACT DETAILS -->
                     <div class="main__form">
-                        <h3 class="form__label">Permanent Address<strong style="color: red;">*</strong></h3>
+                        <h3 class="form__label">Permanent Address <strong style="color: red;">*</strong></h3>
                         <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="Address1" placeholder="xxx" maxlength="100">
+                            <div class="input__div" id ="PermanentAddress">
+                                <input type="text" required require id="PermanentAddress1" placeholder="xxx" maxlength="100">
                                 <span> Unit/Blk/Lot/City etc.</span>
                             </div>
 
                             <div class="input__div1">
-                                <input type="text" required require id="Address2" placeholder="xxxx" maxlength="4">
+                                <input type="text" required require id="PermanentAddress2" placeholder="xxxx" maxlength="4">
                                 <span> Zip Code </span>
                             </div>
                         </div>
 
                         <h3 class="form__label">Mailing Address&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" id="SameAs" />
+                            <input type="checkbox" id="SameAs" onclick="Duplicate();" />
                             <label for="SameAs" class="check">Same as Above</label>
                         </h3>
 
-                        <div class="input__text">
+                        <div class="input__text" id ="MailingAddress">
                             <div class="input__div">
-                                <input type="text" required require id="MailAddress1" placeholder="xxx" maxlength="100">
+                                <input type="text" required require id="MailingAddress1" placeholder="xxx" maxlength="100">
                                 <span> Unit/Blk/Lot/City etc.</span>
                             </div>
                             <div class="input__div1">
-                                <input type="text" required require id="MailAddress2" placeholder="xxxx" maxlength="4">
+                                <input type="text" required require id="MailingAddress2" placeholder="xxxx" maxlength="4">
                                 <span> Zip Code </span>
                             </div>
                         </div>
@@ -317,21 +317,21 @@
                         <h3 class="form__label">Contact Details</h3>
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="MothersMaidenName" placeholder="xxxx-xxxx" maxlength="12">
+                                <input type="text" required require id="Landline" placeholder="xxxx-xxxx" maxlength="12">
                                 <span>Home Landline (02-XXXX-XXXX) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
 
                         <div class="input__text">
                              <div class="input__div">
-                                <input type="text" required require id="Mobile" placeholder="xxxx-xxx-xxxx" maxlength="15" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
+                                <input type="text" required require id="MobileNum" placeholder="xxxx-xxx-xxxx" maxlength="15" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
                                 <span>Mobile Number (09XX-XXX-XXXX) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="Business" placeholder="xxx" maxlength="15">
+                                <input type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
                                 <span>Business Direct Line (Mobile no. or Tel no.) <strong style="color: red;">*</strong></span>
                             </div>
                        </div>
@@ -410,21 +410,21 @@
                     <!-- MEMBER TYPE -->
                     <div class="main__form">
                         <h3 class="form__label">Contributor Type: <strong style="color: red;">*</strong></h3>
-                        <div class="radio__container">
+                        <div class="radio__container" id="Contributor">
                             <form>
                                 <label>
-                                    <input type="radio" id="direct" onclick="updateMemberTypeOptions();" name="cont_type">
+                                    <input type="radio" id="DirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
                                     <span>Direct Contributor</span>
                                 </label>
                                 <label>
-                                    <input type="radio" id="indirect" onclick="updateMemberTypeOptions();" name="cont_type">
+                                    <input type="radio" id="IndirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
                                     <span>Indirect Contributor</span>
                                 </label>
                             </form>
                         </div>
                         <div class="input__text">
                             <div class="input__div">
-                                <select required require id="membertype">
+                                <select required require id="MemberType">
                                     <option value="" disabled selected hidden>Member Type <strong style="color: red;">*</strong>
                                     </option>
                                 </select>
@@ -432,29 +432,29 @@
                         </div>
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="profession" placeholder="xxx" maxlength="30">
+                                <input type="text" required require id="Profession" placeholder="xxx" maxlength="30">
                                 <span>Profession (Except Employed, Lifetime Members, and Sea-Based Migrant Worker) <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="number" required require id="monthly_income" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
+                                <input type="number" required require id="MonthlyIncome" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
                                 <span>Monthly Income <strong style="color: red;">*</strong></span>
                             </div>
                             <div class="input__div">
-                                <input type="text" required require id="income_proof" placeholder="xxx" maxlength="30">
+                                <input type="text" required require id="IncomeProof" placeholder="xxx" maxlength="30">
                                 <span>Proof of Income <strong style="color: red;">*</strong></span>
                             </div>
                         </div>
                         <h3 class="form__label">For PhilHealth Use only: <strong style="color: red;">*</strong></h3>
-                        <div class="radio__container">
+                        <div class="radio__container" id="POS">
                             <form>
                                 <label>
-                                    <input type="radio" name="pos_type" id="pos">
+                                    <input type="radio" name="POSType" id="TruePos">
                                     <span>Point of Service (POS) Financially Incapable</span>
                                 </label>
                                 <label>
-                                    <input type="radio" name="pos_type" id="notpos">
+                                    <input type="radio" name="POSType" id="NotPos">
                                     <span>Financially Incapable</span>
                                 </label>
                             </form>

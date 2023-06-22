@@ -187,26 +187,26 @@
                     <!-- ADDRESS AND CONTACT DETAILS -->
                     <div class="main__form" id="addresscontact">
                         <h3 class="form__label">Permanent Address</h3>
-                        <div class="input__text">
+                        <div class="input__text" id ="PermanentAddress">
                             <div class="input__div">
-                                <input type="text" placeholder="xxx" maxlength="100" value="PasigManilaQuezonCaloocan" readonly>
+                                <input type="text" id="PermanentAddress1" placeholder="xxx" maxlength="100" value="PasigManilaQuezonCaloocan" readonly>
                                 <span> Unit/Blk/Lot/City etc.</span>
                             </div>
 
                             <div class="input__div1">
-                                <input type="text" placeholder="xxxx" maxlength="4" value=6969" readonly">
+                                <input type="text" id="PermanentAddress2" placeholder="xxxx" maxlength="4" value="6969" readonly>
                                 <span> Zip Code </span>
                             </div>
                         </div>
 
                         <h3 class="form__label">Mailing Address&nbsp;&nbsp;&nbsp; </h3>
-                        <div class="input__text">
+                        <div class="input__text" id ="MailingAddress">
                             <div class="input__div">
-                                <input type="text" placeholder="xxx" maxlength="100" value="PasigManilaQuezonCaloocan" readonly>
+                                <input type="text" id="MailingAddress1" placeholder="xxx" maxlength="100" value="PasigManilaQuezonCaloocan" readonly>
                                 <span> Unit/Blk/Lot/City etc.</span>
                             </div>
                             <div class="input__div1">
-                                <input type="text" placeholder="xxxx" maxlength="4" value="6699" readonly>
+                                <input type="text" id="MailingAddress2" placeholder="xxxx" maxlength="4" value="6699" readonly>
                                 <span> Zip Code </span>
                             </div>
                         </div>
@@ -214,28 +214,28 @@
                         <h3 class="form__label">Contact Details</h3>
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" placeholder="xxxx-xxxx" maxlength="12" value="6666-9999" readonly>
+                                <input type="text" id="Landline" placeholder="xxxx-xxxx" maxlength="12" value="6666-9999" readonly>
                                 <span>Home Phone Number(Landline)</span>
                             </div>
                         </div>
 
                         <div class="input__text">
                              <div class="input__div">
-                                <input type="text" placeholder="xxx-xxxx-xxxx" maxlength="15" value="+639296666999" readonly>
+                                <input type="text" id="MobileNum" placeholder="xxx-xxxx-xxxx" maxlength="15" value="+639296666999" readonly>
                                 <span>Mobile Number (Required)</span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" placeholder="xxx-xxxx-xxxx" maxlength="15" value="+639296666999" readonly>
+                                <input type="text" id="BizDirectLine" placeholder="xxx-xxxx-xxxx" maxlength="15" value="+639296666999" readonly>
                                 <span>Business (Direct Line)</span>
                             </div>
                        </div>
 
                        <div class="input__text">
                         <div class="input__div">
-                            <input type="text" placeholder="xxx" maxlength="30" value="e.g@mail.com" readonly>
+                            <input type="text" id="Email" placeholder="xxx" maxlength="30" value="e.g@mail.com" readonly>
                             <span>E-mail Address (Required for OFW)</span>
                         </div>
                       </div>
@@ -287,24 +287,59 @@
 
                     <!-- MEMBER TYPE -->
                     <div class="main__form">
+                        <h3 class="form__label">Contributor Type:</h3>
+                        <div class="radio__container" id="Contributor">
+                            <form>
+                                <label>
+                                    <input type="radio" id="DirectContributor" name="ContributorType" checked>
+                                    <span>Direct Contributor</span>
+                                </label>
+                                <label>
+                                    <input type="radio" id="IndirectContributor" name="ContributorType" disabled>
+                                    <span>Indirect Contributor</span>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" id="MemberType" placeholder="xxx" maxlength="30" value="pokpok" readonly>
+                                <span>MEMBER TYPE</span>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="text" id="Profession" placeholder="xxx" maxlength="30" value="pwet" readonly>
+                                <span>Profession (Except Employed, Lifetime Members, and Sea-Based Migrant Worker)</span>
+                            </div>
+                        </div>
+                        <div class="input__text">
+                            <div class="input__div">
+                                <input type="number" id="MonthlyIncome" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$" value="666.69" readonly>
+                                <span>MONTHLY INCOME</span>
+                            </div>
+                            <div class="input__div">
+                                <input type="text" id="IncomeProof" placeholder="xxx" maxlength="30" value="AUQ SABE" readonly>
+                                <span>Proof of Income</span>
+                            </div>
+                        </div>
+                        <h3 class="form__label">For PhilHealth Use only:</h3>
+                        <div class="radio__container" id="POS">
+                            <form>
+                                <label>
+                                    <input type="radio" name="POSType" id="TruePos" disabled>
+                                    <span>Point of Service (POS) Financially Incapable</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="POSType" id="NotPos" checked>
+                                    <span>Financially Incapable</span>
+                                </label>
+                            </form>
+                        </div>
                         <div class="registration__buttons button_space">
                             <button class="back_button">Previous</button>
-                            <button class="next_button">Next</button>
                         </div>
                     </div>
                     <!-- END OF MEMBER TYPE -->
-
-
-                    <!-- SUBMIT -->
-                    <div class="main__form">
-                        <div class="registration__buttons button_space">
-                            <button class="back_button">Previous</button>
-                            <button class="submit_button">Submit</button>
-                        </div>
-                    </div>
-                    <!-- END OF SUBMIT -->
-
-
                 </div>
             </div>
         </div>
