@@ -233,8 +233,11 @@ function toggleMenu() {
 
 
 /*=============== COPYING ADDRESS BY CHECKBOX ===============*/
-document.getElementById('SameAs').addEventListener('change', Duplicate);
 let SameAs = document.getElementById("SameAs");
+
+if (SameAs != null){
+    addEventListener('change', Duplicate);
+}
 
 function Duplicate() {
     if (SameAs.checked) {
