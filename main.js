@@ -223,7 +223,7 @@ function toggleMenu() {
 /*=============== COPYING ADDRESS BY CHECKBOX ===============*/
 let SameAs = document.getElementById("SameAs");
 
-if (SameAs != null){
+if (SameAs != null) {
     addEventListener('change', Duplicate);
 }
 
@@ -307,10 +307,11 @@ function remove_field() {
 
 
 /*================ TO DISPLAY MEMBER TYPE DEPENDING ON CONTRIBUTOR TYPE ================*/
-document.getElementById('DirectContributor').addEventListener('change', updateMemberTypeOptions);
-document.getElementById('IndirectContributor').addEventListener('change', updateMemberTypeOptions);
 
 function updateMemberTypeOptions() {
+    document.getElementById('DirectContributor').addEventListener('change', updateMemberTypeOptions);
+    document.getElementById('IndirectContributor').addEventListener('change', updateMemberTypeOptions);
+
     var directRadio = document.getElementById('DirectContributor');
     var indirectRadio = document.getElementById('IndirectContributor');
     var memberTypeSelect = document.getElementById('MemberType');
@@ -361,11 +362,12 @@ function addOption(selectElement, optionText) {
 
 
 /*=== TO DISABLE TEXT INPUT IF MEMBER TYPE IS EMPLOYED, LIFETIME MEMBERS, OR SEA-BASED MIGRANT WORKERS ===*/
-document.getElementById('MemberType').addEventListener('change', updateTextInputStatus);
-document.getElementById('IndirectContributor').addEventListener('change', updateTextInputStatus);
-document.getElementById('DirectContributor').addEventListener('change', updateTextInputStatus);
 
 function updateTextInputStatus() {
+    document.getElementById('MemberType').addEventListener('change', updateTextInputStatus);
+    document.getElementById('IndirectContributor').addEventListener('change', updateTextInputStatus);
+    document.getElementById('DirectContributor').addEventListener('change', updateTextInputStatus);
+
     var memberTypeSelect = document.getElementById('MemberType');
     var professionInput = document.getElementById('Profession');
     var monthlyIncomeInput = document.getElementById('MonthlyIncome');
