@@ -259,7 +259,7 @@ function add_more_field() {
     newDependent.innerHTML = `
         <h3 class="form__label remove__dependent__div" id="label${counter}">
             Dependent ${counter} 
-            <i class='bx bxs-trash remove__dependent' id="${counter}" onclick="remove_field(this)"></i>
+            <i class='bx bxs-trash remove__dependent' id="button${counter}" onclick="remove_field()"></i>
         </h3>
         <div class="input__text" id="rowA${counter}">
             <div class="input__div">
@@ -303,19 +303,18 @@ function add_more_field() {
 }
 
 
-function remove_field(button) {
-    let number = button.id;
-    let rowA = document.getElementById('rowA' + number);
-    let rowB = document.getElementById('rowB' + number);
-    let rowC = document.getElementById('rowC' + number);
-    let h3 = document.getElementById('label' + number);
+function remove_field() {
+    document.getElementById('rowA' + counter).remove();
+    document.getElementById('rowB' + counter).remove();
+    document.getElementById('rowC' + counter).remove();
+    document.getElementById('label' + counter).remove();
 
-    rowA.remove();
-    rowB.remove();
-    rowC.remove();
-    h3.remove();
-    button.remove();
     counter -= 1;
+
+    document.getElementById('rowA' + counter).refresh();
+    document.getElementById('rowB' + counter).refresh();
+    document.getElementById('rowC' + counter).refresh();
+    document.getElementById('label' + counter).refresh();
 }
 
 
