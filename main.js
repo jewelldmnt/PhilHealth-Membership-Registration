@@ -363,48 +363,53 @@ function addOption(selectElement, optionText) {
 
 /*=== TO DISABLE TEXT INPUT IF MEMBER TYPE IS EMPLOYED, LIFETIME MEMBERS, OR SEA-BASED MIGRANT WORKERS ===*/
 
-function updateTextInputStatus() {
-    document.getElementById('MemberType').addEventListener('change', updateTextInputStatus);
-    document.getElementById('IndirectContributor').addEventListener('change', updateTextInputStatus);
-    document.getElementById('DirectContributor').addEventListener('change', updateTextInputStatus);
+var memberTypeSelect = document.getElementById('MemberType');
+var memberTypeIndirect = document.getElementById('IndirectContributor');
+var memberTypeDirect = document.getElementById('DirectContributor');
 
-    var memberTypeSelect = document.getElementById('MemberType');
-    var professionInput = document.getElementById('Profession');
-    var monthlyIncomeInput = document.getElementById('MonthlyIncome');
-    var incomeProofInput = document.getElementById('IncomeProof');
-    var selectedOption = memberTypeSelect.value;
-    var directRadio = document.getElementById('DirectContributor');
-    var indirectRadio = document.getElementById('IndirectContributor');
+if (memberTypeSelect != null,
+    memberTypeIndirect != null,
+    memberTypeIndirect != null) {
+    [memberTypeSelect, memberTypeIndirect, memberTypeDirect].forEach(function (element) {
+        element.addEventListener('change', function () {
 
+            var professionInput = document.getElementById('Profession');
+            var monthlyIncomeInput = document.getElementById('MonthlyIncome');
+            var incomeProofInput = document.getElementById('IncomeProof');
+            var selectedOption = memberTypeSelect.value;
+            var directRadio = document.getElementById('DirectContributor');
+            var indirectRadio = document.getElementById('IndirectContributor');
 
-    if (selectedOption === 'Employed Private' ||
-        selectedOption === 'Employed Government' ||
-        selectedOption === 'Lifetime Member' ||
-        selectedOption === 'Migrant Worker (Sea-Based)') {
-        professionInput.disabled = true;
-        professionInput.value = 'Not Applicable';
+            if (selectedOption === 'Employed Private' ||
+                selectedOption === 'Employed Government' ||
+                selectedOption === 'Lifetime Member' ||
+                selectedOption === 'Migrant Worker (Sea-Based)') {
+                professionInput.disabled = true;
+                professionInput.value = 'Not Applicable';
 
-        monthlyIncomeInput.disabled = true;
-        monthlyIncomeInput.value = "";
+                monthlyIncomeInput.disabled = true;
+                monthlyIncomeInput.value = "";
 
-        incomeProofInput.disabled = true;
-        incomeProofInput.value = 'Not Applicable';
-    } else if (directRadio.checked || indirectRadio.checked) {
-        professionInput.disabled = false;
-        professionInput.value = '';
+                incomeProofInput.disabled = true;
+                incomeProofInput.value = 'Not Applicable';
+            } else if (directRadio.checked || indirectRadio.checked) {
+                professionInput.disabled = false;
+                professionInput.value = '';
 
-        monthlyIncomeInput.disabled = false;
-        monthlyIncomeInput.value = '';
+                monthlyIncomeInput.disabled = false;
+                monthlyIncomeInput.value = '';
 
-        incomeProofInput.disabled = false;
-        incomeProofInput.value = '';
-    } else {
-        professionInput.disabled = false;
-        professionInput.value = '';
+                incomeProofInput.disabled = false;
+                incomeProofInput.value = '';
+            } else {
+                professionInput.disabled = false;
+                professionInput.value = '';
 
-        monthlyIncomeInput.disabled = false;
+                monthlyIncomeInput.disabled = false;
 
-        incomeProofInput.disabled = false;
-        incomeProofInput.value = '';
-    }
+                incomeProofInput.disabled = false;
+                incomeProofInput.value = '';
+            }
+        });
+    });
 }
