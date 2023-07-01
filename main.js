@@ -388,11 +388,6 @@ if (memberTypeSelect != null,
                 professionInput.disabled = true;
                 professionInput.value = 'Not Applicable';
 
-                monthlyIncomeInput.disabled = true;
-                monthlyIncomeInput.value = "";
-
-                incomeProofInput.disabled = true;
-                incomeProofInput.value = 'Not Applicable';
             } else if (directRadio.checked || indirectRadio.checked) {
                 professionInput.disabled = false;
                 professionInput.value = '';
