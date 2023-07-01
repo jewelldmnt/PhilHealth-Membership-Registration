@@ -228,7 +228,7 @@ button {
   display: flex;
   justify-content: flex-end;
 }
-.registration__buttons button {
+.registration__buttons button, .registration__buttons input[type=submit] {
   height: 40px;
   width: 100px;
   border: none;
@@ -240,7 +240,7 @@ button {
   cursor: pointer;
   transition: box-shadow 0.4s;
 }
-.registration__buttons button:hover {
+.registration__buttons button:hover, .registration__buttons input[type=submit]:hover {
   border: none;
   transform: scale(1.05);
 }
@@ -704,7 +704,7 @@ button.inactive {
   margin-top: 15px;
   margin-bottom: -10px;
 }
-.right__side .main__form .radio__container form {
+.right__side .main__form .radio__container .form {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -837,10 +837,13 @@ button.inactive {
 .right__side .input__text input[type=number]::placeholder {
   color: hsl(0, 100%, 99%);
 }
-.right__side .input__text input:focus ~ span,
-.right__side .input__text input:valid ~ span,
+.right__side .input__text input:required:focus ~ span,
+.right__side .input__text input:optional:focus ~ span,
+.right__side .input__text input:required:valid ~ span,
 .right__side .input__text input[type=text]:not(:placeholder-shown) ~ span,
-.right__side .input__text input[type=number]:not(:placeholder-shown) ~ span {
+.right__side .input__text input[type=number]:not(:placeholder-shown) ~ span,
+.right__side .input__text input[type=text]:optional:not(:placeholder-shown) ~ span,
+.right__side .input__text input[type=number]:optional:not(:placeholder-shown) ~ span {
   top: -15px;
   left: 6px;
   font-size: 10px;

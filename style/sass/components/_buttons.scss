@@ -31,8 +31,8 @@ button {
 .registration__buttons{
     display: flex;
     justify-content: flex-end;
-
-    button {
+    
+    button, input[type="submit"] {
         height: 40px;
         width: 100px;
         border: none;
@@ -45,7 +45,7 @@ button {
         transition: box-shadow 0.4s;
     }
 
-    button:hover {
+    button:hover, input[type="submit"]:hover {
         border: none;
         transform: scale(1.05);
     }

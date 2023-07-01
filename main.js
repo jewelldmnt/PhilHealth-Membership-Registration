@@ -107,15 +107,16 @@ function validateform() {
     validate_inputs.forEach(function (validate_input) {
         validate_input.classList.remove('warning');
 
-        if (validate_input.hasAttribute('require') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
+        if (validate_input.hasAttribute('required') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
             if (validate_input.value.length == 0 || !validate_input.checkValidity()) {
                 validate = false;
                 validate_input.classList.add('warning');
             }
         }
 
-        if (validate_input.hasAttribute('optional') && (validate_input.offsetWidth !== 0 || validate_input.offsetHeight !== 0)) {
-            if (validate_input.value.length > 0 && !validate_input.value.match(validate_input.getAttribute('pattern'))) {
+        if (validate_input.value.length > 0 && validate_input.hasAttribute('pattern')) {
+            var pattern = new RegExp(validate_input.getAttribute('pattern'));
+            if (!pattern.test(validate_input.value)) {
                 validate = false;
                 validate_input.classList.add('warning');
             }
@@ -257,7 +258,7 @@ function add_more_field() {
         </div>
         <div class="input__text" id="rowB${counter}">
             <div class="input__div birthdate">
-                <input type="date" required require id="depBirthDate${counter}" value="">
+                <input type="date" class="birth__date" required require id="depBirthDate${counter}" value="">
                 <span>Birth Date <strong style="color: red;">*</strong></span>
             </div>
             <div class="input__div">

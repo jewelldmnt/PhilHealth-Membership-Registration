@@ -233,7 +233,7 @@
       margin-top: 15px;
       margin-bottom: -10px;
 
-      form {
+      .form {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
@@ -392,15 +392,20 @@
       color: colors.$white;
     }
 
-    input:focus~span,
-    input:valid~span,
+    input:required:focus~span,
+    input:optional:focus~span,
+    input:required:valid~span,
     input[type="text"]:not(:placeholder-shown)~span,
-    input[type="number"]:not(:placeholder-shown)~span {
+    input[type="number"]:not(:placeholder-shown)~span,
+    input[type="text"]:optional:not(:placeholder-shown) ~ span,
+    input[type="number"]:optional:not(:placeholder-shown) ~ span  {
       top: -15px;
       left: 6px;
       font-size: 10px;
       font-weight: 600;
     }
+
+
 
     span {
       top: -15px;

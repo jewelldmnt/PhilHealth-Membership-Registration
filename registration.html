@@ -182,301 +182,298 @@
                     </ul>
                 </div>
 
-
                 <!-- ============ <REGISTRATION> ============ -->
                 <div class="right__side">
-                    <!-- PERSONAL DETAILS -->
-                    <div class="main__form active">
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="PIN" placeholder="xxx" pattern="\d{12}">
-                                <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
+                    <form>
+                        <!-- PERSONAL DETAILS -->
+                        <div class="main__form active">
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="PIN" placeholder="xxx" pattern="\d{12}">
+                                    <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
+                                </div>
+                                <div class="input__div">
+                                    <input type="text" required require id="KonsultaProvider" placeholder="xxx"
+                                        maxlength="40">
+                                    <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
+                                </div>
                             </div>
-                            <div class="input__div">
-                                <input type="text" required require id="KonsultaProvider" placeholder="xxx"
-                                    maxlength="40">
-                                <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="MemFullName" placeholder="xxx" maxlength="50">
+                                    <span>Member's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                                </div>
                             </div>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="MothersMaidenName" placeholder="xxx"
+                                        maxlength="50">
+                                    <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" id="SpouseFullName" placeholder="xxx" maxlength="50">
+                                    <span>Spouse Fullname if married (LN, FN MN)</span>
+                                </div>
+                            </div>
+
+                            <div class="input__text">
+                                <div class="input__div birthdate">
+                                    <input type="date" class="birth__date" required require id="BirthDate">
+                                    <span>Birth Date <strong style="color: red;">*</strong></span>
+                                </div>
+                                <div class="input__div birthplace">
+                                    <input type="text" required require id="BirthPlace" placeholder="xxx" maxlength="50">
+                                    <span>Place of Birth (City/Municipality/Province/Country) <strong
+                                            style="color: red;">*</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <select required require id="Sex">
+                                        <option value="" disabled selected hidden>Sex <strong style="color: red;">*</strong>
+                                        </option>
+                                        <option>Female</option>
+                                        <option>Male</option>
+                                    </select>
+                                </div>
+                                <div class="input__div">
+                                    <select required require id="CivilStatus">
+                                        <option value="" disabled selected hidden>Civil Status <strong
+                                                style="color: red;">*</strong></option>
+                                        <option>Single</option>
+                                        <option>Married</option>
+                                        <option>Legally Separated</option>
+                                        <option>Annulled</option>
+                                        <option>Widow/er</option>
+                                    </select>
+                                </div>
+                                <div class="input__div">
+                                    <select required require id="Citizenship">
+                                        <option value="" disabled selected hidden>Citizenship <strong
+                                                style="color: red;">*</strong></option>
+                                        <option>Filipino</option>
+                                        <option>Dual Citizen</option>
+                                        <option>Foreign National</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" id="PhilsysID" placeholder="xxx" pattern=".{12}">
+                                    <span> Philsys ID number (Optional)</span>
+                                </div>
+                                <div class="input__div">
+                                    <input type="text" id="TIN" placeholder="xxx" pattern=".{9}">
+                                    <span>Tax Payer Identification (TIN) (Optional)</span>
+                                </div>
+                            </div>
+
+                            <div class="registration__buttons">
+                                <button class="next_button">Next</button>
+                            </div>
+                        </div>
+                        <!-- END OF PERSONAL DETAILS -->
+
+
+                        <!-- ADDRESS AND CONTACT DETAILS -->
+                        <div class="main__form">
+                            <h3 class="form__label">Permanent Address <strong style="color: red;">*</strong></h3>
+                            <div class="input__text">
+                                <div class="input__div" id ="PermanentAddress">
+                                    <input type="text" required require id="PermanentAddress1" placeholder="xxx" maxlength="100">
+                                    <span> Unit/Blk/Lot/City etc.</span>
+                                </div>
+
+                                <div class="input__div1">
+                                    <input type="text" required require id="PermanentAddress2" placeholder="xxxx" maxlength="4">
+                                    <span> Zip Code </span>
+                                </div>
+                            </div>
+
+                            <h3 class="form__label">Mailing Address&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" id="SameAs" onclick="Duplicate();" />
+                                <label for="SameAs" class="check">Same as Above</label>
+                            </h3>
+
+                            <div class="input__text" id ="MailingAddress">
+                                <div class="input__div">
+                                    <input type="text" required require id="MailingAddress1" placeholder="xxx" maxlength="100">
+                                    <span> Unit/Blk/Lot/City etc.</span>
+                                </div>
+                                <div class="input__div1">
+                                    <input type="text" required require id="MailingAddress2" placeholder="xxxx" maxlength="4">
+                                    <span> Zip Code </span>
+                                </div>
+                            </div>
+
+                            <h3 class="form__label">Contact Details</h3>
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="Landline" placeholder="xxxx-xxxx" maxlength="12">
+                                    <span>Home Landline (02-XXXX-XXXX) <strong style="color: red;">*</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="MobileNum" placeholder="xxxx-xxx-xxxx" maxlength="15" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
+                                    <span>Mobile Number (09XX-XXX-XXXX) <strong style="color: red;">*</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
+                                    <span>Business Direct Line (Mobile no. or Tel no.) <strong style="color: red;">*</strong></span>
+                                </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" required require id="MemFullName" placeholder="xxx" maxlength="50">
-                                <span>Member's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                                <input type="text" id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
+                                <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
                             </div>
                         </div>
+                    
+                            <div class="registration__buttons button_space">
+                                <button class="back_button">Previous</button>
+                                <button class="next_button">Next</button>
+                            </div>
+                        </div> 
+    
 
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="MothersMaidenName" placeholder="xxx"
-                                    maxlength="50">
-                                <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
+                        <!-- DECLARATION OF DEPENDENTS -->
+                        <div class="main__form">
+                            <div id="depform">
+                                <h3 class="form__label">Dependent 1</h3>
+                                <div class="input__text">
+                                    <div class="input__div">
+                                        <input type="text" required require id="depFullName1" placeholder="xxx" maxlength="50">
+                                        <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                                    </div>
+                                </div>
+                                <div class="input__text">
+                                    <div class="input__div birthdate">
+                                        <input type="date" class="birth__date" required id="depBirthDate1">
+                                        <span>Birth Date <strong style="color: red;">*</strong></span>
+                                    </div>
+                                    <div class="input__div">
+                                        <select required require id="depCitizenship1">
+                                            <option value="" disabled selected hidden>Citizenship <strong
+                                                    style="color: red;">*</strong></option>
+                                            <option>Filipino</option>
+                                            <option>Dual Citizen</option>
+                                            <option>Foreign National</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="input__text">
+                                    <div class="input__div">
+                                        <select required require id="withDisability1">
+                                            <option value="" disabled selected hidden>With Disability<strong
+                                                    style="color: red;">*</strong></option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="input__div">
+                                        <select required require id="Relationship1">
+                                            <option value="" disabled selected hidden>Relationship<strong
+                                                    style="color: red;">*</strong></option>
+                                            <option>Spouse</option>
+                                            <option>Children</option>
+                                            <option>Parents</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add__button">
+                                <button class="add_dependents" onclick="add_more_field()"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
+                            </div>
+                            <div class="registration__buttons button_space">
+                                <button class="back_button">Previous</button>
+                                <button class="next_button">Next</button>
                             </div>
                         </div>
-
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required id="SpouseFullName" placeholder="xxx" maxlength="50">
-                                <span>Spouse Fullname if married (LN, FN MN)</span>
-                            </div>
-                        </div>
-
-                        <div class="input__text">
-                            <div class="input__div birthdate">
-                                <input type="date" class="birth__date" required require id="BirthDate">
-                                <span>Birth Date <strong style="color: red;">*</strong></span>
-                            </div>
-                            <div class="input__div birthplace">
-                                <input type="text" required require id="BirthPlace" placeholder="xxx" maxlength="50">
-                                <span>Place of Birth (City/Municipality/Province/Country) <strong
-                                        style="color: red;">*</strong></span>
-                            </div>
-                        </div>
-
-                        <div class="input__text">
-
-                            <div class="input__div">
-                                <select required require id="Sex">
-                                    <option value="" disabled selected hidden>Sex <strong style="color: red;">*</strong>
-                                    </option>
-                                    <option>Female</option>
-                                    <option>Male</option>
-                                </select>
-                            </div>
-                            <div class="input__div">
-                                <select required require id="CivilStatus">
-                                    <option value="" disabled selected hidden>Civil Status <strong
-                                            style="color: red;">*</strong></option>
-                                    <option>Single</option>
-                                    <option>Married</option>
-                                    <option>Legally Separated</option>
-                                    <option>Annulled</option>
-                                    <option>Widow/er</option>
-                                </select>
-                            </div>
-                            <div class="input__div">
-                                <select required require id="Citizenship">
-                                    <option value="" disabled selected hidden>Citizenship <strong
-                                            style="color: red;">*</strong></option>
-                                    <option>Filipino</option>
-                                    <option>Dual Citizen</option>
-                                    <option>Foreign National</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required optional id="PhilsysID" placeholder="xxx" pattern=".{12}">
-                                <span> Philsys ID number (Optional)</span>
-                            </div>
-                            <div class="input__div">
-                                <input type="text" required optional id="TIN" placeholder="xxx" pattern=".{9}">
-                                <span>Tax Payer Identification (TIN) (Optional)</span>
-                            </div>
-                        </div>
-
-                        <div class="registration__buttons">
-                            <button class="next_button">Next</button>
-                        </div>
-                    </div>
-                    <!-- END OF PERSONAL DETAILS -->
+                        <!-- END OF DECLARATION OF DEPENDENTS -->
 
 
-                    <!-- ADDRESS AND CONTACT DETAILS -->
-                    <div class="main__form">
-                        <h3 class="form__label">Permanent Address <strong style="color: red;">*</strong></h3>
-                        <div class="input__text">
-                            <div class="input__div" id ="PermanentAddress">
-                                <input type="text" required require id="PermanentAddress1" placeholder="xxx" maxlength="100">
-                                <span> Unit/Blk/Lot/City etc.</span>
+                        <!-- MEMBER TYPE -->
+                        <div class="main__form">
+                            <h3 class="form__label">Contributor Type: <strong style="color: red;">*</strong></h3>
+                            <div class="radio__container" id="Contributor">
+                                <div class="form">
+                                    <label>
+                                        <input type="radio" required id="DirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
+                                        <span>Direct Contributor</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" required id="IndirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
+                                        <span>Indirect Contributor</span>
+                                    </label>
+                                </div>
                             </div>
-
-                            <div class="input__div1">
-                                <input type="text" required require id="PermanentAddress2" placeholder="xxxx" maxlength="4">
-                                <span> Zip Code </span>
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <select required require id="MemberType">
+                                        <option value="" disabled selected hidden>Member Type <strong style="color: red;">*</strong>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="text" required require id="Profession" placeholder="xxx" maxlength="30">
+                                    <span>Profession (Except Employed, Lifetime Members, and Sea-Based Migrant Worker) <strong style="color: red;">*</strong></span>
+                                </div>
+                            </div>
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input type="number" required require id="MonthlyIncome" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
+                                    <span>Monthly Income <strong style="color: red;">*</strong></span>
+                                </div>
+                                <div class="input__div">
+                                    <input type="text" required require id="IncomeProof" placeholder="xxx" maxlength="30">
+                                    <span>Proof of Income <strong style="color: red;">*</strong></span>
+                                </div>
+                            </div>
+                            <h3 class="form__label">For PhilHealth Use only: <strong style="color: red;">*</strong></h3>
+                            <div class="radio__container" id="POS">
+                                <form>
+                                    <label>
+                                        <input type="radio" required name="POSType" id="TruePos">
+                                        <span>Point of Service (POS) Financially Incapable</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" required name="POSType" id="NotPos">
+                                        <span>Financially Incapable</span>
+                                    </label>
+                                </form>
+                            </div>
+                            <div class="registration__buttons button_space">
+                                <button class="back_button">Previous</button>
+                                <button class="next_button">Next</button>
                             </div>
                         </div>
-
-                        <h3 class="form__label">Mailing Address&nbsp;&nbsp;&nbsp;
-                            <input type="checkbox" id="SameAs" onclick="Duplicate();" />
-                            <label for="SameAs" class="check">Same as Above</label>
-                        </h3>
-
-                        <div class="input__text" id ="MailingAddress">
-                            <div class="input__div">
-                                <input type="text" required require id="MailingAddress1" placeholder="xxx" maxlength="100">
-                                <span> Unit/Blk/Lot/City etc.</span>
-                            </div>
-                            <div class="input__div1">
-                                <input type="text" required require id="MailingAddress2" placeholder="xxxx" maxlength="4">
-                                <span> Zip Code </span>
-                            </div>
-                        </div>
-
-                        <h3 class="form__label">Contact Details</h3>
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="Landline" placeholder="xxxx-xxxx" maxlength="12">
-                                <span>Home Landline (02-XXXX-XXXX) <strong style="color: red;">*</strong></span>
-                            </div>
-                        </div>
-
-                        <div class="input__text">
-                             <div class="input__div">
-                                <input type="text" required require id="MobileNum" placeholder="xxxx-xxx-xxxx" maxlength="15" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
-                                <span>Mobile Number (09XX-XXX-XXXX) <strong style="color: red;">*</strong></span>
-                            </div>
-                        </div>
-
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
-                                <span>Business Direct Line (Mobile no. or Tel no.) <strong style="color: red;">*</strong></span>
-                            </div>
-                       </div>
-
-                       <div class="input__text">
-                        <div class="input__div">
-                            <input type="text" required optional id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
-                            <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
-                        </div>
-                      </div>
-                   
-                        <div class="registration__buttons button_space">
-                            <button class="back_button">Previous</button>
-                            <button class="next_button">Next</button>
-                        </div>
-                    </div> 
- 
+                        <!-- END OF MEMBER TYPE -->
 
 
-                    <!-- DECLARATION OF DEPENDENTS -->
-                    <div class="main__form">
-                        <form id="depform">
-                        <h3 class="form__label">Dependent 1</h3>
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="depFullName1" placeholder="xxx" maxlength="50">
-                                <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                        <!-- SUBMIT -->
+                        <div class="main__form">
+                            <div class="registration__buttons button_space">
+                                <button class="back_button">Previous</button>
+                                <input type="submit" class="submit_button"></input>
                             </div>
                         </div>
-                        <div class="input__text">
-                            <div class="input__div birthdate">
-                                <input type="date" class="birth__date" require id="depBirthDate1">
-                                <span>Birth Date <strong style="color: red;">*</strong></span>
-                            </div>
-                            <div class="input__div">
-                                <select required require id="depCitizenship1">
-                                    <option value="" disabled selected hidden>Citizenship <strong
-                                            style="color: red;">*</strong></option>
-                                    <option>Filipino</option>
-                                    <option>Dual Citizen</option>
-                                    <option>Foreign National</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="input__text">
-                            <div class="input__div">
-                                <select required require id="withDisability1">
-                                    <option value="" disabled selected hidden>With Disability<strong
-                                            style="color: red;">*</strong></option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                </select>
-                            </div>
-                            <div class="input__div">
-                                <select required require id="Relationship1">
-                                    <option value="" disabled selected hidden>Relationship<strong
-                                            style="color: red;">*</strong></option>
-                                    <option>Spouse</option>
-                                    <option>Children</option>
-                                    <option>Parents</option>
-                                </select>
-                            </div>
-                        </div>
-                        </form>
-                        <div class="add__button">
-                            <button class="add_dependents" onclick="add_more_field()"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
-                        </div>
-                        <div class="registration__buttons button_space">
-                            <button class="back_button">Previous</button>
-                            <button class="next_button">Next</button>
-                        </div>
-                    </div>
-                    <!-- END OF DECLARATION OF DEPENDENTS -->
-
-
-                    <!-- MEMBER TYPE -->
-                    <div class="main__form">
-                        <h3 class="form__label">Contributor Type: <strong style="color: red;">*</strong></h3>
-                        <div class="radio__container" id="Contributor">
-                            <form>
-                                <label>
-                                    <input type="radio" id="DirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
-                                    <span>Direct Contributor</span>
-                                </label>
-                                <label>
-                                    <input type="radio" id="IndirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
-                                    <span>Indirect Contributor</span>
-                                </label>
-                            </form>
-                        </div>
-                        <div class="input__text">
-                            <div class="input__div">
-                                <select required require id="MemberType">
-                                    <option value="" disabled selected hidden>Member Type <strong style="color: red;">*</strong>
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="text" required require id="Profession" placeholder="xxx" maxlength="30">
-                                <span>Profession (Except Employed, Lifetime Members, and Sea-Based Migrant Worker) <strong style="color: red;">*</strong></span>
-                            </div>
-                        </div>
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input type="number" required require id="MonthlyIncome" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
-                                <span>Monthly Income <strong style="color: red;">*</strong></span>
-                            </div>
-                            <div class="input__div">
-                                <input type="text" required require id="IncomeProof" placeholder="xxx" maxlength="30">
-                                <span>Proof of Income <strong style="color: red;">*</strong></span>
-                            </div>
-                        </div>
-                        <h3 class="form__label">For PhilHealth Use only: <strong style="color: red;">*</strong></h3>
-                        <div class="radio__container" id="POS">
-                            <form>
-                                <label>
-                                    <input type="radio" name="POSType" id="TruePos">
-                                    <span>Point of Service (POS) Financially Incapable</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="POSType" id="NotPos">
-                                    <span>Financially Incapable</span>
-                                </label>
-                            </form>
-                        </div>
-                        <div class="registration__buttons button_space">
-                            <button class="back_button">Previous</button>
-                            <button class="next_button">Next</button>
-                        </div>
-                    </div>
-                    <!-- END OF MEMBER TYPE -->
-
-
-                    <!-- SUBMIT -->
-                    <div class="main__form">
-                        <div class="registration__buttons button_space">
-                            <button class="back_button">Previous</button>
-                            <button class="submit_button">Submit</button>
-                        </div>
-                    </div>
-                    <!-- END OF SUBMIT -->
-
-
+                        <!-- END OF SUBMIT -->
+                    </form>
                 </div>
             </div>
         </div>
