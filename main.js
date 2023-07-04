@@ -46,31 +46,6 @@ back_click.forEach(function (back_click_form) {
     });
 });
 
-var submit_click = document.querySelectorAll(".submit_button");
-submit_click.forEach(function (submit_click_form) {
-    submit_click_form.addEventListener('click', function () {
-        shownname.innerHTML = username.value;
-        formnumber++;
-        updateform();
-    });
-});
-
-var username = document.querySelector("#user_name");
-var email = document.querySelector("#user_email");
-var phone = document.querySelector("#user_phone");
-
-var shownname = document.querySelector(".shown_name");
-var shownemail = document.querySelector(".shown_email");
-var shownphone = document.querySelector(".shown_phone");
-
-var submit_click = document.querySelectorAll(".submit_button");
-submit_click.forEach(function (submit_click_form) {
-    submit_click_form.addEventListener('click', function () {
-        shownname.innerHTML = username.value;
-        formnumber++;
-        updateform();
-    });
-});
 
 function updateform() {
     var test = document.querySelector("h3");
@@ -178,8 +153,8 @@ if (coneyeicon != null)
 
 
 /*=============== GETTING LOGIN INFORMATION ===============*/
-function logIn(isLogIn) {
-    if (isLogIn) {
+function isLogIn(value) {
+    if (value) {
         localStorage.setItem("hideNavState", "true");
     }
     else {
@@ -193,7 +168,7 @@ window.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".logIn__nav").classList.remove("hide__nav");
         localStorage.removeItem("hideNavState");
 
-        document.querySelector(".registration__nav a").href = "registration.html#qualifications";
+        document.querySelector(".registration__nav a").href = "registration.php#qualifications";
     }
 });
 
@@ -201,17 +176,15 @@ window.addEventListener("DOMContentLoaded", function () {
 /*=============== GETTING NEW LOGIN INFORMATION ===============*/
 let createsub = document.getElementById("createsub")
 
-if (createsub != null)
+if (createsub != null) {
     createsub.onclick = function () {
-        if (newpass1.value != newpass2.value) {
-            window.alert("Passwords do not match!! Please recheck your information");
-            return false;
-        }
-        else {
-            action = loginAcc.html;
-        }
-    }
 
+        if (isUsernameExists && newpass1.value == newpass2.value){
+            window.alert("Successfully created your account. Please log in to your account.");
+            window.location.href = "loginAcc.php";
+        } 
+    }
+}
 
 /*=============== PROFILE NAVIGATION OPTIONS ===============*/
 let subMenu = document.getElementById("sub-menu-wrap");
@@ -328,35 +301,36 @@ function updateMemberTypeOptions() {
     memberTypeSelect.appendChild(defaultOption);
 
     if (directRadio.checked) {
-        addOption(memberTypeSelect, 'Employed Private');
-        addOption(memberTypeSelect, 'Employed Government');
-        addOption(memberTypeSelect, 'Professional Practitioner');
-        addOption(memberTypeSelect, 'Self-Earning Individual (Individual)');
-        addOption(memberTypeSelect, 'Self-Earning Individual (Sole Proprietor)');
-        addOption(memberTypeSelect, 'Self-Earning Individual (Group Enrollment Scheme)');
-        addOption(memberTypeSelect, 'Kasambahay');
-        addOption(memberTypeSelect, 'Family Driver');
-        addOption(memberTypeSelect, 'Migrant Worker (Land-Based)');
-        addOption(memberTypeSelect, 'Migrant Worker (Sea-Based)');
-        addOption(memberTypeSelect, 'Lifetime Member');
-        addOption(memberTypeSelect, 'Filipinos with Dual Citizenship/Living Abroad');
-        addOption(memberTypeSelect, 'Foreign National');
+        addOption(memberTypeSelect, 'Employed Private', 'EP');
+        addOption(memberTypeSelect, 'Employed Government', 'EG');
+        addOption(memberTypeSelect, 'Professional Practitioner', 'PP');
+        addOption(memberTypeSelect, 'Self-Earning Individual (Individual)', 'SEI-I');
+        addOption(memberTypeSelect, 'Self-Earning Individual (Sole Proprietor)', 'SEI-SP');
+        addOption(memberTypeSelect, 'Self-Earning Individual (Group Enrollment Scheme)', 'SEI-GES');
+        addOption(memberTypeSelect, 'Kasambahay', 'K');
+        addOption(memberTypeSelect, 'Family Driver', 'FD');
+        addOption(memberTypeSelect, 'Migrant Worker (Land-Based)', 'MW-LB');
+        addOption(memberTypeSelect, 'Migrant Worker (Sea-Based)', 'MW-SB');
+        addOption(memberTypeSelect, 'Lifetime Member', 'LM');
+        addOption(memberTypeSelect, 'Filipinos with Dual Citizenship/Living Abroad', 'FDC ');
+        addOption(memberTypeSelect, 'Foreign National', 'FN ');
     } else if (indirectRadio.checked) {
-        addOption(memberTypeSelect, 'Listahanan');
-        addOption(memberTypeSelect, '4Ps/MCCT');
-        addOption(memberTypeSelect, 'Senior Citizen');
-        addOption(memberTypeSelect, 'KIA/KIPO');
-        addOption(memberTypeSelect, 'PAMANA');
-        addOption(memberTypeSelect, 'Bangsamoro/Normalization');
-        addOption(memberTypeSelect, 'LGU-sponsored');
-        addOption(memberTypeSelect, 'NGA-sponsored');
-        addOption(memberTypeSelect, 'Private-sponsored');
-        addOption(memberTypeSelect, 'Person with Disability');
+        addOption(memberTypeSelect, 'Listahanan', 'L');
+        addOption(memberTypeSelect, '4Ps/MCCT', '4PS');
+        addOption(memberTypeSelect, 'Senior Citizen', 'SC');
+        addOption(memberTypeSelect, 'KIA/KIPO', 'P');
+        addOption(memberTypeSelect, 'PAMANA', 'KIA');
+        addOption(memberTypeSelect, 'Bangsamoro/Normalization', 'B');
+        addOption(memberTypeSelect, 'LGU-sponsored', 'LGU-S');
+        addOption(memberTypeSelect, 'NGA-sponsored', 'NGA-S');
+        addOption(memberTypeSelect, 'Private-sponsored', 'P-S');
+        addOption(memberTypeSelect, 'Person with Disability', 'PWD');
     }
 }
 
-function addOption(selectElement, optionText) {
+function addOption(selectElement, optionText, value) {
     var option = document.createElement('option');
+    option.value = value;
     option.innerText = optionText;
     selectElement.appendChild(option);
 }
