@@ -1,3 +1,112 @@
+<?php
+session_start();
+
+include("db.php");
+$username = $_SESSION['username'];
+
+$query = "SELECT * 
+          FROM loginCredentials 
+          WHERE username = '$username' AND PIN IS NULL";
+$result = mysqli_query($connection, $query);
+
+if (mysqli_num_rows($result) == 0) {
+    echo "<script type='text/javascript'> alert('You are already a PhilHealth member')</script>";
+    header("location: memberDetails.php");
+    exit;
+
+} else {
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $PIN = $_POST['PIN'];
+        $KonsultaProvider = $_POST['KonsultaProvider'];
+        $MemFullName = $_POST['MemFullName'];
+        $MothersMaidenName = $_POST['MothersMaidenName'];
+        $SpouseFullName = $_POST['SpouseFullName'];
+        $BirthDate = $_POST['BirthDate'];
+        $BirthPlace = $_POST['BirthPlace'];
+        $Sex = $_POST['Sex'];
+        $CivilStatus = $_POST['CivilStatus'];
+        $Citizenship = $_POST['Citizenship'];
+        $PhilsysID = $_POST['PhilsysID'];
+        $TIN = $_POST['TIN'];
+        $PermanentAddress = $_POST['PermanentAddress'];
+        $MailingAddress = $_POST['MailingAddress'];
+        $Landline = $_POST['Landline'];
+        $MobileNum = $_POST['MobileNum'];
+        $BizDirectLine = $_POST['BizDirectLine'];
+        $Email = $_POST['Email'];
+        $MemberType = $_POST['MemberType'];
+        $Contributor = $_POST['Contributor'];
+        $Profession = $_POST['Profession'];
+        $MonthlyIncome = $_POST['MonthlyIncome'];
+        $IncomeProof = $_POST['IncomeProof'];
+        $POS = $_POST['POS'];
+    
+        $query = "INSERT INTO members_profile (PIN, 
+                                               KonsultaProvider,
+                                               MemFullName,
+                                               MothersMaidenName,
+                                               SpouseFullName,
+                                               BirthDate,
+                                               BirthPlace,
+                                               Sex,
+                                               CivilStatus,
+                                               Citizenship,
+                                               PhilsysID,
+                                               TIN,
+                                               PermanentAddress,
+                                               MailingAddress,
+                                               Landline,
+                                               MobileNum,
+                                               BizDirectLine,
+                                               Email,
+                                               MemberType,
+                                               Contributor,
+                                               Profession,
+                                               MonthlyIncome,
+                                               IncomeProof,
+                                               POS) 
+                   VALUES('$PIN',
+                          '$KonsultaProvider',
+                          '$MemFullName',
+                          '$MothersMaidenName',
+                          '$SpouseFullName',
+                          '$BirthDate',
+                          '$BirthPlace',
+                          '$Sex',
+                          '$CivilStatus',
+                          '$Citizenship',
+                          '$PhilsysID',
+                          '$TIN',
+                          '$PermanentAddress',
+                          '$MailingAddress',
+                          '$Landline',
+                          '$MobileNum',
+                          '$BizDirectLine',
+                          '$Email',
+                          '$MemberType',
+                          '$Contributor',
+                          '$Profession',
+                          '$MonthlyIncome',
+                          '$IncomeProof',
+                          '$POS')";
+        mysqli_query($connection, $query);
+    
+        $pkQuery = "SELECT username 
+                    FROM loginCredentials
+                    WHERE username = '$username'";
+        $pkResult = mysqli_query($connection, $pkQuery);
+    
+        if (mysqli_num_rows($pkResult) > 0) {
+            $fkquery = "UPDATE loginCredentials SET PIN = $PIN 
+                        WHERE username = '$username'";
+            mysqli_query($connection, $fkquery);
+        }
+    }
+}
+
+mysqli_close($connection);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,19 +140,19 @@
             <div class="nav__menu" id="nav--menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="index.html" class="nav__link" onclick="logIn(true)">Home</a>
+                        <a href="index.php" class="nav__link" onclick="isLogIn(true)">Home</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="index.html#about" class="nav__link" onclick="logIn(true)">About</a>
+                        <a href="index.php#about" class="nav__link" onclick="isLogIn(true)">About</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="index.html#benefits" class="nav__link" onclick="logIn(true)">Benefits</a>
+                        <a href="index.php#benefits" class="nav__link" onclick=isLogIn(true)">Benefits</a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="registration.html" class="nav__link active__link">Register</a>
+                        <a href="registration.php" class="nav__link active__link">Register</a>
                     </li>
 
                     <li class="nav__item">
@@ -53,17 +162,17 @@
                         </a>
                         <div class="sub__menu__wrap" id="sub-menu-wrap">
                             <div class="sub__menu">
-                                <a href="profile.html" class="sub__menu__opt">
+                                <a href="profile.php" class="sub__menu__opt">
                                     <i class='bx bxs-user sub__menu-icon'></i>
                                     Profile
                                 </a>
                                 <hr>
-                                <a href="memberDetails.html" class="sub__menu__opt">
+                                <a href="memberDetails.php" class="sub__menu__opt">
                                     <i class='bx bxs-file sub__menu-icon'></i>
                                     Personal Details
                                 </a>
                                 <hr>
-                                <a href="index.html" class="sub__menu__opt">
+                                <a href="index.php" class="sub__menu__opt">
                                     <i class="fa-solid fa-right-from-bracket sub__menu-icon"></i>
                                     Logout
                                 </a>
@@ -184,16 +293,16 @@
 
                 <!-- ============ <REGISTRATION> ============ -->
                 <div class="right__side">
-                    <form>
+                    <form method="post">
                         <!-- PERSONAL DETAILS -->
-                        <div class="main__form active">
+                        <div class="main__form">
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="PIN" placeholder="xxx" pattern="\d{12}">
+                                    <input type="text" name="PIN" required require id="PIN" placeholder="xxx" pattern="\d{12}">
                                     <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
                                 </div>
                                 <div class="input__div">
-                                    <input type="text" required require id="KonsultaProvider" placeholder="xxx"
+                                    <input type="text" name="KonsultaProvider" required require id="KonsultaProvider" placeholder="xxx"
                                         maxlength="40">
                                     <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
                                 </div>
@@ -201,14 +310,14 @@
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="MemFullName" placeholder="xxx" maxlength="50">
+                                    <input type="text" name="MemFullName" required require id="MemFullName" placeholder="xxx" maxlength="50">
                                     <span>Member's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="MothersMaidenName" placeholder="xxx"
+                                    <input type="text" name="MothersMaidenName" required require id="MothersMaidenName" placeholder="xxx"
                                         maxlength="50">
                                     <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
                                 </div>
@@ -216,18 +325,18 @@
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" id="SpouseFullName" placeholder="xxx" maxlength="50">
+                                    <input type="text" name="SpouseFullName" id="SpouseFullName" placeholder="xxx" maxlength="50">
                                     <span>Spouse Fullname if married (LN, FN MN)</span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div birthdate">
-                                    <input type="date" class="birth__date" required require id="BirthDate">
+                                    <input type="date" name="BirthDate" class="birth__date" required require id="BirthDate">
                                     <span>Birth Date <strong style="color: red;">*</strong></span>
                                 </div>
                                 <div class="input__div birthplace">
-                                    <input type="text" required require id="BirthPlace" placeholder="xxx" maxlength="50">
+                                    <input type="text" name="BirthPlace" required require id="BirthPlace" placeholder="xxx" maxlength="50">
                                     <span>Place of Birth (City/Municipality/Province/Country) <strong
                                             style="color: red;">*</strong></span>
                                 </div>
@@ -235,42 +344,42 @@
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <select required require id="Sex">
+                                    <select name="Sex" required require id="Sex">
                                         <option value="" disabled selected hidden>Sex <strong style="color: red;">*</strong>
                                         </option>
-                                        <option>Female</option>
-                                        <option>Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="M">Male</option>
                                     </select>
                                 </div>
                                 <div class="input__div">
-                                    <select required require id="CivilStatus">
+                                    <select name="CivilStatus" required require id="CivilStatus">
                                         <option value="" disabled selected hidden>Civil Status <strong
                                                 style="color: red;">*</strong></option>
-                                        <option>Single</option>
-                                        <option>Married</option>
-                                        <option>Legally Separated</option>
-                                        <option>Annulled</option>
-                                        <option>Widow/er</option>
+                                        <option value="S">Single</option>
+                                        <option value="M">Married</option>
+                                        <option value="LS">Legally Separated</option>
+                                        <option value="A">Annulled</option>
+                                        <option value="W">Widow/er</option>
                                     </select>
                                 </div>
                                 <div class="input__div">
-                                    <select required require id="Citizenship">
+                                    <select name="Citizenship" required require id="Citizenship">
                                         <option value="" disabled selected hidden>Citizenship <strong
                                                 style="color: red;">*</strong></option>
-                                        <option>Filipino</option>
-                                        <option>Dual Citizen</option>
-                                        <option>Foreign National</option>
+                                        <option value="F">Filipino</option>
+                                        <option value="DC">Dual Citizen</option>
+                                        <option value="FN">Foreign National</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" id="PhilsysID" placeholder="xxx" pattern=".{12}">
+                                    <input name="PhilsysID" type="text" id="PhilsysID" placeholder="xxx" pattern=".{12}">
                                     <span> Philsys ID number (Optional)</span>
                                 </div>
                                 <div class="input__div">
-                                    <input type="text" id="TIN" placeholder="xxx" pattern=".{9}">
+                                    <input name="TIN" type="text" id="TIN" placeholder="xxx" pattern=".{9}">
                                     <span>Tax Payer Identification (TIN) (Optional)</span>
                                 </div>
                             </div>
@@ -287,7 +396,7 @@
                             <h3 class="form__label">Permanent Address <strong style="color: red;">*</strong></h3>
                             <div class="input__text">
                                 <div class="input__div" id ="PermanentAddress">
-                                    <input type="text" required require id="PermanentAddress1" placeholder="xxx" maxlength="100">
+                                    <input name="PermanentAddress" type="text" required require id="PermanentAddress1" placeholder="xxx" maxlength="100">
                                     <span> Unit/Blk/Lot/City etc.</span>
                                 </div>
 
@@ -304,7 +413,7 @@
 
                             <div class="input__text" id ="MailingAddress">
                                 <div class="input__div">
-                                    <input type="text" required require id="MailingAddress1" placeholder="xxx" maxlength="100">
+                                    <input name="MailingAddress" type="text" required require id="MailingAddress1" placeholder="xxx" maxlength="100">
                                     <span> Unit/Blk/Lot/City etc.</span>
                                 </div>
                                 <div class="input__div1">
@@ -316,28 +425,28 @@
                             <h3 class="form__label">Contact Details</h3>
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="Landline" placeholder="xxxx-xxxx" maxlength="12">
+                                    <input name="Landline" type="text" required require id="Landline" placeholder="xxxx-xxxx" maxlength="12">
                                     <span>Home Landline (02-XXXX-XXXX) <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="MobileNum" placeholder="xxxx-xxx-xxxx" maxlength="15" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
+                                    <input name="MobileNum" type="text" required require id="MobileNum" placeholder="xxxx-xxx-xxxx" maxlength="15" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}">
                                     <span>Mobile Number (09XX-XXX-XXXX) <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
+                                    <input name="BizDirectLine" type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
                                     <span>Business Direct Line (Mobile no. or Tel no.) <strong style="color: red;">*</strong></span>
                                 </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
-                                <input type="text" id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
+                                <input name="Email" type="text" id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
                                 <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
                             </div>
                         </div>
@@ -406,23 +515,23 @@
 
 
                         <!-- MEMBER TYPE -->
-                        <div class="main__form">
+                        <div class="main__form active">
                             <h3 class="form__label">Contributor Type: <strong style="color: red;">*</strong></h3>
                             <div class="radio__container" id="Contributor">
                                 <div class="form">
                                     <label>
-                                        <input type="radio" required id="DirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
+                                        <input name="Contributor" value="D" type="radio" required id="DirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
                                         <span>Direct Contributor</span>
                                     </label>
                                     <label>
-                                        <input type="radio" required id="IndirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
+                                        <input name="Contributor" value="I"  type="radio" required id="IndirectContributor" onclick="updateMemberTypeOptions();" name="ContributorType">
                                         <span>Indirect Contributor</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="input__text">
                                 <div class="input__div">
-                                    <select required require id="MemberType">
+                                    <select name="MemberType" required require id="MemberType">
                                         <option value="" disabled selected hidden>Member Type <strong style="color: red;">*</strong>
                                         </option>
                                     </select>
@@ -430,32 +539,32 @@
                             </div>
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" required require id="Profession" placeholder="xxx" maxlength="30">
+                                    <input name="Profession" type="text" required require id="Profession" placeholder="xxx" maxlength="30">
                                     <span>Profession (Except Employed, Lifetime Members, and Sea-Based Migrant Worker) <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="number" required require id="MonthlyIncome" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
+                                    <input type="number" name="MonthlyIncome" required require id="MonthlyIncome" placeholder="xxx" min="1" max="999999.99" step=".01" pattern="^\d+(?:\.\d{1,2})?$">
                                     <span>Monthly Income <strong style="color: red;">*</strong></span>
                                 </div>
                                 <div class="input__div">
-                                    <input type="text" required require id="IncomeProof" placeholder="xxx" maxlength="30">
+                                    <input type="text" name="IncomeProof" required require id="IncomeProof" placeholder="xxx" maxlength="30">
                                     <span>Proof of Income <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
                             <h3 class="form__label">For PhilHealth Use only: <strong style="color: red;">*</strong></h3>
                             <div class="radio__container" id="POS">
-                                <form>
+                                <div class="form">
                                     <label>
-                                        <input type="radio" required name="POSType" id="TruePos">
+                                        <input type="radio" value="Y" required name="POSType" id="TruePos">
                                         <span>Point of Service (POS) Financially Incapable</span>
                                     </label>
                                     <label>
-                                        <input type="radio" required name="POSType" id="NotPos">
+                                        <input type="radio" value="N" required name="POSType" id="NotPos">
                                         <span>Financially Incapable</span>
                                     </label>
-                                </form>
+                                </div>
                             </div>
                             <div class="registration__buttons button_space">
                                 <button class="back_button">Previous</button>

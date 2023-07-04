@@ -42,11 +42,11 @@
                     </li>
 
                     <li class="nav__item registration__nav">
-                        <a href="loginAcc.html" class="nav__link">Register</a>
+                        <a href="loginAcc.php" class="nav__link">Register</a>
                     </li>
 
                     <li class="nav__item profile__nav">
-                        <a href="loginAcc.html" class="nav__link">Log in</a>
+                        <a href="loginAcc.php" class="nav__link">Log in</a>
                     </li>
 
                     <li class="nav__item logIn__nav hide__nav">
@@ -56,17 +56,17 @@
                         </a>
                         <div class="sub__menu__wrap" id="sub-menu-wrap">
                             <div class="sub__menu">
-                                <a href="profile.html" class="sub__menu__opt">
+                                <a href="profile.php" class="sub__menu__opt">
                                     <i class='bx bxs-user sub__menu-icon'></i>
                                     Profile
                                 </a>
                                 <hr>
-                                <a href="memberDetails.html" class="sub__menu__opt">
+                                <a href="memberDetails.php" class="sub__menu__opt">
                                     <i class='bx bxs-file sub__menu-icon'></i>
                                     Personal Details
                                 </a>
                                 <hr>
-                                <a href="index.html" class="sub__menu__opt">
+                                <a href="index.php" class="sub__menu__opt">
                                     <i class="fa-solid fa-right-from-bracket sub__menu-icon"></i>
                                     Logout
                                 </a>
@@ -91,7 +91,7 @@
                     <h3 class="home__subtitle home__emphasis1">Be a Phil<span>Health</span> member</h3>
                     <h1 class="home__title">Your health is our priority</h1>
                     <h3 class="home__subtitle home__emphasis">Unlock your health benefits</h3>
-                    <a href="registration.html#qualifications" class="button" id="register__now">Register Now</a>
+                    <a href="registration.php#qualifications" class="button" id="register__now">Register Now</a>
                 </div>
 
                 <div class="home__blob">

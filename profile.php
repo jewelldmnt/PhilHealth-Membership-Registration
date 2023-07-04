@@ -31,19 +31,19 @@
                 <div class="nav__menu" id="nav--menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="index.html" class="nav__link" onclick="logIn(true)">Home</a>
+                            <a href="index.php" class="nav__link" onclick="isLogIn(true)">Home</a>
                         </li>
     
                         <li class="nav__item">
-                            <a href="index.html#about" class="nav__link" onclick="logIn(true)">About</a>
+                            <a href="index.php#about" class="nav__link" onclick="isLogIn(true)">About</a>
                         </li>
     
                         <li class="nav__item">
-                            <a href="index.html#benefits" class="nav__link" onclick="logIn(true)">Benefits</a>
+                            <a href="index.php#benefits" class="nav__link" onclick="isLogIn(true)">Benefits</a>
                         </li>
     
                         <li class="nav__item">
-                            <a href="registration.html#qualifications" class="nav__link">Register</a>
+                            <a href="registration.php#qualifications" class="nav__link">Register</a>
                         </li>
     
                         <li class="nav__item">
@@ -53,17 +53,17 @@
                             </a>
                             <div class="sub__menu__wrap" id="sub-menu-wrap">
                                 <div class="sub__menu">
-                                    <a href="profile.html" class="sub__menu__opt">
+                                    <a href="profile.php" class="sub__menu__opt">
                                         <i class='bx bxs-user sub__menu-icon'></i>
                                         Profile
                                     </a>
                                     <hr>
-                                    <a href="memberDetails.html" class="sub__menu__opt">
+                                    <a href="memberDetails.php" class="sub__menu__opt">
                                         <i class='bx bxs-file sub__menu-icon'></i>
                                         Personal Details
                                     </a>
                                     <hr>
-                                    <a href="index.html" class="sub__menu__opt">
+                                    <a href="index.php" class="sub__menu__opt">
                                         <i class="fa-solid fa-right-from-bracket sub__menu-icon"></i>
                                         Logout
                                     </a>
