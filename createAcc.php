@@ -1,7 +1,17 @@
 <?php
-session_start();
+/**
+ * Handles the registration form submission.
+ * If the username already exists in the loginCredentials table, 
+ * an error message is displayed. Otherwise, if the password and 
+ * confirm password match, the username and password are inserted
+ * into the loginCredentials table, and the user is redirected to 
+ * the loginAcc.php page. If the passwords do not match, an error 
+ * message is displayed.
+*/
 
+session_start();
 include("db.php");
+
 $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -9,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
+    // Retrieve user's username from the loginCredentials table based on the provided username
     $pkQuery = "SELECT username 
                 FROM loginCredentials
                 WHERE username = '$username'";
@@ -30,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
     $isUsernameExistsJson = json_encode($isUsernameExists);
-
 }
 ?>
 

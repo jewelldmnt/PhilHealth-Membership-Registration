@@ -1,13 +1,38 @@
 <?php
-session_start();
+/**
+ * Checks if the member already exists and redirects to memberDetails.php if so.
+ * Retrieves member details from the form and inserts them into the members_profile 
+ * table. Inserts dependent details into the dependents_profile table if any are 
+ * provided. Updates the foreign key in the loginCredentials table with the member's 
+ * PIN. Redirects to memberDetails.php after successful insertion.
+*/
 
+function generateRandomString($length = 7) {
+    /**
+     * Generates a random string of specified length.
+     *
+     * @param int $length The length of the random string to be generated.
+     * @return string The generated random string.
+     */
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+session_start();
 include("db.php");
 $username = $_SESSION['username'];
 
+// Check if the user is already a PhilHealth member
 $query = "SELECT * 
           FROM loginCredentials 
           WHERE username = '$username' AND PIN IS NULL";
 $result = mysqli_query($connection, $query);
+
 
 if (mysqli_num_rows($result) == 0) {
     echo "<script type='text/javascript'> alert('You are already a PhilHealth member')</script>";
@@ -16,6 +41,7 @@ if (mysqli_num_rows($result) == 0) {
 
 } else {
     if($_SERVER['REQUEST_METHOD'] == "POST"){
+        // Retrieve member details from the form
         $PIN = $_POST['PIN'];
         $KonsultaProvider = $_POST['KonsultaProvider'];
         $MemFullName = $_POST['MemFullName'];
@@ -28,8 +54,8 @@ if (mysqli_num_rows($result) == 0) {
         $Citizenship = $_POST['Citizenship'];
         $PhilsysID = $_POST['PhilsysID'];
         $TIN = $_POST['TIN'];
-        $PermanentAddress = $_POST['PermanentAddress'];
-        $MailingAddress = $_POST['MailingAddress'];
+        $PermanentAddress = $_POST['PermanentAddress'] . ', ' . $_POST['ZipCodeP'];
+        $MailingAddress = $_POST['MailingAddress'] . ', '. $_POST['ZipCodeM'];
         $Landline = $_POST['Landline'];
         $MobileNum = $_POST['MobileNum'];
         $BizDirectLine = $_POST['BizDirectLine'];
@@ -40,7 +66,8 @@ if (mysqli_num_rows($result) == 0) {
         $MonthlyIncome = $_POST['MonthlyIncome'];
         $IncomeProof = $_POST['IncomeProof'];
         $POS = $_POST['POS'];
-    
+        
+        // Insert member details into members_profile table
         $query = "INSERT INTO members_profile (PIN, 
                                                KonsultaProvider,
                                                MemFullName,
@@ -90,17 +117,50 @@ if (mysqli_num_rows($result) == 0) {
                           '$IncomeProof',
                           '$POS')";
         mysqli_query($connection, $query);
-    
-        $pkQuery = "SELECT username 
-                    FROM loginCredentials
-                    WHERE username = '$username'";
-        $pkResult = mysqli_query($connection, $pkQuery);
-    
-        if (mysqli_num_rows($pkResult) > 0) {
-            $fkquery = "UPDATE loginCredentials SET PIN = $PIN 
-                        WHERE username = '$username'";
-            mysqli_query($connection, $fkquery);
+
+        // Check if the first dependent is not null
+        $depFullName1 = $_POST['DepFullName1'];
+        if (!empty($depFullName1)) {
+
+            $counter = 1;
+            $lastDependentNumber = $counter;
+            while (isset($_POST['DepFullName' . $counter])) {
+                $lastDependentNumber = $counter;
+                $counter++;
+            }
+
+            for ($i = 1; $i <= $lastDependentNumber; $i++) {
+                $DepFullName = $_POST['DepFullName' . $i];
+                $DepBirthdate = $_POST['DepBirthdate' . $i];
+                $DepCitizenship = $_POST['DepCitizenship' . $i];
+                $WithDisability = $_POST['WithDisability' . $i];
+                $Relationship = $_POST['Relationship' . $i];
+                
+                // Get the last 3 letters of the dependent's first name
+                $depNamePart = strstr(strstr($DepFullName, ' '), -3); 
+                // Get the last 3 letters of the member's first name
+                $depMemNamePart = strstr(strstr($MemFullName, ' '), -3);
+                // Get the 3 letters of the birth month
+                $birthMonth = date('M', strtotime($DepBirthdate));
+                // Get the current year
+                $currentYear = date('Y');
+                // Get 7 random letters
+                $randomString = generateRandomString();
+
+                // Combine the pattern for the DepID
+                $DepID = $depNamePart . $depMemNamePart . $birthMonth . $currentYear . $randomString;
+
+                $depQuery = "INSERT INTO dependents_profile (DepID, DepFullName, DepBirthdate, DepCitizenship, WithDisability, Relationship, PIN) 
+                             VALUES ('$DepID', '$DepFullName', '$DepBirthdate', '$DepCitizenship', '$WithDisability', '$Relationship', '$PIN')";
+                mysqli_query($connection, $depQuery);
+            }
         }
+        
+        // Update the foreign key in loginCredentials table
+        $fkquery = "UPDATE loginCredentials SET PIN = '$PIN'
+                    WHERE username = '$username'";
+        mysqli_query($connection, $fkquery);
+        header("location: memberDetails.php");
     }
 }
 
@@ -286,16 +346,16 @@ mysqli_close($connection);
                         <li>
                             <p>Member Type</p>
                         </li>
-                        <li>
-                            <p>Submit
                     </ul>
                 </div>
 
-                <!-- ============ <REGISTRATION> ============ -->
+                <!-- ============ <REGISTRATION FORM> ============ -->
                 <div class="right__side">
                     <form method="post">
+
+                    
                         <!-- PERSONAL DETAILS -->
-                        <div class="main__form">
+                        <div class="main__form active">
                             <div class="input__text">
                                 <div class="input__div">
                                     <input type="text" name="PIN" required require id="PIN" placeholder="xxx" pattern="\d{12}">
@@ -395,29 +455,29 @@ mysqli_close($connection);
                         <div class="main__form">
                             <h3 class="form__label">Permanent Address <strong style="color: red;">*</strong></h3>
                             <div class="input__text">
-                                <div class="input__div" id ="PermanentAddress">
-                                    <input name="PermanentAddress" type="text" required require id="PermanentAddress1" placeholder="xxx" maxlength="100">
+                                <div class="input__div">
+                                    <input name="PermanentAddress" type="text" required require id="PermanentAddress" placeholder="xxx" maxlength="100">
                                     <span> Unit/Blk/Lot/City etc.</span>
                                 </div>
 
                                 <div class="input__div1">
-                                    <input type="text" required require id="PermanentAddress2" placeholder="xxxx" maxlength="4">
+                                    <input type="text" name="ZipCodeP" required require id="ZipCodeP" placeholder="xxxx" maxlength="4">
                                     <span> Zip Code </span>
                                 </div>
                             </div>
 
                             <h3 class="form__label">Mailing Address&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="SameAs" onclick="Duplicate();" />
+                                <input type="checkbox" id="SameAs" onclick="duplicate();" />
                                 <label for="SameAs" class="check">Same as Above</label>
                             </h3>
 
-                            <div class="input__text" id ="MailingAddress">
+                            <div class="input__text">
                                 <div class="input__div">
-                                    <input name="MailingAddress" type="text" required require id="MailingAddress1" placeholder="xxx" maxlength="100">
+                                    <input name="MailingAddress" type="text" required require id="MailingAddress" placeholder="xxx" maxlength="100">
                                     <span> Unit/Blk/Lot/City etc.</span>
                                 </div>
                                 <div class="input__div1">
-                                    <input type="text" required require id="MailingAddress2" placeholder="xxxx" maxlength="4">
+                                    <input type="text" name="ZipCodeM" required require id="ZipCodeM" placeholder="xxxx" maxlength="4">
                                     <span> Zip Code </span>
                                 </div>
                             </div>
@@ -442,15 +502,15 @@ mysqli_close($connection);
                                     <input name="BizDirectLine" type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
                                     <span>Business Direct Line (Mobile no. or Tel no.) <strong style="color: red;">*</strong></span>
                                 </div>
-                        </div>
-
-                        <div class="input__text">
-                            <div class="input__div">
-                                <input name="Email" type="text" id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
-                                <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
                             </div>
-                        </div>
-                    
+
+                            <div class="input__text">
+                                <div class="input__div">
+                                    <input name="Email" type="text" id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
+                                    <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
+                                </div>
+                            </div>
+                        
                             <div class="registration__buttons button_space">
                                 <button class="back_button">Previous</button>
                                 <button class="next_button">Next</button>
@@ -464,47 +524,47 @@ mysqli_close($connection);
                                 <h3 class="form__label">Dependent 1</h3>
                                 <div class="input__text">
                                     <div class="input__div">
-                                        <input type="text" required require id="depFullName1" placeholder="xxx" maxlength="50">
+                                        <input type="text" name="DepFullName1" required require id="depFullName1" placeholder="xxx" maxlength="50">
                                         <span>Dependent's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
                                     </div>
                                 </div>
                                 <div class="input__text">
                                     <div class="input__div birthdate">
-                                        <input type="date" class="birth__date" required id="depBirthDate1">
+                                        <input type="date" name="DepBirthdate1" class="birth__date" required id="depBirthDate1">
                                         <span>Birth Date <strong style="color: red;">*</strong></span>
                                     </div>
                                     <div class="input__div">
-                                        <select required require id="depCitizenship1">
+                                        <select name="DepCitizenship1" required require id="depCitizenship1">
                                             <option value="" disabled selected hidden>Citizenship <strong
                                                     style="color: red;">*</strong></option>
-                                            <option>Filipino</option>
-                                            <option>Dual Citizen</option>
-                                            <option>Foreign National</option>
+                                            <option value='F'>Filipino</option>
+                                            <option value='DC'>Dual Citizen</option>
+                                            <option value='FN'>Foreign National</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="input__text">
                                     <div class="input__div">
-                                        <select required require id="withDisability1">
+                                        <select name="WithDisability1" required require id="withDisability1">
                                             <option value="" disabled selected hidden>With Disability<strong
                                                     style="color: red;">*</strong></option>
-                                            <option>Yes</option>
-                                            <option>No</option>
+                                            <option value='Y'>Yes</option>
+                                            <option value='N'>No</option>
                                         </select>
                                     </div>
                                     <div class="input__div">
-                                        <select required require id="Relationship1">
+                                        <select name="Relationship1" required require id="Relationship1">
                                             <option value="" disabled selected hidden>Relationship<strong
                                                     style="color: red;">*</strong></option>
-                                            <option>Spouse</option>
-                                            <option>Children</option>
-                                            <option>Parents</option>
+                                            <option value='S'>Spouse</option>
+                                            <option value='C'>Children</option>
+                                            <option value='P'>Parents</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="add__button">
-                                <button class="add_dependents" onclick="add_more_field()"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
+                                <button class="add_dependents" onclick="addMoreField()"><i class='bx bx-plus-circle'></i>  &nbsp;Add another Dependent</button>
                             </div>
                             <div class="registration__buttons button_space">
                                 <button class="back_button">Previous</button>
@@ -515,7 +575,7 @@ mysqli_close($connection);
 
 
                         <!-- MEMBER TYPE -->
-                        <div class="main__form active">
+                        <div class="main__form">
                             <h3 class="form__label">Contributor Type: <strong style="color: red;">*</strong></h3>
                             <div class="radio__container" id="Contributor">
                                 <div class="form">
@@ -557,37 +617,28 @@ mysqli_close($connection);
                             <div class="radio__container" id="POS">
                                 <div class="form">
                                     <label>
-                                        <input type="radio" value="Y" required name="POSType" id="TruePos">
+                                        <input type="radio" value="Y" required name="POS" id="TruePos">
                                         <span>Point of Service (POS) Financially Incapable</span>
                                     </label>
                                     <label>
-                                        <input type="radio" value="N" required name="POSType" id="NotPos">
+                                        <input type="radio" value="N" required name="POS" id="NotPos">
                                         <span>Financially Incapable</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="registration__buttons button_space">
                                 <button class="back_button">Previous</button>
-                                <button class="next_button">Next</button>
+                                <input type="submit" class="submit_button"></input>
                             </div>
                         </div>
                         <!-- END OF MEMBER TYPE -->
 
-
-                        <!-- SUBMIT -->
-                        <div class="main__form">
-                            <div class="registration__buttons button_space">
-                                <button class="back_button">Previous</button>
-                                <input type="submit" class="submit_button"></input>
-                            </div>
-                        </div>
-                        <!-- END OF SUBMIT -->
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ============ </REGISTRATION> ============ -->
+    <!-- ============ </REGISTRATION FORM> ============ -->
 
 
     <!-- ============ <FOOTER> ============ -->

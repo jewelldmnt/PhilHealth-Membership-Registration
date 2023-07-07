@@ -52,15 +52,9 @@
             color: colors.$green-light;
             pointer-events: none;
             font-weight: fonts.$font-bolder;
-            transition: 150ms cubic-bezier(0.4,0,0.2,1);
-        }
-
-        .profile__input:focus ~ label, 
-        .profile__input:valid ~ label {
             transform: translateY(-50%) scale(0.8);
             background-color: colors.$white;
             padding: 0 .4em;
-            color: colors.$green-light;
         }
         
         .changed__option{

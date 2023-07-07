@@ -1,26 +1,34 @@
 <?php
-session_start();
+/**
+ * Handles the login form submission.
+ * If the username and password are provided, it validates the credentials
+ * against the loginCredentials table in the database.
+ * If the credentials are correct, the user is redirected to the index.php page.
+ * Otherwise, an error message is displayed.
+*/
 
+session_start();
 include("db.php");
 
-$error = ""; // Variable to store error message
+$error = ""; 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     if (!empty($username) && !empty($password)) {
+        // Retrieve user's record from the loginCredentials table based on the provided username
         $query = "SELECT * 
                   FROM loginCredentials
-                  WHERE username = '$username' LIMIT 1";
+                  WHERE username = '$username'";
         $result = mysqli_query($connection, $query);
-
 
         if ($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
 
             if ($user_data['password'] == $password) {
                 $_SESSION['username'] = $username;
+                $_SESSION['password'] = $user_data['password'];
                 header("location: index.php");
                 die;
             } else {
@@ -63,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 
                 <p>Password</p>
                 <input type="password" name="password" id="myPassword" placeholder="Enter Password" required>
-                <img src="/assets/login/eye-close.png" id="eyeicon" class="eye-icon">
+                <img src="/assets/login/eye-open.png" id="open-eye" class="eye-icon">
                 
                 <input type="submit" id="login-btn" class="login" onclick="isLogIn(true)" value="Log In">
             <br><br>

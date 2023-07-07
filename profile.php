@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+include("db.php");
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+
+// Check if the user is already a PhilHealth member
+$query = "SELECT PIN 
+          FROM loginCredentials 
+          WHERE username = '$username' AND PIN IS NOT NULL";
+$result = mysqli_query($connection, $query);
+
+if (mysqli_num_rows($result) == 0) {
+    $PIN = "You are not yet a PhilHealth member";
+} else {
+    $row = mysqli_fetch_assoc($result);
+    $PIN = $row['PIN'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,17 +107,17 @@
             </div>
             <div class="right__column">
                 <div class="username">
-                    <input type="text" class="profile__input" value="BERNARD ANGELO RESURRECCION">
+                    <input type="text" class="profile__input" value="<?php echo $username; ?>" disabled>
                     <label class="profile__input-label">Username</label>
                     <a class="changed__option"><u><nobr>Change Username?</nobr></u></a>
                 </div>
                 <div class="password">
-                    <input type="text" class="profile__input" value="SECRET BAT KO SASABIHIN">
+                    <input type="password" class="profile__input" value="<?php echo $password; ?>" disabled>
                     <label class="profile__input-label">Password</label>
                     <a class="changed__option"><u><nobr>Change Password?</nobr></u></a>
                 </div>
                 <div class="pin">
-                    <input type="text" class="profile__input" value="69-69-69-69-69-420-420-420-420-420">
+                    <input type="text" class="profile__input" value="<?php echo $PIN; ?>" disabled>
                     <label class="profile__input-label">PIN</label>
                 </div>
             </div>
