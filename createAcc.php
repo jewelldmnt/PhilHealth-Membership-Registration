@@ -1,10 +1,10 @@
 <?php
 /**
  * Handles the registration form submission.
- * If the username already exists in the loginCredentials table, 
+ * If the username already exists in the login credentials table, 
  * an error message is displayed. Otherwise, if the password and 
  * confirm password match, the username and password are inserted
- * into the loginCredentials table, and the user is redirected to 
+ * into the login_credentials table, and the user is redirected to 
  * the loginAcc.php page. If the passwords do not match, an error 
  * message is displayed.
 */
@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmPassword'];
 
-    // Retrieve user's username from the loginCredentials table based on the provided username
+    // Retrieve user's username from the login_credentials table based on the provided username
     $pkQuery = "SELECT username 
-                FROM loginCredentials
+                FROM login_credentials
                 WHERE username = '$username'";
     $pkResult = mysqli_query($connection, $pkQuery);
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $error = "Username already exist!";
     } else {
         if ($password == $confirmPassword){
-            $query = "INSERT INTO loginCredentials (username, password) VALUES('$username', '$confirmPassword')";
+            $query = "INSERT INTO login_credentials (username, password) VALUES('$username', '$confirmPassword')";
             mysqli_query($connection, $query);
             header("location: loginAcc.php");
             die;

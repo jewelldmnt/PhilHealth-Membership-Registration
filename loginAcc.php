@@ -2,7 +2,7 @@
 /**
  * Handles the login form submission.
  * If the username and password are provided, it validates the credentials
- * against the loginCredentials table in the database.
+ * against the login_credentials table in the database.
  * If the credentials are correct, the user is redirected to the index.php page.
  * Otherwise, an error message is displayed.
 */
@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password = $_POST['password'];
 
     if (!empty($username) && !empty($password)) {
-        // Retrieve user's record from the loginCredentials table based on the provided username
+        // Retrieve user's record from the login_credentials table based on the provided username
         $query = "SELECT * 
-                  FROM loginCredentials
+                  FROM login_credentials
                   WHERE username = '$username'";
         $result = mysqli_query($connection, $query);
 

@@ -3,7 +3,7 @@
  * Checks if the member already exists and redirects to memberDetails.php if so.
  * Retrieves member details from the form and inserts them into the members_profile 
  * table. Inserts dependent details into the dependents_profile table if any are 
- * provided. Updates the foreign key in the loginCredentials table with the member's 
+ * provided. Updates the foreign key in the login_credentials table with the member's 
  * PIN. Redirects to memberDetails.php after successful insertion.
 */
 
@@ -29,18 +29,17 @@ $username = $_SESSION['username'];
 
 // Check if the user is already a PhilHealth member
 $query = "SELECT * 
-          FROM loginCredentials 
+          FROM login_credentials 
           WHERE username = '$username' AND PIN IS NULL";
 $result = mysqli_query($connection, $query);
 
-
 if (mysqli_num_rows($result) == 0) {
-    echo "<script type='text/javascript'> alert('You are already a PhilHealth member')</script>";
     header("location: memberDetails.php");
     exit;
 
 } else {
     if($_SERVER['REQUEST_METHOD'] == "POST"){
+
         // Retrieve member details from the form
         $PIN = $_POST['PIN'];
         $KonsultaProvider = $_POST['KonsultaProvider'];
@@ -137,9 +136,9 @@ if (mysqli_num_rows($result) == 0) {
                 $Relationship = $_POST['Relationship' . $i];
                 
                 // Get the last 3 letters of the dependent's first name
-                $depNamePart = strstr(strstr($DepFullName, ' '), -3); 
+                $depNamePart = substr(end(explode(' ', $DepFullName)), -3);
                 // Get the last 3 letters of the member's first name
-                $depMemNamePart = strstr(strstr($MemFullName, ' '), -3);
+                $depMemNamePart = substr(end(explode(' ', $MemFullName)), -3);
                 // Get the 3 letters of the birth month
                 $birthMonth = date('M', strtotime($DepBirthdate));
                 // Get the current year
@@ -156,8 +155,8 @@ if (mysqli_num_rows($result) == 0) {
             }
         }
         
-        // Update the foreign key in loginCredentials table
-        $fkquery = "UPDATE loginCredentials SET PIN = '$PIN'
+        // Update the foreign key in login_credentials table
+        $fkquery = "UPDATE login_credentials SET PIN = '$PIN'
                     WHERE username = '$username'";
         mysqli_query($connection, $fkquery);
         header("location: memberDetails.php");
@@ -362,16 +361,16 @@ mysqli_close($connection);
                                     <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
                                 </div>
                                 <div class="input__div">
-                                    <input type="text" name="KonsultaProvider" required require id="KonsultaProvider" placeholder="xxx"
+                                    <input type="text" name="KonsultaProvider" id="KonsultaProvider" placeholder="xxx"
                                         maxlength="40">
-                                    <span>Preferred KonSulta Provider <strong style="color: red;">*</strong></span>
+                                    <span>Preferred KonSulta Provider</span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
                                     <input type="text" name="MemFullName" required require id="MemFullName" placeholder="xxx" maxlength="50">
-                                    <span>Member's Fullname (LN, FN MN) <strong style="color: red;">*</strong></span>
+                                    <span>Member's Fullname (FN MN LN) <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
 
@@ -379,14 +378,14 @@ mysqli_close($connection);
                                 <div class="input__div">
                                     <input type="text" name="MothersMaidenName" required require id="MothersMaidenName" placeholder="xxx"
                                         maxlength="50">
-                                    <span>Mother's Maiden Name (LN, FN MN) <strong style="color: red;">*</strong></span>
+                                    <span>Mother's Maiden Name (FN MN LN) <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
                                     <input type="text" name="SpouseFullName" id="SpouseFullName" placeholder="xxx" maxlength="50">
-                                    <span>Spouse Fullname if married (LN, FN MN)</span>
+                                    <span>Spouse Fullname if married (FN MN LN)</span>
                                 </div>
                             </div>
 
@@ -485,8 +484,8 @@ mysqli_close($connection);
                             <h3 class="form__label">Contact Details</h3>
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input name="Landline" type="text" required require id="Landline" placeholder="xxxx-xxxx" maxlength="12">
-                                    <span>Home Landline (02-XXXX-XXXX) <strong style="color: red;">*</strong></span>
+                                    <input name="Landline" type="text" id="Landline" placeholder="xxxx-xxxx" maxlength="12">
+                                    <span>Home Landline (02-XXXX-XXXX)</span>
                                 </div>
                             </div>
 
@@ -499,15 +498,15 @@ mysqli_close($connection);
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input name="BizDirectLine" type="text" required require id="BizDirectLine" placeholder="xxx" maxlength="15">
-                                    <span>Business Direct Line (Mobile no. or Tel no.) <strong style="color: red;">*</strong></span>
+                                    <input name="BizDirectLine" type="text" id="BizDirectLine" placeholder="xxx" maxlength="15">
+                                    <span>Business Direct Line (Mobile no. or Tel no.)</span>
                                 </div>
                             </div>
 
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input name="Email" type="text" id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
-                                    <span>E-mail Address (Required for OFW)<strong style="color: red;"></strong></span>
+                                    <input name="Email" type="text" required require id="Email" placeholder="e.g@mail.com" maxlength="30" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email">
+                                    <span>E-mail Address <strong style="color: red;">*</strong></span>
                                 </div>
                             </div>
                         
@@ -622,7 +621,7 @@ mysqli_close($connection);
                                     </label>
                                     <label>
                                         <input type="radio" value="N" required name="POS" id="NotPos">
-                                        <span>Financially Incapable</span>
+                                        <span>Financially Capable</span>
                                     </label>
                                 </div>
                             </div>

@@ -7,7 +7,7 @@ $password = $_SESSION['password'];
 
 // Check if the user is already a PhilHealth member
 $query = "SELECT PIN 
-          FROM loginCredentials 
+          FROM login_credentials 
           WHERE username = '$username' AND PIN IS NOT NULL";
 $result = mysqli_query($connection, $query);
 
@@ -81,7 +81,7 @@ if (mysqli_num_rows($result) == 0) {
                                     <hr>
                                     <a href="memberDetails.php" class="sub__menu__opt">
                                         <i class='bx bxs-file sub__menu-icon'></i>
-                                        Personal Details
+                                        Member's Details
                                     </a>
                                     <hr>
                                     <a href="index.php" class="sub__menu__opt">

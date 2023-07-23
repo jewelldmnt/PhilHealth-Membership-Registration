@@ -7,7 +7,7 @@ $username = $_SESSION['username'];
 
 // Check if the user is already a PhilHealth member
 $query = "SELECT PIN 
-          FROM loginCredentials 
+          FROM login_credentials 
           WHERE username = '$username' AND PIN IS NOT NULL";
 $result = mysqli_query($connection, $query);
 
@@ -198,7 +198,7 @@ if (mysqli_num_rows($result) == 0) {
                     </li>
 
                     <li class="nav__item">
-                        <a href="#" class="nav__link" onclick="toggleMenu()">
+                        <a href="#" class="nav__link active__link-profile" onclick="toggleMenu()">
                             <i class='bx bxs-user-circle' id="profile__icon"></i>
                             <i class='bx bx-chevron-down'></i>
                         </a>
@@ -211,7 +211,7 @@ if (mysqli_num_rows($result) == 0) {
                                 <hr>
                                 <a href="memberDetails.php" class="sub__menu__opt">
                                     <i class='bx bxs-file sub__menu-icon'></i>
-                                    Personal Details
+                                    Member's Details
                                 </a>
                                 <hr>
                                 <a href="index.php" class="sub__menu__opt">
@@ -274,21 +274,21 @@ if (mysqli_num_rows($result) == 0) {
                         <div class="input__text">
                             <div class="input__div">
                                 <input type="text" name="MemFullName" value="<?php echo $MemFullName; ?>" readonly>
-                                <span>Member's Fullname (LN, FN MN)</span>
+                                <span>Member's Fullname (FN MN LN)</span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
                                 <input type="text" name="MothersMaidenName" value="<?php echo $MothersMaidenName; ?>" readonly>
-                                <span>Mother's Maiden Name (LN, FN MN)</span>
+                                <span>Mother's Maiden Name (FN MN LN)</span>
                             </div>
                         </div>
 
                         <div class="input__text">
                             <div class="input__div">
                                 <input type="text" name="SpouseFullName" value="<?php echo $SpouseFullName; ?>" readonly>
-                                <span>Spouse Fullname if married (LN, FN MN)</span>
+                                <span>Spouse Fullname if married (FN MN LN)</span>
                             </div>
                         </div>
 
@@ -458,7 +458,7 @@ if (mysqli_num_rows($result) == 0) {
                                 </label>
                                 <label>
                                     <input type="radio" name="POS" id="noPOS">
-                                    <span>Financially Incapable</span>
+                                    <span>Financially Capable</span>
                                 </label>
                             </form>
                         </div>
