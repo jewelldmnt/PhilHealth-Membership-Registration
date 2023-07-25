@@ -63,7 +63,7 @@
                                 <hr>
                                 <a href="memberDetails.php" class="sub__menu__opt">
                                     <i class='bx bxs-file sub__menu-icon'></i>
-                                    Personal Details
+                                    Member's Details
                                 </a>
                                 <hr>
                                 <a href="index.php" class="sub__menu__opt">
