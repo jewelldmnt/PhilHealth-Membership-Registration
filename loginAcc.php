@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($result && mysqli_num_rows($result) > 0) {
             $user_data = mysqli_fetch_assoc($result);
 
-            if ($user_data['password'] == $password) {
+            // Verify the provided password with the hashed password stored in the database
+            if (password_verify($password, $user_data['password'])) {
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $user_data['password'];
                 header("location: index.php");

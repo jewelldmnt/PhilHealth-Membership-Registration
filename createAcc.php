@@ -3,7 +3,7 @@
  * Handles the registration form submission.
  * If the username already exists in the login credentials table, 
  * an error message is displayed. Otherwise, if the password and 
- * confirm password match, the username and password are inserted
+ * confirm password match, the username and hashed password are inserted
  * into the login_credentials table, and the user is redirected to 
  * the loginAcc.php page. If the passwords do not match, an error 
  * message is displayed.
@@ -28,21 +28,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $isUsernameExists = false;
     if (mysqli_num_rows($pkResult) > 0) {
         $isUsernameExists = true;
-        $error = "Username already exist!";
+        $error = "Username already exists!";
     } else {
         if ($password == $confirmPassword){
-            $query = "INSERT INTO login_credentials (username, password) VALUES('$username', '$confirmPassword')";
+            // Hash the password before inserting it into the database
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $query = "INSERT INTO login_credentials (username, password) VALUES('$username', '$hashedPassword')";
             mysqli_query($connection, $query);
             header("location: loginAcc.php");
             die;
         }
         else {
-            $error = "Password do not match!";
+            $error = "Passwords do not match!";
         }
     }
     $isUsernameExistsJson = json_encode($isUsernameExists);
 }
 ?>
+
 
 
 <!DOCTYPE html>
