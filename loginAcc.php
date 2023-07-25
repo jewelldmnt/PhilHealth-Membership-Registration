@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             // Verify the provided password with the hashed password stored in the database
             if (password_verify($password, $user_data['password'])) {
                 $_SESSION['username'] = $username;
-                $_SESSION['password'] = $user_data['password'];
+                $_SESSION['password'] = $password;
                 header("location: index.php");
                 die;
             } else {
