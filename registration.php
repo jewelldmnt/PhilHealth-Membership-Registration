@@ -23,6 +23,33 @@ function generateRandomString($length = 7) {
     return $randomString;
 }
 
+
+function generateRandomPIN($length = 12) {
+    /**
+     * Generates a random PIN of specified length that is not used in the database.
+     *
+     * @param int $length The length of the random PIN to be generated.
+     * @return string The generated random PIN.
+     */
+    include("db.php");
+    $characters = '0123456789';
+    $charactersLength = strlen($characters);
+    do {
+        $randomPIN = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomPIN .= $characters[rand(0, $charactersLength - 1)];
+        }
+        $query = "SELECT COUNT(*) AS count FROM login_credentials WHERE PIN = '$randomPIN'";
+        $result = mysqli_query($connection, $query);
+        $row = mysqli_fetch_assoc($result);
+        $count = $row['count'];
+    } while ($count > 0); // Loop until a unique PIN is generated
+    return $randomPIN;
+}
+
+$randomPIN = generateRandomPIN();
+
+
 session_start();
 include("db.php");
 $username = $_SESSION['username'];
@@ -357,7 +384,7 @@ mysqli_close($connection);
                         <div class="main__form active">
                             <div class="input__text">
                                 <div class="input__div">
-                                    <input type="text" name="PIN" required require id="PIN" placeholder="xxx" pattern="\d{12}">
+                                    <input type="text" name="PIN" required require id="PIN" value="<?php echo $randomPIN; ?>" readonly>
                                     <span>PhilHealth Identification Number <strong style="color: red;">*</strong></span>
                                 </div>
                                 <div class="input__div">
